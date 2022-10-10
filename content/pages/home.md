@@ -1,9 +1,10 @@
 ---
 template: HomePage
-slug: ''
-title: Vrienden Aan Tafel
-featuredImage: 'https://ucarecdn.com/159203d3-881d-4218-baa1-ca4427b48d0d/'
-subtitle: ' Kom ik bij jou koken?'
+slug: ""
+title: Vrienden aan Tafel
+featuredImage: https://ucarecdn.com/159203d3-881d-4218-baa1-ca4427b48d0d/
+subtitle: J﻿ij nodigt uit, ik kom koken
+accordion: []
 meta:
   description: This is a meta description.
   title: The Ultimate Gatsby Starter
