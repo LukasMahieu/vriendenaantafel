@@ -4,31 +4,33 @@ import LogoIcon from '../../svg/LogoIcon';
 import Button from '../Button';
 
 const Header = () => (
-  <header className="sticky top-0 bg-white shadow">
+  <header className="sticky top-0 bg-green-800 shadow">
     <div className="container flex flex-col sm:flex-row justify-between items-center mx-auto py-4 px-8">
-      <div className="flex items-center text-2xl">
+      <div className="flex items-center text-2xl text-primary">
         <div className="w-12 mr-3">
           <LogoIcon />
         </div>
-        Lander
+        Vrienden Aan Tafel
       </div>
       <div className="flex mt-4 sm:mt-0">
-        <AnchorLink className="px-4" href="#features">
-          Features
+        <AnchorLink className="px-4" href="#home">
+          Home
         </AnchorLink>
         <AnchorLink className="px-4" href="#services">
-          Services
+          Mijn Keuken
         </AnchorLink>
         <AnchorLink className="px-4" href="#stats">
-          Stats
+          Formules
         </AnchorLink>
         <AnchorLink className="px-4" href="#testimonials">
-          Testimonials
+          Contact
         </AnchorLink>
       </div>
+      <a href="https://www.instagram.com/vriendenaantafel/" target="_blank">
       <div className="hidden md:block">
-        <Button className="text-sm">Start Free Trial</Button>
+        <Button className="text-sm">Instagram</Button>
       </div>
+      </a>
     </div>
   </header>
 );

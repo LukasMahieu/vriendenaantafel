@@ -5,8 +5,8 @@ import Header from './Header';
 const Layout = ({ children }) => {
   return (
     <>
-      <Header />
-      <main className="text-gray-900">{children}</main>
+      <Header/>
+      <main className="text-green-800 bg-yellow-100">{children}</main>
       <Footer />
     </>
   );
