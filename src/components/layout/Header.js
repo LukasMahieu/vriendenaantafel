@@ -4,7 +4,7 @@ import Button from '../Button';
 import Icon from "../../../src/assets/logo.svg";
 
 const Header = () => (
-  <header className="sticky top-0 text-vat-header_text bg-vat-header_background shadow">
+  <header className="border-2 top-0 text-vat-header_text bg-vat-header_background shadow">
     <div className="container flex flex-col sm:flex-row justify-between items-center mx-auto py-4 px-8">
       <div className="w-12 mr-3">
         <Icon />

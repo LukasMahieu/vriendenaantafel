@@ -7,13 +7,16 @@ import Layout from '../components/layout/Layout';
 import SplitSection from '../components/SplitSection';
 import StatsBox from '../components/StatsBox';
 import customerData from '../data/customer-data';
-import HeroImage from '../svg/HeroImage';
 import SvgCharts from '../svg/SvgCharts';
 import { StaticImage } from "gatsby-plugin-image";
+import { graphql } from "gatsby";
 
-const Index = () => (
+export default function Index ({ data }) {
+  const test = data.allMarkdownRemark.nodes[0]
+
+  return (
   <Layout>
-    <section id="home" className="pt-20 md:pt-40">
+    <section id="home" className="pt-20 md:pt-20">
       <div className="container mx-auto px-8 lg:flex">
         <div className="text-center lg:text-left lg:w-1/2">
           <h1 className="text-vat-bigtext text-4xl lg:text-5xl xl:text-6xl font-bold leading-none">
@@ -30,8 +33,8 @@ const Index = () => (
           </p>
           <p className="mt-4 text-vat-subtext">Sed fermentum felis ut cursu</p>
         </div>
-        <div className="lg:w-1/2">
-          <HeroImage />
+        <div className="xl:w-1/2 px-20">
+          < StaticImage src="../data/images/test2.jpg" alt="Hero Image" layout=" fullWidth" />
         </div>
       </div>
     </section>
@@ -95,7 +98,7 @@ const Index = () => (
     </section>
     <section id="testimonials" className="py-20 lg:py-40">
       <div className="container mx-auto">
-        <LabelText className="mb-8 text-gray-600 text-center">What customers are saying</LabelText>
+        <LabelText className="mb-8 text-gray-600 text-center">What customers are saying {test.frontmatter.slug}</LabelText>
         <div className="flex flex-col md:flex-row md:-mx-3">
           {customerData.map(customer => (
             <div key={customer.customerName} className="flex-1 px-3">
@@ -115,6 +118,17 @@ const Index = () => (
       </p>
     </section>
   </Layout>
-);
+  )
+};
 
-export default Index;
+export const query = graphql`
+  query testQuery {
+    allMarkdownRemark {
+      nodes {
+        frontmatter {
+          slug
+        }
+      }
+    }
+  }
+`;
