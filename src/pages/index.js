@@ -16,10 +16,10 @@ const Index = () => (
     <section id="home" className="pt-20 md:pt-40">
       <div className="container mx-auto px-8 lg:flex">
         <div className="text-center lg:text-left lg:w-1/2">
-          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-none">
+          <h1 className="text-vat-bigtext text-4xl lg:text-5xl xl:text-6xl font-bold leading-none">
             Vrienden Aan Tafel
           </h1>
-          <h2 className="text-2xl lg:text-3xl xl:text-4xl ">
+          <h2 className="text-vat-bigtext text-2xl lg:text-3xl xl:text-4xl ">
             Jij nodigt uit, ik kom koken.
           </h2>
           <p className="text-xl lg:text-2xl mt-6 font-light">
@@ -28,7 +28,7 @@ const Index = () => (
           <p className="mt-8 md:mt-12">
             <Button size="lg">Contact</Button>
           </p>
-          <p className="mt-4 text-gray-600">Sed fermentum felis ut cursu</p>
+          <p className="mt-4 text-vat-subtext">Sed fermentum felis ut cursu</p>
         </div>
         <div className="lg:w-1/2">
           <HeroImage />
@@ -39,7 +39,7 @@ const Index = () => (
       id="services"
       primarySlot={
         <div className="lg:pr-32 xl:pr-48">
-          <h3 className="text-3xl font-semibold leading-tight">Market Analysis</h3>
+          <h3 className="text-vat-bigtext text-3xl font-semibold leading-tight">Market Analysis</h3>
           <p className="mt-8 text-xl font-light leading-relaxed">
             Our team of enthusiastic marketers will analyse and evaluate how your company stacks
             against the closest competitors
@@ -52,7 +52,7 @@ const Index = () => (
       reverseOrder
       primarySlot={
         <div className="lg:pl-32 xl:pl-48">
-          <h3 className="text-3xl font-semibold leading-tight">
+          <h3 className="text-vat-bigtext text-3xl font-semibold leading-tight">
             Design And Plan Your Business Growth Steps
           </h3>
           <p className="mt-8 text-xl font-light leading-relaxed">
@@ -66,7 +66,7 @@ const Index = () => (
     <SplitSection
       primarySlot={
         <div className="lg:pr-32 xl:pr-48">
-          <h3 className="text-3xl font-semibold leading-tight">
+          <h3 className="text-vat-bigtext text-3xl font-semibold leading-tight">
             Search For Performance Optimization
           </h3>
           <p className="mt-8 text-xl font-light leading-relaxed">
