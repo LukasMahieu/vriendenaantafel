@@ -1,19 +1,14 @@
 import React from 'react';
 import Button from '../components/Button';
-import Card from '../components/Card';
-import CustomerCard from '../components/CustomerCard';
 import LabelText from '../components/LabelText';
 import Layout from '../components/layout/Layout';
-import SplitSection from '../components/SplitSection';
+import SplitSection from '../components/SplitSection1';
 import StatsBox from '../components/StatsBox';
-import customerData from '../data/customer-data';
-import SvgCharts from '../svg/SvgCharts';
-import { StaticImage } from "gatsby-plugin-image";
-import { graphql } from "gatsby";
+import SplitSection1 from '../components/SplitSection1';
+import SplitSection2 from '../components/SplitSection2';
+import SplitSection3 from '../components/SplitSection3';
 
 export default function Index ({ data }) {
-  const test = data.allMarkdownRemark.nodes[0]
-
   return (
   <Layout>
     <section id="home" className="pt-20 md:pt-20">
@@ -34,51 +29,15 @@ export default function Index ({ data }) {
           <p className="mt-4 text-vat-subtext">Sed fermentum felis ut cursu</p>
         </div>
         <div className="xl:w-1/2 px-20">
-          < StaticImage src="../data/images/test2.jpg" alt="Hero Image" layout=" fullWidth" />
         </div>
       </div>
     </section>
-    <SplitSection
-      id="services"
-      primarySlot={
-        <div className="lg:pr-32 xl:pr-48">
-          <h3 className="text-vat-bigtext text-3xl font-semibold leading-tight">Market Analysis</h3>
-          <p className="mt-8 text-xl font-light leading-relaxed">
-            Our team of enthusiastic marketers will analyse and evaluate how your company stacks
-            against the closest competitors
-          </p>
-        </div>
-      }
-      secondarySlot={<SvgCharts />}
+    <SplitSection1
     />
-    <SplitSection
+    <SplitSection2
       reverseOrder
-      primarySlot={
-        <div className="lg:pl-32 xl:pl-48">
-          <h3 className="text-vat-bigtext text-3xl font-semibold leading-tight">
-            Design And Plan Your Business Growth Steps
-          </h3>
-          <p className="mt-8 text-xl font-light leading-relaxed">
-            Once the market analysis process is completed our staff will search for opportunities
-            that are in reach
-          </p>
-        </div>
-      }
-      secondarySlot={<SvgCharts />}
     />
-    <SplitSection
-      primarySlot={
-        <div className="lg:pr-32 xl:pr-48">
-          <h3 className="text-vat-bigtext text-3xl font-semibold leading-tight">
-            Search For Performance Optimization
-          </h3>
-          <p className="mt-8 text-xl font-light leading-relaxed">
-            With all the information in place you will be presented with an action plan that your
-            company needs to follow
-          </p>
-        </div>
-      }
-      secondarySlot={<SvgCharts />}
+    <SplitSection3
     />
     <section id="stats" className="py-20 lg:pt-32">
       <div className="container mx-auto text-center">
@@ -98,13 +57,8 @@ export default function Index ({ data }) {
     </section>
     <section id="testimonials" className="py-20 lg:py-40">
       <div className="container mx-auto">
-        <LabelText className="mb-8 text-gray-600 text-center">What customers are saying {test.frontmatter.slug}</LabelText>
+        <LabelText className="mb-8 text-gray-600 text-center">What customers are saying </LabelText>
         <div className="flex flex-col md:flex-row md:-mx-3">
-          {customerData.map(customer => (
-            <div key={customer.customerName} className="flex-1 px-3">
-              <CustomerCard customer={customer} />
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -120,15 +74,3 @@ export default function Index ({ data }) {
   </Layout>
   )
 };
-
-export const query = graphql`
-  query testQuery {
-    allMarkdownRemark {
-      nodes {
-        frontmatter {
-          slug
-        }
-      }
-    }
-  }
-`;
