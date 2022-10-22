@@ -36,6 +36,9 @@ export default function SplitSection ({ id, reverseOrder }) {
 
   return(
   <section id={id} className="py-20">
+    <div id = "mijnkeuken" class="container mx-auto text-vat-button text-center font-bold text-5xl pb-10">
+      Mijn Keuken
+    </div>
     <div className="container mx-auto px-16 items-center flex flex-col lg:flex-row">
       <div className="lg:w-1/2">
         <div className="lg:pr-32 xl:pr-48">
