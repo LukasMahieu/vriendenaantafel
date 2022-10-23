@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        vat: ["PEACE-SANS"],
+      },
       colors: {
         vat: {
           header_background: '#FFFFFF',
