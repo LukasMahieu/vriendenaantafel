@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "PEACE-SANS";
+    src: url("../fonts/peace_sans/Peace Sans.otf");
+  }
