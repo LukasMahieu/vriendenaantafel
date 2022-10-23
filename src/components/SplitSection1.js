@@ -51,9 +51,9 @@ export default function SplitSection ({ id, reverseOrder }) {
           </div>
       </div>
       <div
-        className={`mt-10 lg:mt-0 w-full lg:w-1/2 ${reverseOrder && `order-last lg:order-first`}`}
+        className={`mt-10 lg:mt-0 w-full lg:w-1/2 overflow-hidden rounded-3xl border-8 border-vat-button ${reverseOrder && `order-last lg:order-first`}`}
       >
-        <GatsbyImage image={image} alt={data.allMarkdownRemark.edges[0].node.frontmatter.image1alt} />
+        <GatsbyImage image={image} alt={data.allMarkdownRemark.edges[0].node.frontmatter.image1alt}/>
       </div>
     </div>
   </section>

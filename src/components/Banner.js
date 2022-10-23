@@ -17,7 +17,7 @@ export default function Banner ({  }) {
             date
             Image01 {
               childImageSharp {
-                gatsbyImageData(aspectRatio: 2, transformOptions: {cropFocus: CENTER})
+                gatsbyImageData(aspectRatio: 2.2, transformOptions: {cropFocus: CENTER})
               }
             }
           }
@@ -42,7 +42,7 @@ export default function Banner ({  }) {
           <h1 class="pt-5 text-2xl lg:text-5xl xl:text-6xl font-bold text-vat-bigtext text-left">{title}</h1>
           <h3 class="text-xl lg:text-2xl xl:text-3xl text-vat-bigtext text-left">{subtitle}</h3>
           <div class="flex justify-evenly pt-3 pr-10">
-            <div class="text-left pt-5">
+            <div class="text-left text-xl pt-5">
               <Button>CONTACT</Button>
             </div>
             <div class="pt-0">

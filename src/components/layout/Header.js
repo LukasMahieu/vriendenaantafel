@@ -4,12 +4,12 @@ import Button from '../Button';
 import Icon from "../../../src/assets/logo.svg";
 
 const Header = () => (
-  <header className="top-0 mb-5 text-vat-header_text bg-vat-header_background">
+  <header className="top-0 mb-5 text-vat-header_text bg-vat-header_background font-vat">
     <div className="container flex flex-col sm:flex-row justify-between items-center mx-auto py-0 px-4">
       <div className="w-12 mr-3 hidden md:block">
         <Icon />
       </div>
-      <div className="flex text-l mt-4 sm:mt-0 m:text-2xl ">
+      <div className="flex text-2xl mt-4 sm:mt-0">
         <AnchorLink className="px-4" href="#home">
           HOME
         </AnchorLink>
