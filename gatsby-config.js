@@ -5,7 +5,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
     'gatsby-plugin-postcss',
-    'gatsby-plugin-netfligy-cms',
+    'gatsby-plugin-netlify-cms',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
