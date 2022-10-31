@@ -10,8 +10,6 @@ export default function Contact ({ }) {
         edges {
           node {
             frontmatter {
-              slug
-              image1alt
               date
               Image01 {
                 childImageSharp {

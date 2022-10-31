@@ -11,7 +11,6 @@ export default function Banner ({  }) {
             frontmatter {
               title
               slug
-              image1alt
               date
               price
             }

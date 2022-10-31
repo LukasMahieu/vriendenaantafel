@@ -13,7 +13,6 @@ export default function SplitSection ({ id, reverseOrder }) {
           frontmatter {
             title
             slug
-            image1alt
             date
             Image01 {
               childImageSharp {

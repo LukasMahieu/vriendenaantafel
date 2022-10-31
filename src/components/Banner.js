@@ -13,7 +13,6 @@ export default function Banner ({  }) {
           frontmatter {
             title
             subtitle
-            image1alt
             date
             Image01 {
               childImageSharp {
@@ -40,7 +39,7 @@ export default function Banner ({  }) {
       <div class="relative container px-5 mx-auto flex flex-col-reverse lg:flex-row items-center">
         <div class="justify-center text-transform: uppercase flex flex-col">
           <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-vat-bigtext text-center md:text-left">{title}</h1>
-          <h3 class="text-2xl lg:text-2xl xl:text-3xl text-vat-bigtext text-left">{subtitle}</h3>
+          <h3 class="text-2xl lg:text-2xl xl:text-3xl text-vat-bigtext text-center sm:text-left">{subtitle}</h3>
           <div class="py-6">
             <div class="text-center lg:text-left m:text-xl">
               <AnchorLink href="#contact">

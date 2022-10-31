@@ -8,12 +8,49 @@ collections:
   - name: 'mijnkeuken'
     label: 'Mijn Keuken'
     folder: 'src/data/markdown/mijnkeuken'
-    create: true
+    create: false
     slug: '{{slug}}'
     editor:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Image', name: 'Image01', widget: 'string' }
+      - { label: 'Image', name: 'Image01', widget: 'image' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'banner'
+    label: 'Banner'
+    folder: 'src/data/markdown/banner'
+    create: false
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Image', name: 'Image01', widget: 'image' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'formules'
+    label: 'Formules'
+    folder: 'src/data/markdown/formules'
+    create: false
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Price', name: 'price', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Image', name: 'Image01', widget: 'image' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'contact'
+    label: 'Contact'
+    folder: 'src/data/markdown/contact'
+    create: false
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Image', name: 'Image01', widget: 'image' }
