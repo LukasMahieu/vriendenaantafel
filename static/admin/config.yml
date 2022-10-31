@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+media_folder: src/data/images
+public_folder: src
+
+collections:
+  - name: 'mijnkeuken'
+    label: 'Mijn Keuken'
+    folder: 'src/data/markdown/mijnkeuken'
+    create: false
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

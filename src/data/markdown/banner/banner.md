@@ -2,7 +2,7 @@
 title: 'Vrienden aan tafel'
 subtitle: 'Jij nodigt uit, ik kom koken'
 slug: 'banner'
-Image01: '../images/banner_round.png'
+Image01: '../../images/banner_round.png'
 image1alt: 'Vrienden aan tafel'
 date: '2022-10-16'
 ---

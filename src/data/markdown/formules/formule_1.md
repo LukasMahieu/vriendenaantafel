@@ -1,7 +1,7 @@
 ---
 title: 'Formule 1'
 subtitle: ''
-Image01: '../images/plant.jpg'
+Image01: '../../images/plant.jpg'
 slug: 'formule_1'
 image1alt: 'formule_1'
 date: '2022-10-22'

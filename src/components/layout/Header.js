@@ -11,7 +11,7 @@ const Header = () => (
       </div>
       <div className="flex text-l sm:text-2xl">
         <AnchorLink className="px-4  hover:text-vat-button_hover" href="#mijnkeuken">
-          MIJN KEUKEN
+          KEUKEN
         </AnchorLink>
         <AnchorLink className="px-4  hover:text-vat-button_hover" href="#formules">
           FORMULES
