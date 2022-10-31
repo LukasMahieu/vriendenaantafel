@@ -1,9 +1,24 @@
 module.exports = {
   plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-netfligy-cms',
     {
-      resolve: `gatsby-theme-codebushi`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        tailwindConfig: `tailwind.config.js`
+        name: `data`,
+        path: `${__dirname}/src/data`
+    }
+  },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/ 
+        }
       }
     }
   ]
