@@ -41,7 +41,7 @@ export default function Contact ({ }) {
 
         <div class="flex items-center justify-center p-12">
         <div class="mx-auto w-full max-w-[550px]">
-            <form action="https://formbold.com/s/91W2odsee" method="POST">
+            <form action="https://formbold.com/s/91W2o" method="POST">
             <div class="mb-5">
                 <label
                 for="name"
@@ -54,6 +54,7 @@ export default function Contact ({ }) {
                 name="name"
                 id="name"
                 placeholder="Naam"
+                required
                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-vat-bigtext focus:shadow-md"
                 />
             </div>
@@ -69,6 +70,7 @@ export default function Contact ({ }) {
                 name="email"
                 id="email"
                 placeholder="example@domain.com"
+                required
                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-vat-bigtext focus:shadow-md"
                 />
             </div>
@@ -84,6 +86,7 @@ export default function Contact ({ }) {
                 name="subject"
                 id="subject"
                 placeholder="Onderwerp"
+                required
                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-vat-bigtext focus:shadow-md"
                 />
             </div>
@@ -99,13 +102,12 @@ export default function Contact ({ }) {
                 name="message"
                 id="message"
                 placeholder="Schrijf je bericht hier..."
+                required
                 class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-vat-bigtext focus:shadow-md"
                 ></textarea>
             </div>
-            <div>
-                <Button>
-                Submit
-                </Button>
+            <div id="contact">
+              <input type="submit" value="Verstuur" class="w-full rounded-md border border-[#e0e0e0] bg-vat-button py-3 px-6 text-base hover:bg-vat-button_hover font-medium text-white outline-none focus:border-vat-bigtext focus:shadow-md"/>
             </div>
             </form>
         </div>

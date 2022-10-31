@@ -7,6 +7,7 @@ import SplitSection2 from '../components/SplitSection2';
 import SplitSection3 from '../components/SplitSection3';
 import Formula1 from '../components/Formula1';
 import Contact from '../components/Contact';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 export default function Index ({ }) {
   return (
@@ -15,12 +16,17 @@ export default function Index ({ }) {
     <SplitSection1 />
     <SplitSection2 reverseOrder />
     <SplitSection3 />
-    <section class = "flex container items-center mx-auto">
+    <div id="formules" class="container mx-auto text-vat-bigtext text-center font-bold text-4xl md:text-5xl pb-10">
+        Formules
+    </div>
+    <section class = "flex flex-col md:flex-row container items-center mx-auto">
       <div>
       <Formula1 />
       </div>
-      <div class="py-10 text-l">
-      <Button>BOEK</Button>
+      <div class="hidden md:block py-10 text-l">
+      <AnchorLink className="px-4" href="#contact">
+        <Button>BOEK</Button>
+      </AnchorLink>
       </div>
       <div>
       <Formula1 />

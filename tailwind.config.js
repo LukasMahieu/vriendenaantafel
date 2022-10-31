@@ -14,10 +14,10 @@ module.exports = {
           header_text: '#f2bc28',
           background: '#ffffff',
           bigtext: '#008037',
-          smalltext: '#008037',
+          smalltext: '#414141',
           subtext: '#f2bc28',
           button: '#f2bc28',
-          button_hover: '#d69e42',
+          button_hover: '#face1b',
           button_text: '#ffffff',
         },
         primary: {

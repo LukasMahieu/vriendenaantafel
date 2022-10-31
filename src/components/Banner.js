@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Button from '../components/Button';
 import InstagramIcon from "../../src/assets/instagram.svg";
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 export default function Banner ({  }) {
   const data = useStaticQuery(graphql`
@@ -17,7 +18,7 @@ export default function Banner ({  }) {
             date
             Image01 {
               childImageSharp {
-                gatsbyImageData(aspectRatio: 2.2, transformOptions: {cropFocus: CENTER})
+                gatsbyImageData(transformOptions: {cropFocus: CENTER})
               }
             }
           }
@@ -37,23 +38,21 @@ export default function Banner ({  }) {
 
   return (
     <section id="home">
-      <div class="relative container mx-auto flex">
-        <div class="text-center text-transform: uppercase flex flex-col">
-          <h1 class="pt-5 text-2xl lg:text-5xl xl:text-6xl font-bold text-vat-bigtext text-left">{title}</h1>
-          <h3 class="text-xl lg:text-2xl xl:text-3xl text-vat-bigtext text-left">{subtitle}</h3>
-          <div class="flex justify-evenly pt-3 pr-10">
-            <div class="text-left text-xl pt-5">
-              <Button>CONTACT</Button>
+      <div class="relative container mx-auto flex flex-col-reverse lg:flex-row items-center">
+        <div class="justify-center text-transform: uppercase flex flex-col">
+          <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-vat-bigtext text-center md:text-left">{title}</h1>
+          <h3 class="text-2xl lg:text-2xl xl:text-3xl text-vat-bigtext text-left">{subtitle}</h3>
+          <div class="py-6">
+            <div class="text-center lg:text-left m:text-xl">
+              <AnchorLink href="#contact">
+                <Button>CONTACT</Button>
+              </AnchorLink>
             </div>
             <div class="pt-0">
-              <a href="https://www.instagram.com/vriendenaantafel/" target="_blank">
-              <button type="button" class="w-10"/>
-                <InstagramIcon/>
-              </a>
             </div>
           </div>
         </div>
-      <div class="w-4/6 relative">
+      <div class="w-1/2 py-5 lg:py-0">
         <GatsbyImage image={image} alt={data.allMarkdownRemark.edges[0].node.frontmatter.image1alt } className="hero-img" style={{ opacity: 1.0 }}/>
       </div>
       </div>
