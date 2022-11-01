@@ -34,7 +34,7 @@ export default function SplitSection ({ id, reverseOrder }) {
   const title = data.allMarkdownRemark.edges[0].node.frontmatter.title;
 
   return(
-  <section id={id} className="py-0 pt-20 sm:py-20">
+  <section id={id} className="pt-20">
     <div className="container mx-auto px-16 items-center flex flex-col lg:flex-row">
       <div className="lg:w-1/2">
         <div className="lg:pl-32 xl:pr-18">

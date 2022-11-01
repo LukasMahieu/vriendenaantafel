@@ -16,7 +16,7 @@ export default function Index ({ }) {
     <SplitSection1 />
     <SplitSection2 reverseOrder />
     <SplitSection3 />
-    <div id="formules" class="container mx-auto text-vat-bigtext text-center font-bold text-4xl md:text-5xl pb-10">
+    <div id="formules" class="container mx-auto text-vat-bigtext text-center font-bold text-4xl md:text-5xl pb-10 pt-10 sm:pt-20">
         Formules
     </div>
     <section class = "flex flex-col md:flex-row container items-center mx-auto">

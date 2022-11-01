@@ -20,6 +20,12 @@ module.exports = {
           include: /assets/ 
         }
       }
-    }
+    },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `vriendenaantafel`,
+      }
+    },
   ]
 };

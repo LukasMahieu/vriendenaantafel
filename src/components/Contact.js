@@ -29,7 +29,7 @@ export default function Contact ({ }) {
 
     return (
 
-    <div class="container mx-auto py-12">
+    <div class="container mx-auto py-20 mt-20">
     <div class="md:grid md:grid-cols-2 md:gap-6">
         <div class="md:col-span-1">
         <div class="px-4 sm:px-0">
