@@ -1,6 +1,6 @@
 ---
 title: Mijn keuken
-Image01: /src/data/images/20220828_141735.jpg
+Image01: /src/data/images/mijnkeuken_1.jpg
 slug: mijnkeuken_1
 date: 2022-10-16
 ---
