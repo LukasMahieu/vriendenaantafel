@@ -16,7 +16,7 @@ export default function SplitSection ({ id, reverseOrder }) {
             date
             Image01 {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(transformOptions: {cropFocus: CENTER})
               }
             }
           }
