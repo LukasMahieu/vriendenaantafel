@@ -3,8 +3,8 @@ import { graphql, useStaticQuery } from "gatsby";
 
 export default function Banner ({  }) {
     const data = useStaticQuery(graphql`
-    query Formula1 {
-      allMarkdownRemark(filter: {frontmatter: {slug: {eq: "formule_1"}}}) {
+    query Formula2 {
+      allMarkdownRemark(filter: {frontmatter: {slug: {eq: "formule_2"}}}) {
         edges {
           node {
             html
