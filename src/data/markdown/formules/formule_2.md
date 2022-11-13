@@ -7,7 +7,7 @@ date: '2022-10-22'
 ---
 Drie gangen en een huisgemaakt aperitiefje op voorhand.\
 <br/> 
-Dit is inbegrepen in de eerste formule:
+Dit is inbegrepen in de tweede formule:
 
 * A﻿peritief
 * Voorgerecht

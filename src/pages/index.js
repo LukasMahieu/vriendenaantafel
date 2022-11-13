@@ -9,11 +9,12 @@ import Formula1 from '../components/Formula1';
 import Formula2 from '../components/Formula2';
 import Contact from '../components/Contact';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import InstaFeed from '../components/InstaFeed';
 
 export default function Index ({ }) {
   return (
   <Layout>
-    <div class = 'flex flex-col container mx-auto items-center px-10 md:px-20'>
+    <div class = 'flex flex-col container mx-auto  px-10 md:px-20'>
       <div>
         <Banner />
       </div>
@@ -45,6 +46,9 @@ export default function Index ({ }) {
           <Formula2 />
           </div>
         </section>
+      </div>
+      <div class='mt-20'>
+        <InstaFeed />
       </div>
       <div>
         <Contact />

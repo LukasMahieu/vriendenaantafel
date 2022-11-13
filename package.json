@@ -20,13 +20,14 @@
     "gatsby-plugin-react-svg": "^3.1.0",
     "gatsby-plugin-sharp": "^4.24.0",
     "gatsby-source-filesystem": "^4.24.0",
-    "gatsby-source-instagram": "^0.9.0",
+    "gatsby-source-instagram": "github:m99coder/gatsby-source-instagram",
     "gatsby-transformer-remark": "^5.24.0",
     "gatsby-transformer-sharp": "^4.24.0",
     "netlify-cms-app": "^2.15.72",
     "react": "^18.2.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "swiper": "^8.4.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.12",
