@@ -1,7 +1,5 @@
 import React from 'react';
-import Button from '../components/Button';
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export default function Contact ({ }) {
     const data = useStaticQuery(graphql`
@@ -9,13 +7,9 @@ export default function Contact ({ }) {
       allMarkdownRemark(filter: {frontmatter: {slug: {eq: "profiel"}}}) {
         edges {
           node {
+            html
             frontmatter {
-              date
-              Image01 {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
+              title
             }
           }
         }
@@ -24,20 +18,21 @@ export default function Contact ({ }) {
           `
       )
   
-    const image = getImage(data.allMarkdownRemark.edges[0].node.frontmatter.Image01);
-
+    const html = data.allMarkdownRemark.edges[0].node.html;
+    const title = data.allMarkdownRemark.edges[0].node.frontmatter.title;
 
     return (
 
     <div class="container mx-auto py-20 mt-20">
-    <div class="md:grid md:grid-cols-2 md:gap-6">
-        <div class="md:col-span-1">
+    <div class="xl:grid xl:grid-cols-2 xl:gap-6">
+        <div class="xl:col-span-1">
         <div class="px-4 sm:px-0">
-            <GatsbyImage image={image} alt={data.allMarkdownRemark.edges[0].node.frontmatter.image1alt}/>
+          <p class="text-xl">{title} </p>
+          <p class="font-vat_smalltext" dangerouslySetInnerHTML={{ __html: html }} />
         </div>
         </div>
 
-        <div class="flex items-center justify-center p-12">
+        <div class="flex items-center justify-center px-10 py-10 xl:py-0">
         <div class="mx-auto w-full max-w-[550px]">
             <form action="https://formbold.com/s/91W2o" method="POST">
             <div class="mb-5">
