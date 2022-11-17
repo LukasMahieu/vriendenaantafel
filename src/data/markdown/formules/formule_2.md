@@ -1,19 +1,17 @@
 ---
-title: 'FORMULE 2'
-Image01: '../../images/plant.jpg'
-slug: 'formule_2'
-price: '€35'
-date: '2022-10-22'
+title: 3 gangen
+Image01: ../../images/plant.jpg
+slug: formule_2
+price: €35
+date: 2022-10-22
 ---
-Drie gangen en een huisgemaakt aperitiefje op voorhand.\
+Drie gangen en een huisgemaakte aperitief vooraf.\
 <br/> 
-Dit is inbegrepen in de tweede formule:
+Inbegrepen in deze formule:
 
 * A﻿peritief
 * Voorgerecht
 * Hoofdgerecht
 * Dessert
-
-  <br/>
 
   S﻿makelijk!
