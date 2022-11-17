@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export default function Banner ({  }) {
     const data = useStaticQuery(graphql`
@@ -13,6 +14,15 @@ export default function Banner ({  }) {
               slug
               date
               price
+              Image01 {
+                childImageSharp {
+                  gatsbyImageData(
+                    placeholder: NONE
+                    transformOptions: {cropFocus: CENTER}
+                    height: 75
+                    )
+                }
+              }
             }
           }
         }
@@ -25,10 +35,12 @@ export default function Banner ({  }) {
     const title = data.allMarkdownRemark.edges[0].node.frontmatter.title;
     const price = data.allMarkdownRemark.edges[0].node.frontmatter.price;
 
+    const image = getImage(data.allMarkdownRemark.edges[0].node.frontmatter.Image01);
+
     return (
     <div class="py-4 px-20 md:px-5 lg:px-20 bg-white shadow-lg rounded-lg">
     <div class="flex justify-center md:justify-end mb-5">
-        <img class="w-20 h-20 object-cover rounded-full border-2 border-yellow-500" src="https://th.bing.com/th/id/OIP.60Xz3zmGK7F3SPkaxeQ7CQHaHa?w=197&h=197&c=7&r=0&o=5&dpr=1.1&pid=1.7" />
+        <GatsbyImage image={image} alt={data.allMarkdownRemark.edges[0].node.frontmatter.image1alt}/>
     </div>
     <div>
         <h2 class="text-vat-bigtext text-3xl font-semibold">{title}</h2>
