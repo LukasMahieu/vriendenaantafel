@@ -9,7 +9,7 @@ import Formula1 from '../components/Formula1';
 import Formula2 from '../components/Formula2';
 import Contact from '../components/Contact';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import InstaFeed from '../components/InstaFeed';
+import PhotoGallery from '../components/PhotoGallery';
 
 export default function Index ({ }) {
   return (
@@ -20,13 +20,13 @@ export default function Index ({ }) {
       </div>
       <div id = 'mijnkeuken' class='flex flex-col'>
         <div class = ''>
-        <SplitSection1 />
-        </div>
-        <div>
         <SplitSection2 reverseOrder />
         </div>
         <div>
-        <SplitSection3 />
+        <SplitSection1 />
+        </div>
+        <div>
+        <SplitSection3 reverseOrder />
         </div>
       </div>
       <div>
@@ -48,7 +48,7 @@ export default function Index ({ }) {
         </section>
       </div>
       <div class='mt-20'>
-        <InstaFeed />
+        <PhotoGallery />
       </div>
       <div>
         <Contact />

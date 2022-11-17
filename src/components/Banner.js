@@ -65,7 +65,7 @@ export default function Banner ({  }) {
       <div class="w-1/2 py-5 xl:ml-20 lg:py-0 lg:hidden">
         <GatsbyImage image={image} alt={data.allMarkdownRemark.edges[0].node.frontmatter.image1alt } className="hero-img" style={{ opacity: 1.0 }}/>
       </div>
-      <div class="w-2/3 py-5 px-0 mx-0 overflow-hidden rounded-xl lg:py-0 hidden lg:block">
+      <div class="w-2/3 py-5 px-0 mx-0 overflow-hidden rounded-md lg:py-0 hidden lg:block">
         <GatsbyImage image={image_full} alt={data.allMarkdownRemark.edges[0].node.frontmatter.image1alt } className="hero-img" style={{ opacity: 1.0 }}/>
       </div>
       </div>

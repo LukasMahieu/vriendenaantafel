@@ -10,7 +10,7 @@ const Header = () => (
       </div>
       <div className="flex text-l sm:text-2xl lg:mr-10 lg:pr-10">
         <AnchorLink className="px-4  hover:text-vat-button_hover" href="#mijnkeuken">
-          KEUKEN
+          CONCEPT
         </AnchorLink>
         <AnchorLink className="px-4  hover:text-vat-button_hover" href="#formules">
           FORMULES

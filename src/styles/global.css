@@ -6,3 +6,8 @@
     font-family: "PEACE-SANS";
     src: url("../fonts/peace_sans/Peace Sans.otf");
   }
+
+@font-face {
+  font-family: "GLACIAL-INDIFFERENCE";
+  src: url("../fonts/glacial-indifference/GlacialIndifference-Regular.otf");
+}

@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         vat: ["PEACE-SANS"],
-        vat_smalltext: ["Georgia"],
+        vat_smalltext: ["GLACIAL-INDIFFERENCE"],
       },
       colors: {
         vat: {
