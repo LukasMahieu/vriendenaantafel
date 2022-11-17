@@ -41,7 +41,7 @@ export default function SplitSection ({ id, reverseOrder }) {
   <section id={id} className="py-20 mb-20">
     <div className="container mx-auto items-center flex flex-col lg:flex-row">
       <div className="lg:w-1/2">
-        <div className="lg:pr-6">
+        <div className="lg:pl-12">
             <h3 className="text-vat-button text-2xl sm:text-3xl font-semibold leading-tight">
               {title}
             </h3>
@@ -51,7 +51,7 @@ export default function SplitSection ({ id, reverseOrder }) {
           </div>
       </div>
       <div
-        className={`mt-10 lg:mt-0 w-full lg:w-1/2 overflow-hidden rounded-2xl ${reverseOrder && `order-last lg:order-first`}`}
+        className={`mt-10 lg:mt-0 w-full lg:w-1/2 overflow-hidden rounded-md ${reverseOrder && `order-last lg:order-first`}`}
       >
         <GatsbyImage image={image} alt={data.allMarkdownRemark.edges[0].node.frontmatter.image1alt} />
       </div>
