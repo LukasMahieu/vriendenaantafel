@@ -1,17 +1,17 @@
 ---
-title: '3 gangen'
-Image01: '../../images/icon_3gang.png'
-slug: 'formule_2'
-price: '€35'
-date: '2022-10-22'
+title: 3 gangen
+Image01: ../../images/icon_3gang.png
+slug: formule_2
+price: €35
+date: 2022-10-22
 ---
 Drie gangen en een huisgemaakte aperitief vooraf.\
 <br/> 
 Inbegrepen in deze formule:
 
-* A﻿peritief
-* Voorgerecht
-* Hoofdgerecht
-* Dessert
+* \-A﻿peritief
+* \-Voorgerecht
+* \-Hoofdgerecht
+* \-Dessert
 
-  S﻿makelijk!
+  ### **S﻿makelijk!**
