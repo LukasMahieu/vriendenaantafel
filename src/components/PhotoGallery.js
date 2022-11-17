@@ -19,7 +19,12 @@ export default function App() {
         edges {
           node {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(
+                placeholder: NONE
+                transformOptions: {cropFocus: CENTER}
+                height: 500
+                aspectRatio: 1.3
+                )
             }
           }
         }
