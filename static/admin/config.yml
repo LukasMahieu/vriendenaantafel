@@ -58,8 +58,9 @@ collections:
     folder: "src/data/images/gallery"
     name: "galleryImages"
     widget: "list"
-    media_folder: 'src/data/images/gallery'
-    allow_add: true
+    media_folder: 'photogallery'
+    allow_add: false
     create: true
     fields: 
+      - { label: 'Title', name: 'title', widget: 'string' }    
       - {label: Image, name: image, widget: image}
