@@ -22,8 +22,8 @@ export default function App() {
               gatsbyImageData(
                 placeholder: NONE
                 transformOptions: {cropFocus: CENTER}
-                height: 500
-                aspectRatio: 1.3
+                height: 600
+                aspectRatio: 1.2
                 )
             }
           }
