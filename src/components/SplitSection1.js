@@ -42,7 +42,7 @@ export default function SplitSection ({ id, reverseOrder }) {
   <section id={id} className="pt-20">
     <div className="container mx-auto items-center flex flex-col lg:flex-row">
       <div className="lg:w-1/2">
-        <div className="lg:pr-6">
+        <div className="lg:pr-6 space-y-6">
           <div>
             <h3 className="text-vat-button text-2xl sm:text-3xl font-semibold leading-tight">
               {title}

@@ -11,6 +11,16 @@ import Contact from '../components/Contact';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import PhotoGallery from '../components/PhotoGallery';
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFlip, Pagination, Navigation } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/effect-flip";
+
+
 export default function Index ({ }) {
   return (
   <Layout>
@@ -31,19 +41,27 @@ export default function Index ({ }) {
       </div>
       <div>
         <div id="formules" class="container mx-auto text-vat-bigtext text-center font-bold text-4xl md:text-5xl pb-10 pt-10 sm:pt-20">
-            Formules
+            FORMULES
         </div>
-        <section class = "flex flex-col gap-6 md:gap-0 md:flex-row container items-center mx-auto">
-          <div>
-          <Formula1 />
+        <section class = "container mx-auto items-center space-y-6">
+          <div class = "block md:hidden">
+          <Swiper effect={"flip"} loop={true} navigation={true} modules={[Navigation, EffectFlip]} className="formulaSwiper">
+              <SwiperSlide>
+                <Formula1 />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Formula2 />
+              </SwiperSlide>
+            </Swiper>
           </div>
-          <div class="hidden md:block py-10 text-l">
-          <AnchorLink className="px-4" href="#contact">
-            <Button>BOEK</Button>
-          </AnchorLink>
+          <div class = "hidden md:block md:flex md:flex-row gap-6">
+            <Formula1 />
+            <Formula2 />
           </div>
-          <div>
-          <Formula2 />
+          <div class="text-l text-center">
+            <AnchorLink className="px-4" href="#contact">
+              <Button>BOEK</Button>
+            </AnchorLink>
           </div>
         </section>
       </div>
