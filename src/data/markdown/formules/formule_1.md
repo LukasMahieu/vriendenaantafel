@@ -10,10 +10,7 @@ Twee gangen en een huisgemaakte aperitief vooraf.\
 Inbegrepen in deze formule:
 
 * \-A﻿peritief
-* \-Voorgerecht
-
-  O﻿F
-* \-Dessert
+* \-Voorgerecht O﻿F Dessert
 * \-H﻿oofdgerecht
 
-  ### **S﻿makelijk!**
+  # **S﻿makelijk!**
