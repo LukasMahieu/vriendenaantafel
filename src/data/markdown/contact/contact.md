@@ -4,11 +4,11 @@ slug: profiel
 date: 2022-11-19T11:22:44.421Z
 Image01: /src/data/images/img-20220829-wa0021.jpg
 ---
-<﻿br/>
+<br/>
 
 Wil je een etentje vastleggen of heb je nog vragen? Stuur me een bericht via het contactformulier.
 
-<﻿br/>
+<br/>
 
 B﻿elangrijk om te vermelden bij een aanvraag voor een etentje:
 
