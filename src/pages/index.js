@@ -54,7 +54,7 @@ export default function Index ({ }) {
               </SwiperSlide>
             </Swiper>
           </div>
-          <div class = "hidden md:block md:flex md:flex-row gap-6">
+          <div class = "hidden md:block md:flex md:flex-row gap-6 self-center">
             <Formula1 />
             <Formula2 />
           </div>
