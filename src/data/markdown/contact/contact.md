@@ -18,7 +18,7 @@ Image01: /src/data/images/img-20220829-wa0021.jpg
 
 **\-﻿welke formule**
 
-**\-d﻿e locatie van het etentje**
+**\-locatie van het etentje**
 
 **\-﻿eventuele speciale wensen**
 
