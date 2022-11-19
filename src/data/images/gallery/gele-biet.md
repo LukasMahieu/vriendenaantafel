@@ -1,4 +1,4 @@
 ---
 title: Gele biet
-image: photogallery/gallerij-1.jpg
+image: photogallery/edit-1.jpg
 ---
