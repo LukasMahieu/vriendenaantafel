@@ -10,6 +10,7 @@ import Formula2 from '../components/Formula2';
 import Contact from '../components/Contact';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import PhotoGallery from '../components/PhotoGallery';
+import Info from '../components/Info';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFlip, Navigation } from "swiper";
@@ -66,6 +67,9 @@ export default function Index ({ }) {
       </div>
       <div class='mt-20'>
         <PhotoGallery />
+      </div>
+      <div>
+        <Info />
       </div>
       <div>
         <Contact />
