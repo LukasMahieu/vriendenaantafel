@@ -2,7 +2,7 @@
 title: CONTACT
 slug: profiel
 date: 2022-11-19T11:22:44.421Z
-Image01: /src/data/images/img-20220829-wa0021.jpg
+Image01: ../../images/img-20220829-wa0021.jpg
 ---
 <br/>
 

@@ -68,10 +68,10 @@ export default function Index ({ }) {
       <div class='mt-20'>
         <PhotoGallery />
       </div>
-      <div>
+      <div class='mt-20' id="info">
         <Info />
       </div>
-      <div>
+      <div id="contact">
         <Contact />
       </div>
     </div>
