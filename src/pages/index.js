@@ -12,11 +12,10 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import PhotoGallery from '../components/PhotoGallery';
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFlip, Pagination, Navigation } from "swiper";
+import { EffectFlip, Navigation } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-flip";
 
@@ -54,7 +53,7 @@ export default function Index ({ }) {
               </SwiperSlide>
             </Swiper>
           </div>
-          <div class = "hidden md:block md:flex md:flex-row gap-6 self-center">
+          <div class = "hidden md:block md:flex md:flex-row gap-6 justify-center">
             <Formula1 />
             <Formula2 />
           </div>

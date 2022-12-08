@@ -12,7 +12,8 @@ Wil je een etentje vastleggen of heb je nog vragen? Stuur me een bericht via het
 
 B﻿elangrijk om te vermelden bij een aanvraag voor een etentje:
 
-\-﻿aantal personen
+\-﻿aantal personen  
+
 
 \-﻿voorstel voor een datum (je mag ook steeds meerdere data voorstellen)
 
