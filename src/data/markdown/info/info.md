@@ -12,6 +12,6 @@ slug: info
 </br>
 ○ keuze uit twee formules (zie FORMULES)  
 </br>
-○ vervoerkost van €20 voor afstanden langer dan 10km  
+○ vervoerskost van €20 voor afstanden verder dan 10km  
 
 </br>
