@@ -12,5 +12,6 @@ Drie gangen en een huisgemaakte aperitief vooraf.\
 * \-Voorgerecht
 * \-Hoofdgerecht
 * \-Dessert
+<br/> 
 
   # **S﻿makelijk!**
