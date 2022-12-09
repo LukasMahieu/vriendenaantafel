@@ -1,4 +1,4 @@
 ---
 title: Posset
-image: photogallery/gallerij-3.jpg
+image: photogallery/f.jpg
 ---

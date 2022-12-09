@@ -6,7 +6,8 @@ Image01: ../../images/img-20220829-wa0021.jpg
 ---
 <br/>
 
-Wil je een etentje vastleggen of heb je nog vragen? Stuur me een bericht via het contactformulier.
+Wil je een etentje vastleggen of heb je nog vragen?  
+Stuur me een bericht via het contactformulier. 
 
 <br/>
 
