@@ -15,7 +15,10 @@ import { Pagination, Navigation } from "swiper";
 export default function App() {
   const data = useStaticQuery(graphql`
     query PhotoGallery {
-      allFile(filter: {relativeDirectory: {eq: "images/gallery/photogallery"}}) {
+      allFile(filter: {relativeDirectory: {eq: "images/gallery/photogallery"}} 
+      sort: {order: ASC, fields: name}
+      )
+      {
         edges {
           node {
             childImageSharp {
