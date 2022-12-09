@@ -64,3 +64,13 @@ collections:
     fields: 
       - { label: 'Title', name: 'title', widget: 'string' }    
       - {label: Image, name: image, widget: image}
+  - name: 'praktisch'
+    label: 'Praktisch'
+    folder: 'src/data/markdown/info'
+    create: false
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
