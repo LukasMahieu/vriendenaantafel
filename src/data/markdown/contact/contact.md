@@ -23,4 +23,6 @@ B﻿elangrijk om te vermelden bij een aanvraag voor een etentje:
 
 \-﻿eventuele speciale wensen
 
+<br/>
+
 J﻿e etentje ligt vast als je een bevestigingsmail hebt ontvangen.
