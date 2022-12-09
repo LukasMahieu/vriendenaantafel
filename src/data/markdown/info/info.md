@@ -13,5 +13,4 @@ slug: info
  ﻿ (zie FORMULES)  
 -﻿ vervoerkost van €20 voor afstanden langer dan 10km  
 
-
 </br>
