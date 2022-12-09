@@ -1,4 +1,4 @@
 ---
 title: Gele biet
-image: photogallery/edit-1.jpg
+image: photogallery/20220522_221113.jpg
 ---
