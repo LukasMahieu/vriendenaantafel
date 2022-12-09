@@ -4,13 +4,16 @@ slug: info
 ---
 </br>
 
-- 8-15 personen  
--﻿ zaterdag, zondag en maandag  
- ﻿ (lunch of diner)  
--﻿ vast menu  
- ﻿ (aangepast aan eventuele allergieën of diëten)  
--﻿ keuze uit twee formules  
- ﻿ (zie FORMULES)  
--﻿ vervoerkost van €20 voor afstanden langer dan 10km  
+<ul class="list-disc">
 
+<li>8-15 personen</li>
+<li>zaterdag, zondag en maandag</li> 
+(lunch of diner)
+<li> vast menu  </li>
+(aangepast aan eventuele allergieën of diëten)  
+<li> keuze uit twee formules  </li> 
+(zie FORMULES)  
+<li> vervoerkost van €20 voor afstanden langer dan 10km  </li> 
+
+</ul>
 </br>
