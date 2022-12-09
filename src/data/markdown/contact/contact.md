@@ -15,7 +15,7 @@ B﻿elangrijk om te vermelden bij een aanvraag voor een etentje:
 \-﻿aantal personen  
 
 
-\-﻿voorstel voor een datum (je mag ook steeds meerdere data voorstellen)
+\-﻿voorstel voor een datum
 
 \-﻿welke formule
 
