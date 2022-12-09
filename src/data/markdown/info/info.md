@@ -1,5 +1,5 @@
 ---
-title: Extra Informatie
+title: PRAKTISCH
 slug: info
 ---
 
