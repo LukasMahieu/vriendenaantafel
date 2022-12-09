@@ -2,15 +2,16 @@
 title: PRAKTISCH
 slug: info
 ---
-
-Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. 
-
 </br>
 
-- test
-- test
-- test
+- 8-15 personen
+-﻿ zaterdag, zondag en maandag
+ ﻿ (lunch of diner)
+-﻿ vast menu
+ ﻿ (aangepast aan eventuele allergieën of diëten)
+-﻿ keuze uit twee formules
+ ﻿ (zie FORMULES)
+-﻿ vervoerkost van €20 voor afstanden langer dan 10km
+
 
 </br>
-
-Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. Dit is extra informatie die je moet weten. 
