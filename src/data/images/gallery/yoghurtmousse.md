@@ -1,4 +1,4 @@
 ---
 title: Yoghurtmousse
-image: photogallery/gallerij-5.jpg
+image: photogallery/d.jpg
 ---
