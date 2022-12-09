@@ -1,4 +1,4 @@
 ---
 title: Rösti en vis
-image: photogallery/venkel.jpg
+image: photogallery/edit-1.jpg
 ---
