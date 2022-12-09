@@ -7,7 +7,6 @@ date: 2022-10-22
 ---
 Drie gangen en een huisgemaakte aperitief vooraf.\
 <br/> 
-Inbegrepen in deze formule:
 
 * \-A﻿peritief
 * \-Voorgerecht
