@@ -4,4 +4,4 @@ Image01: ../../images/mijnkeuken_3.jpg
 slug: mijnkeuken_3
 date: 2022-10-16
 ---
-I﻿k ben Line, woon in Mechelen en ben kok van beroep. Naast mijn vaste job in de keuken sta ik ook graag nog in jullie potten te roeren. Ik kijk ernaar uit om in jullie keuken te staan!
+I﻿k ben Line en ben zot van eten. Zelf eten, uiteraard, maar vooral koken. Dat doe ik met mijn beroep als kok, maar dat doe ik ook graag bij jou thuis. Ik verander je living voor een dag in een restaurant en laat je nieuwe smaken ontdekken. Ik kan niet wachten om in jouw keuken te staan!
