@@ -15,4 +15,3 @@ Twee gangen en een huisgemaakte aperitief vooraf.\
 <br/>  
 
   # **<H1>S﻿makelijk!</H1>**
-<br/>
