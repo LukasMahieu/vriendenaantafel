@@ -7,6 +7,7 @@ const Layout = ({ children }) => {
     <>
       <Header/>
       <main className="font-vat text-vat-smalltext bg-vat-background">{children}</main>
+      <Footer/>
     </>
   );
 };

@@ -95,7 +95,7 @@ export default function Contact ({ }) {
                 id="subject"
                 placeholder="Onderwerp"
                 required
-                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-vat-bigtext focus:shadow-md"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-light text-[#6B7280] outline-none focus:border-vat-bigtext focus:shadow-md"
                 />
             </div>
             <div class="mb-5">
@@ -111,7 +111,7 @@ export default function Contact ({ }) {
                 id="message"
                 placeholder="Schrijf je bericht hier..."
                 required
-                class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-vat-bigtext focus:shadow-md"
+                class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-light text-[#6B7280] outline-none focus:border-vat-bigtext focus:shadow-md"
                 ></textarea>
             </div>
             <div class="mb-5 ml-5 flex items-center font-medium font-sans">
