@@ -6,7 +6,7 @@ const Footer = () => (
       <div className="flex-1 px-3 sm:col-span-1">
         <h2 className="text-lg font-semibold">Over Ons</h2>
         <ul>
-          <li className="mt-0 sm:mt-3">
+          <li className="mt-0 sm:mt-3 leading-loose">
           Vrienden Aan Tafel EZ BE0793.216.708
           </li>
           <li className="">

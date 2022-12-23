@@ -5,6 +5,9 @@ export default function Privacy ({ }) {
     return (
         <main>
             <div class="font-vat_smalltext text-vat-smalltext bg-vat-background">
+                <div class = "container mx-auto text-center pt-10 font-vat text-3xl">
+                    PRIVACYVERKLARING
+                </div>
                 <div class = "container mx-auto px-10 pt-10">
                     <p>
                         <h1 class="font-vat">PERSOONSGEGEVENS DIE WORDEN VERWERKT</h1>

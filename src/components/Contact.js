@@ -40,7 +40,7 @@ export default function Contact ({ }) {
     <div class="xl:grid xl:grid-cols-2 xl:gap-6 lg:px-20 lg:mx-20">
         <div class="xl:col-span-1">
         <div class="px-4 sm:px-0">
-          <p class="font-vat_smalltext" dangerouslySetInnerHTML={{ __html: html }} />
+          <p class="text-lg sm:text-xl font-vat_smalltext leading-relaxed" dangerouslySetInnerHTML={{ __html: html }} />
         </div>
         <div class="py-8 rounded-xl overflow-hidden text-center xl:text-left">
           <GatsbyImage image={image} alt={data.allMarkdownRemark.edges[0].node.frontmatter.image1alt}/>
