@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        vat: ["PEACE-SANS"],
-        vat_smalltext: ["GLACIAL-INDIFFERENCE"],
+        vat: ["PEACE-SANS", "sans-serif"],
+        vat_smalltext: ["GLACIAL-INDIFFERENCE", "sans-serif"],
       },
       colors: {
         vat: {

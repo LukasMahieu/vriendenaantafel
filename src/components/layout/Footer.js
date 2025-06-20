@@ -24,7 +24,7 @@ const Footer = () => (
         <h2 className="text-lg font-semibold">Sociale Media</h2>
         <ul className="mt-0 sm:mt-3 leading-loose">
           <li>
-            <a href="https://www.instagram.com/vriendenaantafel/" target="_blank">Instagram</a>
+            <a href="https://www.instagram.com/vriendenaantafel/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </li>
         </ul>
       </div>

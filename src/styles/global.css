@@ -5,9 +5,11 @@
 @font-face {
     font-family: "PEACE-SANS";
     src: url("../fonts/peace_sans/Peace Sans.otf");
+    font-display: swap;
   }
 
 @font-face {
   font-family: "GLACIAL-INDIFFERENCE";
   src: url("../fonts/glacial-indifference/GlacialIndifference-Regular.otf");
+  font-display: swap;
 }

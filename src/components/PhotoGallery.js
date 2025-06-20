@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 // Import Swiper React components
@@ -16,7 +16,7 @@ export default function App() {
   const data = useStaticQuery(graphql`
     query PhotoGallery {
       allFile(filter: {relativeDirectory: {eq: "images/gallery/photogallery"}} 
-      sort: {order: ASC, fields: name}
+      sort: {name: ASC}
       )
       {
         edges {
@@ -36,10 +36,10 @@ export default function App() {
     `
   )
 
-  const images = data.allFile.edges.map((edge) => {
+  const images = data.allFile.edges.map((edge, index) => {
       return (
-          <SwiperSlide>
-              <GatsbyImage image={getImage(edge.node)}/>
+          <SwiperSlide key={edge.node.id || index}>
+              <GatsbyImage image={getImage(edge.node)} alt={`Gallery image ${index + 1}`}/>
           </SwiperSlide>
       )
   })

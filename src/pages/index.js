@@ -24,12 +24,12 @@ import "swiper/css/effect-flip";
 export default function Index ({ }) {
   return (
   <Layout>
-    <div class = 'flex flex-col container mx-auto  px-10 md:px-20'>
+    <div className='flex flex-col container mx-auto  px-10 md:px-20'>
       <div>
         <Banner />
       </div>
-      <div id = 'mijnkeuken' class='flex flex-col'>
-        <div class = ''>
+      <div id='mijnkeuken' className='flex flex-col'>
+        <div className=''>
         <SplitSection2 reverseOrder />
         </div>
         <div>
@@ -40,11 +40,11 @@ export default function Index ({ }) {
         </div>
       </div>
       <div>
-        <div id="formules" class="container mx-auto text-vat-bigtext text-center font-bold text-4xl md:text-5xl pb-10 pt-10 sm:pt-20">
+        <div id="formules" className="container mx-auto text-vat-bigtext text-center font-bold text-4xl md:text-5xl pb-10 pt-10 sm:pt-20">
             FORMULES
         </div>
-        <section class = "container mx-auto items-center space-y-6">
-          <div class = "block md:hidden">
+        <section className="container mx-auto items-center space-y-6">
+          <div className="block md:hidden">
           <Swiper effect={"flip"} loop={true} navigation={true} modules={[Navigation, EffectFlip]} className="formulaSwiper">
               <SwiperSlide>
                 <Formula1 />
@@ -54,21 +54,21 @@ export default function Index ({ }) {
               </SwiperSlide>
             </Swiper>
           </div>
-          <div class = "hidden md:block md:flex md:flex-row gap-6 justify-center">
+          <div className="hidden md:block md:flex md:flex-row gap-6 justify-center">
             <Formula1 />
             <Formula2 />
           </div>
-          <div class="text-l text-center">
+          <div className="text-l text-center">
             <AnchorLink className="px-4" href="#contact">
               <Button>BOEK</Button>
             </AnchorLink>
           </div>
         </section>
       </div>
-      <div class='mt-20'>
+      <div className='mt-20'>
         <PhotoGallery />
       </div>
-      <div class='mt-20' id="info">
+      <div className='mt-20' id="info">
         <Info />
       </div>
       <div id="contact">

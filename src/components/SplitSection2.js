@@ -6,36 +6,42 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 export default function SplitSection ({ id, reverseOrder }) {
   const data = useStaticQuery(graphql`
   query MyQuery2 {
-    allMarkdownRemark(filter: {frontmatter: {slug: {eq: "mijnkeuken_2"}}}) {
-      edges {
-        node {
-          frontmatter {
-            title
-            slug
-            date
-            Image01 {
-              childImageSharp {
-                gatsbyImageData(
-                  placeholder: BLURRED
-                  transformOptions: {cropFocus: CENTER}
-                  aspectRatio: 1.3
-                  )
-              }
-            }
-          }
-          internal {
-            content
+    markdownRemark(frontmatter: {slug: {eq: "mijnkeuken_2"}}) {
+      frontmatter {
+        title
+        Image01 {
+          childImageSharp {
+            gatsbyImageData(
+              placeholder: BLURRED
+              transformOptions: {cropFocus: CENTER}
+              aspectRatio: 1.3
+              )
           }
         }
+      }
+      internal {
+        content
       }
     }
   }
         `
     )
 
-  const image = getImage(data.allMarkdownRemark.edges[0].node.frontmatter.Image01);
-  const text = data.allMarkdownRemark.edges[0].node.internal.content;
-  const title = data.allMarkdownRemark.edges[0].node.frontmatter.title;
+  // Error handling for missing content
+  if (!data?.markdownRemark) {
+    return (
+      <section className="pt-20">
+        <div className="container mx-auto text-center">
+          <h3 className="text-vat-button text-2xl font-semibold">Content niet beschikbaar</h3>
+        </div>
+      </section>
+    );
+  }
+
+  const { frontmatter, internal } = data.markdownRemark;
+  const image = frontmatter?.Image01 ? getImage(frontmatter.Image01) : null;
+  const text = internal?.content || '';
+  const title = frontmatter?.title || 'Mijn Keuken';
 
   return(
   <section id={id} className="pt-20">
@@ -53,7 +59,13 @@ export default function SplitSection ({ id, reverseOrder }) {
       <div
         className={`mt-10 lg:mt-0 w-full lg:w-1/2 overflow-hidden rounded-md ${reverseOrder && `order-last lg:order-first`}`}
       >
-        <GatsbyImage image={image} alt={data.allMarkdownRemark.edges[0].node.frontmatter.image1alt} />
+        {image ? (
+          <GatsbyImage image={image} alt={title || 'Mijn Keuken'} />
+        ) : (
+          <div className="bg-gray-200 h-64 flex items-center justify-center rounded-md">
+            <span className="text-gray-500">Afbeelding niet beschikbaar</span>
+          </div>
+        )}
       </div>
     </div>
   </section>
