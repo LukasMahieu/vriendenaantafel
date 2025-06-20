@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout/Layout';
+import SEO from '../components/SEO';
 import Banner from '../components/Banner';
 import Button from '../components/Button';
 import SplitSection1 from '../components/SplitSection1';
@@ -24,6 +25,11 @@ import "swiper/css/effect-flip";
 export default function Index ({ }) {
   return (
   <Layout>
+    <SEO 
+      title="Home"
+      description="Vrienden aan Tafel komt bij u koken in en rond Mechelen voor al uw evenementen. Van kleine bijeenkomsten tot grote feesten - wij zorgen voor heerlijke gerechten en perfecte service."
+      keywords="catering Mechelen, vat, events, feesten, hapjes, buffet, receptie"
+    />
     <div className='flex flex-col container mx-auto  px-10 md:px-20'>
       <div>
         <Banner />

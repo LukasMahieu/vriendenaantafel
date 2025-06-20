@@ -1,24 +1,30 @@
 import React from 'react';
 import Footer from '../components/layout/Footer';
+import SEO from '../components/SEO';
 
 export default function Privacy ({ }) {
     return (
         <main>
+            <SEO 
+              title="Privacyverklaring"
+              description="Lees hoe Vrienden aan Tafel omgaat met uw persoonlijke gegevens en privacy. Transparante informatie over gegevensbescherming."
+              keywords="privacy, gegevensbescherming, GDPR, persoonsgegevens"
+            />
             <div className="font-vat_smalltext text-vat-smalltext bg-vat-background">
-                <div class = "container mx-auto text-center pt-10 font-vat text-3xl">
+                <div className="container mx-auto text-center pt-10 font-vat text-3xl">
                     PRIVACYVERKLARING
                 </div>
-                <div class = "container mx-auto px-10 pt-10">
+                <div className="container mx-auto px-10 pt-10">
                     <p>
                         <h1 className="font-vat">PERSOONSGEGEVENS DIE WORDEN VERWERKT</h1>
 
                         Vrienden aan Tafel kan persoonsgegevens over u verwerken, doordat u gebruik maakt van de diensten van Vrienden aan Tafel, en/of omdat u deze zelf bij het invullen van een contactformulier op de website aan Vrienden aan Tafel verstrekt. Vrienden aan Tafel kan de volgende persoonsgegevens verwerken:
                         <br/>
-                        <list>
-                            <ul>- Uw voor- en achternaam </ul>
-                            <ul>- Uw e-mailadres </ul>
-                            <ul>- Uw IP-adres </ul>
-                        </list>
+                        <ul>
+                            <li>- Uw voor- en achternaam</li>
+                            <li>- Uw e-mailadres</li>
+                            <li>- Uw IP-adres</li>
+                        </ul>
                     </p>
                     <p className="pt-10">
                         <h1 className="font-vat">WAAROM VRIENDEN AAN TAFEL GEGEVENS NODIG HEEFT</h1>
