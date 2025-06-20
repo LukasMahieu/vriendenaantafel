@@ -5,6 +5,7 @@
 [build.environment]
   NODE_VERSION = "18"
   NPM_VERSION = "9"
+  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES = "true"
 
 # Cache node_modules between builds
 [build.processing]
@@ -37,7 +38,3 @@
   from = "/admin"
   to = "/admin/"
   status = 301
-
-# Form handling for contact form
-[build.environment]
-  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES = "true"
