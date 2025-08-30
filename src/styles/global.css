@@ -13,3 +13,93 @@
   src: url("../fonts/glacial-indifference/GlacialIndifference-Regular.otf");
   font-display: swap;
 }
+
+/* Global Styles for Smooth Transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  @apply transition-colors duration-300;
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  @apply transition-all duration-300 ease-out;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  @apply outline-none ring-2 ring-vat-subtext ring-opacity-50;
+}
+
+/* Smooth hover effects for cards and interactive elements */
+.hover-lift {
+  @apply transform transition-all duration-300 hover:scale-105 hover:shadow-soft-lg;
+}
+
+.hover-glow {
+  @apply transition-shadow duration-300 hover:shadow-glow;
+}
+
+/* Text selection styling */
+::selection {
+  background-color: rgba(242, 188, 40, 0.3);
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Fade-in animation for page loads */
+body {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Image loading states */
+.gatsby-image-wrapper {
+  @apply transition-opacity duration-500;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  * {
+    @apply border-black;
+  }
+}

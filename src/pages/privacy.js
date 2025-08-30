@@ -7,7 +7,7 @@ export default function Privacy ({ }) {
         <main>
             <SEO 
               title="Privacyverklaring"
-              description="Lees hoe Vrienden aan Tafel omgaat met uw persoonlijke gegevens en privacy. Transparante informatie over gegevensbescherming."
+              description="Lees hoe Aan Tafel omgaat met uw persoonlijke gegevens en privacy. Transparante informatie over gegevensbescherming."
               keywords="privacy, gegevensbescherming, GDPR, persoonsgegevens"
             />
             <div className="font-vat_smalltext text-vat-smalltext bg-vat-background">
@@ -18,7 +18,7 @@ export default function Privacy ({ }) {
                     <p>
                         <h1 className="font-vat">PERSOONSGEGEVENS DIE WORDEN VERWERKT</h1>
 
-                        Vrienden aan Tafel kan persoonsgegevens over u verwerken, doordat u gebruik maakt van de diensten van Vrienden aan Tafel, en/of omdat u deze zelf bij het invullen van een contactformulier op de website aan Vrienden aan Tafel verstrekt. Vrienden aan Tafel kan de volgende persoonsgegevens verwerken:
+                        Aan Tafel kan persoonsgegevens over u verwerken, doordat u gebruik maakt van de diensten van Vrienden aan Tafel, en/of omdat u deze zelf bij het invullen van een contactformulier op de website aan Vrienden aan Tafel verstrekt. Vrienden aan Tafel kan de volgende persoonsgegevens verwerken:
                         <br/>
                         <ul>
                             <li>- Uw voor- en achternaam</li>
@@ -27,9 +27,9 @@ export default function Privacy ({ }) {
                         </ul>
                     </p>
                     <p className="pt-10">
-                        <h1 className="font-vat">WAAROM VRIENDEN AAN TAFEL GEGEVENS NODIG HEEFT</h1>
+                        <h1 className="font-vat">WAAROM AAN TAFEL GEGEVENS NODIG HEEFT</h1>
 
-                        Vrienden aan Tafel verwerkt uw persoonsgegevens om schriftelijk contact met u op te kunnen nemen als u daar om verzoekt.
+                        Aan Tafel verwerkt uw persoonsgegevens om schriftelijk contact met u op te kunnen nemen als u daar om verzoekt.
                         <br/>
 
                         Daarnaast kan Vrienden aan Tafel uw persoonsgegevens gebruiken in het kader van het uitvoeren van een met u gesloten overeenkomst. 
@@ -37,8 +37,8 @@ export default function Privacy ({ }) {
                         <br/>
                     </p>
                     <p className="pt-10">
-                        <h1 className="font-vat">HOE LANG VRIENDEN AAN TAFEL GEGEVENS BEWAART</h1>
-                        Vrienden aan Tafel bewaart uw persoonsgegevens niet langer dan strikt nodig is om de doelen te realiseren, waarvoor uw gegevens worden verzameld.  
+                        <h1 className="font-vat">HOE LANG AAN TAFEL GEGEVENS BEWAART</h1>
+                        Aan Tafel bewaart uw persoonsgegevens niet langer dan strikt nodig is om de doelen te realiseren, waarvoor uw gegevens worden verzameld.  
                         <br/>
 
                         Uw gegevens worden niet langer dan een jaar bewaard indien er geen overeenkomst met u tot stand komt.
@@ -47,7 +47,7 @@ export default function Privacy ({ }) {
                     </p>
                     <p className="pt-10">
                         <h1 className="font-vat">DELEN MET ANDEREN</h1>
-                        Vrienden aan Tafel verstrekt uw persoonsgegevens alleen aan derden indien dit nodig is voor de uitvoering van een overeenkomst met u, of om te voldoen aan een wettelijke verplichting. 
+                        Aan Tafel verstrekt uw persoonsgegevens alleen aan derden indien dit nodig is voor de uitvoering van een overeenkomst met u, of om te voldoen aan een wettelijke verplichting. 
 
                         <br/>
                     </p>
@@ -57,7 +57,7 @@ export default function Privacy ({ }) {
                         Op de website van Vrienden aan Tafel worden algemene bezoekgegevens bijgehouden, waaronder het IP-adres van uw computer en het tijdstip van opvraging en gegevens die uw browser meestuurt. Deze gegevens worden gebruikt voor analyses van bezoek- en klikgedrag op de website. 
                         
                         <br/>
-                        Vrienden aan Tafel gebruikt deze informatie om de werking van de website te verbeteren. Deze gegevens worden zo veel mogelijk geanonimiseerd en worden niet aan derden verstrekt. 
+                        Aan Tafel gebruikt deze informatie om de werking van de website te verbeteren. Deze gegevens worden zo veel mogelijk geanonimiseerd en worden niet aan derden verstrekt. 
 
                         <br/>
                     </p>
@@ -71,7 +71,7 @@ export default function Privacy ({ }) {
                     <p className="pt-10">
                         <h1 className="font-vat">BEVEILIGEN</h1>
 
-                        Vrienden aan Tafel neemt de bescherming van uw gegevens serieus en neemt passende maatregelen om misbruik, verlies, onbevoegde toegang, ongewenste openbaarmaking en ongeoorloofde wijziging tegen te gaan. De website van Vrienden aan Tafel maakt gebruik van een betrouwbaar SSL Certificaat om te borgen dat uw persoonsgegevens niet in verkeerde handen vallen.    
+                        Aan Tafel neemt de bescherming van uw gegevens serieus en neemt passende maatregelen om misbruik, verlies, onbevoegde toegang, ongewenste openbaarmaking en ongeoorloofde wijziging tegen te gaan. De website van Vrienden aan Tafel maakt gebruik van een betrouwbaar SSL Certificaat om te borgen dat uw persoonsgegevens niet in verkeerde handen vallen.    
 
                         <br/>
 

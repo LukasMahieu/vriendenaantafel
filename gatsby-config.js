@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: "Vrienden aan Tafel",
-    description: "Ik kom persoonlijk bij u koken in en rond Mechelen voor al uw evenementen. Ontdek onze heerlijke gerechten en persoonlijke service voor uw perfecte event.",
-    siteUrl: "https://www.vriendenaantafel.be",
+    title: "Aan Tafel",
+    description: "Lokaal koken met veel groenten. Ontdek onze culinaire diensten: kok aan huis, dineren in ons keukenatelier, workshops en catering op maat in Mechelen.",
+    siteUrl: "https://www.aantafel.be",
     image: "/images/og-image.jpg",
-    instagramUsername: "@vriendenaantafel"
+    instagramUsername: "@aantafel"
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

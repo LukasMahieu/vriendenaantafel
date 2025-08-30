@@ -5,20 +5,9 @@ backend:
 media_folder: src/data/images
 
 collections:
-  - name: 'mijnkeuken'
-    label: 'Mijn Keuken'
-    folder: 'src/data/markdown/mijnkeuken'
-    create: false
-    slug: '{{slug}}'
-    editor:
-      preview: true
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Image', name: 'Image01', widget: 'image' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+  # Hero Banner Content
   - name: 'banner'
-    label: 'Banner'
+    label: 'Hero Banner'
     folder: 'src/data/markdown/banner'
     create: false
     slug: '{{slug}}'
@@ -27,21 +16,60 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+      - { label: 'Tagline', name: 'tagline', widget: 'string', default: 'Lokaal koken met veel groenten' }
+      - { label: 'Call to Action Text', name: 'cta_text', widget: 'string', default: 'Ontdek onze activiteiten' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Background Image', name: 'Image01', widget: 'image' }
+
+  # About Section
+  - name: 'about'
+    label: 'Over Ons'
+    folder: 'src/data/markdown/about'
+    create: false
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', default: 'Over ons' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Image', name: 'Image01', widget: 'image' }
-  - name: 'formules'
-    label: 'Formules'
-    folder: 'src/data/markdown/formules'
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  # News Section
+  - name: 'news'
+    label: 'Nieuws'
+    folder: 'src/data/markdown/news'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Featured', name: 'featured', widget: 'boolean', default: false, hint: 'Featured nieuws wordt groter getoond' }
+      - { label: 'Summary', name: 'summary', widget: 'text', hint: 'Korte samenvatting voor de nieuwsoverzicht' }
+      - { label: 'Image', name: 'image', widget: 'image', required: false }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  # Activity Pages
+  - name: 'activities'
+    label: 'Activiteiten'
+    folder: 'src/data/markdown/activities'
     create: false
     slug: '{{slug}}'
     editor:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Price', name: 'price', widget: 'string' }
+      - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+      - { label: 'Short Description', name: 'short_description', widget: 'string', hint: 'Korte beschrijving voor de activiteitenkaarten' }
+      - { label: 'Activity Type', name: 'activity_type', widget: 'select', options: ['vrienden-aan-tafel', 'aan-tafel-in-neon', 'koken-aan-tafel', 'met-veel-aan-tafel'] }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Image', name: 'Image01', widget: 'image' }
+      - { label: 'Featured Image', name: 'image', widget: 'image' }
+      - { label: 'Icon Image', name: 'icon', widget: 'image', hint: 'Icoon voor de activiteitenkaarten' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  # Contact Information
   - name: 'contact'
     label: 'Contact'
     folder: 'src/data/markdown/contact'
@@ -51,10 +79,16 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Subtitle', name: 'subtitle', widget: 'string', default: 'Heeft u vragen of wilt u een afspraak maken?' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Image', name: 'Image01', widget: 'image' }
+      - { label: 'Address', name: 'address', widget: 'string', required: false }
+      - { label: 'Phone', name: 'phone', widget: 'string', required: false }
+      - { label: 'Email', name: 'email', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  - label: "Gallery"
+
+  # Gallery (kept for compatibility)
+  - label: "Foto Galerij"
     folder: "src/data/images/gallery"
     name: "galleryImages"
     widget: "list"
@@ -63,14 +97,43 @@ collections:
     create: true
     fields: 
       - { label: 'Title', name: 'title', widget: 'string' }    
-      - {label: Image, name: image, widget: image}
+      - { label: 'Image', name: 'image', widget: 'image' }
+
+  # Legacy collections (kept for backward compatibility)
+  - name: 'mijnkeuken'
+    label: 'Mijn Keuken (Legacy)'
+    folder: 'src/data/markdown/mijnkeuken'
+    create: false
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Image', name: 'Image01', widget: 'image' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'formules'
+    label: 'Formules (Legacy)'
+    folder: 'src/data/markdown/formules'
+    create: false
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Price', name: 'price', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Image', name: 'Image01', widget: 'image' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
   - name: 'praktisch'
-    label: 'Praktisch'
+    label: 'Praktisch (Legacy)'
     folder: 'src/data/markdown/info'
     create: false
     slug: '{{slug}}'
     editor:
-      preview: true
+      preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }

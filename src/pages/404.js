@@ -7,7 +7,7 @@ const NotFound = () => (
   <Layout>
     <SEO 
       title="Pagina niet gevonden"
-      description="De pagina die u zoekt bestaat niet. Ga terug naar de homepagina van Vrienden aan Tafel."
+      description="De pagina die u zoekt bestaat niet. Ga terug naar de homepagina van Aan Tafel."
     />
     <div className="container mx-auto text-center py-20 px-10">
       <h1 className="text-6xl font-vat text-vat-bigtext mb-8">404</h1>
