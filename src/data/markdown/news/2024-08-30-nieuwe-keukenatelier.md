@@ -1,6 +1,6 @@
 ---
 title: Opening Aan Tafel!
-date: 2024-08-30
+date: 2025-09-27
 featured: true
 summary: Komt dat zien, komt dat zien! Aan Tafel is geopend in Mechelen! Het
   kookatelier is definitief geopend en heeft een heuse inhuldiging gekregen. Er
