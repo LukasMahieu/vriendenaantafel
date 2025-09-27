@@ -180,7 +180,7 @@ const Header = () => {
                 >
                   <div>
                     <div className="font-medium">Aan Tafel in NEON</div>
-                    <div className="text-sm text-gray-500">Dineren in het kookatelier</div>
+                    <div className="text-sm text-gray-500">Diner in het kookatelier</div>
                   </div>
                 </Link>
                 <Link
@@ -189,8 +189,8 @@ const Header = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <div>
-                    <div className="font-medium">Koken Aan Tafel</div>
-                    <div className="text-sm text-gray-500">Workshops in het kookatelier</div>
+                    <div className="font-medium">Workshop in Neon</div>
+                    <div className="text-sm text-gray-500">Samen koken in het kookatelier</div>
                   </div>
                 </Link>
                 <Link
@@ -199,8 +199,8 @@ const Header = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <div>
-                    <div className="font-medium">Met veel Aan Tafel</div>
-                    <div className="text-sm text-gray-500">Catering op maat</div>
+                    <div className="font-medium">Catering op maat</div>
+                    <div className="text-sm text-gray-500">Catering voor groepen</div>
                   </div>
                 </Link>
               </div>
