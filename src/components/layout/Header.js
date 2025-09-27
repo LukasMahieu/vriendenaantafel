@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -22,67 +23,74 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-white z-50">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo placeholder */}
-        <Link to="/" className="text-2xl font-vat text-vat-bigtext">
-          Aan Tafel
+        {/* Logo */}
+        <Link to="/#activities" className="flex items-center">
+          <StaticImage
+            src="../../assets/logo.png"
+            alt="Aan Tafel"
+            height={80}
+            objectFit="contain"
+            className="h-20"
+            placeholder="blurred"
+          />
         </Link>
 
         {/* Navigation Menu */}
-        <ul className="hidden md:flex space-x-8 font-vat_smalltext items-center">
+        <ul className="hidden md:flex space-x-8 font-vat text-lg items-center">
           {/* Activiteiten Dropdown */}
-          <li 
+          <li
             className="relative"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <button className="text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 cursor-pointer py-2 inline-flex items-center">
+            <button className="text-vat-purple hover:text-vat-yellow transition-colors duration-300 cursor-pointer py-2 inline-flex items-center font-medium">
               Activiteiten
               <svg className="w-4 h-4 ml-1 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            
+
             {isDropdownOpen && (
               <div className="absolute top-full left-0 pt-1 w-64 z-50">
                 {/* Invisible bridge to prevent gap issues */}
                 <div className="h-1 bg-transparent"></div>
                 <div className="bg-white border border-gray-100 rounded-lg shadow-lg overflow-hidden">
-                  <Link 
-                    to="/vrienden-aan-tafel" 
-                    className="block px-4 py-3 text-vat-smalltext hover:text-vat-bigtext hover:bg-gray-50 transition-colors duration-300"
+                  <Link
+                    to="/vrienden-aan-tafel"
+                    className="block px-4 py-3 text-vat-smalltext hover:text-vat-linktext hover:bg-gray-50 transition-colors duration-300"
                   >
                     <div>
                       <div className="font-medium">Vrienden Aan Tafel</div>
                       <div className="text-sm text-gray-500">Kok aan huis</div>
                     </div>
                   </Link>
-                  <Link 
-                    to="/aan-tafel-in-neon" 
-                    className="block px-4 py-3 text-vat-smalltext hover:text-vat-bigtext hover:bg-gray-50 transition-colors duration-300"
+                  <Link
+                    to="/aan-tafel-in-neon"
+                    className="block px-4 py-3 text-vat-smalltext hover:text-vat-linktext hover:bg-gray-50 transition-colors duration-300"
                   >
                     <div>
                       <div className="font-medium">Aan Tafel in NEON</div>
-                      <div className="text-sm text-gray-500">Dineren in het keukenatelier</div>
+                      <div className="text-sm text-gray-500">Diner in het kookatelier</div>
                     </div>
                   </Link>
-                  <Link 
-                    to="/koken-aan-tafel" 
-                    className="block px-4 py-3 text-vat-smalltext hover:text-vat-bigtext hover:bg-gray-50 transition-colors duration-300"
+                  <Link
+                    to="/workshops-in-neon"
+                    className="block px-4 py-3 text-vat-smalltext hover:text-vat-linktext hover:bg-gray-50 transition-colors duration-300"
                   >
                     <div>
-                      <div className="font-medium">Koken Aan Tafel</div>
-                      <div className="text-sm text-gray-500">Workshops in het keukenatelier</div>
+                      <div className="font-medium">Workshop in Neon</div>
+                      <div className="text-sm text-gray-500">Samen koken in het kookatelier</div>
                     </div>
                   </Link>
-                  <Link 
-                    to="/met-veel-aan-tafel" 
+                  <Link
+                    to="/catering-op-maat"
                     className="block px-4 py-3 text-vat-smalltext hover:text-vat-bigtext hover:bg-gray-50 transition-colors duration-300 rounded-b-lg"
                   >
                     <div>
-                      <div className="font-medium">Met veel Aan Tafel</div>
-                      <div className="text-sm text-gray-500">Catering op maat</div>
+                      <div className="font-medium">Catering op maat</div>
+                      <div className="text-sm text-gray-500">Catering voor groepen</div>
                     </div>
                   </Link>
                 </div>
@@ -92,33 +100,43 @@ const Header = () => {
 
           {/* Other Navigation Items */}
           <li>
-            <a 
-              href="/#over" 
-              className="text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 py-2"
+            <a
+              href="/#over"
+              className="text-vat-purple hover:text-vat-yellow transition-colors duration-300 py-2 font-medium"
             >
               Over
             </a>
           </li>
           <li>
-            <a 
-              href="/#nieuws" 
-              className="text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 py-2"
+            <a
+              href="/#nieuws"
+              className="text-vat-purple hover:text-vat-yellow transition-colors duration-300 py-2 font-medium"
             >
               Nieuws
             </a>
           </li>
           <li>
-            <a 
-              href="/#contact" 
-              className="text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 py-2"
+            <a
+              href="/#contact"
+              className="text-vat-purple hover:text-vat-yellow transition-colors duration-300 py-2 font-medium"
             >
               Contact
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/vriendenaantafel/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-vat-purple hover:text-vat-yellow transition-colors duration-300 py-2 font-medium"
+            >
+              Instagram
             </a>
           </li>
         </ul>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
@@ -145,7 +163,7 @@ const Header = () => {
             <div className="mb-4">
               <h3 className="text-lg font-vat text-vat-bigtext mb-3">Activiteiten</h3>
               <div className="space-y-2 pl-4">
-                <Link 
+                <Link
                   to="/vrienden-aan-tafel"
                   className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -155,28 +173,28 @@ const Header = () => {
                     <div className="text-sm text-gray-500">Kok aan huis</div>
                   </div>
                 </Link>
-                <Link 
+                <Link
                   to="/aan-tafel-in-neon"
                   className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <div>
                     <div className="font-medium">Aan Tafel in NEON</div>
-                    <div className="text-sm text-gray-500">Dineren in het keukenatelier</div>
+                    <div className="text-sm text-gray-500">Dineren in het kookatelier</div>
                   </div>
                 </Link>
-                <Link 
-                  to="/koken-aan-tafel"
+                <Link
+                  to="/workshops-in-neon"
                   className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <div>
                     <div className="font-medium">Koken Aan Tafel</div>
-                    <div className="text-sm text-gray-500">Workshops in het keukenatelier</div>
+                    <div className="text-sm text-gray-500">Workshops in het kookatelier</div>
                   </div>
                 </Link>
-                <Link 
-                  to="/met-veel-aan-tafel"
+                <Link
+                  to="/catering-op-maat"
                   className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -190,26 +208,35 @@ const Header = () => {
 
             {/* Mobile Other Navigation */}
             <div className="space-y-2 border-t border-gray-100 pt-4">
-              <a 
+              <a
                 href="/#over"
                 className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 font-vat_smalltext"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Over
               </a>
-              <a 
+              <a
                 href="/#nieuws"
                 className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 font-vat_smalltext"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Nieuws
               </a>
-              <a 
+              <a
                 href="/#contact"
                 className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 font-vat_smalltext"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Contact
+              </a>
+              <a
+                href="https://www.instagram.com/vriendenaantafel/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 font-vat_smalltext"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Instagram
               </a>
             </div>
           </div>

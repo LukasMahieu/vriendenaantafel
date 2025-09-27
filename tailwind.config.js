@@ -11,20 +11,29 @@ module.exports = {
       },
       colors: {
         vat: {
-          header_background: '#FFFFFF',
-          header_text: '#f2bc28',
-          background: '#ffffff',
-          bigtext: '#008037',
-          smalltext: '#414141',
-          subtext: '#f2bc28',
-          button: '#f2bc28',
-          button_hover: '#face1b',
-          button_text: '#ffffff',
+          orange: '#f9b479',             // Warm orange
+          red: '#a81a1a',               // Deep red
+          green: '#67ab58',             // Fresh green
+          lightgreen: '#d0e1ab',        // Light green
+          purple: '#8d8ac1',            // Soft purple
+          yellow: '#f8ea48',            // Bright yellow
+          // Updated mappings using your new colors
+          header_background: '#ffffff',  // White background
+          header_text: '#67ab58',        // Fresh green
+          background: '#ffffff',         // White background
+          bigtext: '#a81a1a',           // Deep red for main headings
+          mediumtext: '#67ab58',        // Fresh green for subheadings
+          smalltext: '#000000',         // Black for body text
+          subtext: '#f9b479',           // Warm orange for accents
+          linktext: '#67ab58',          // Fresh green for links
+          button: '#67ab58',            // Fresh green for buttons
+          button_hover: '#a81a1a',      // Deep red for button hover
+          button_text: '#ffffff',       // White text on buttons
         },
         primary: {
-          lighter: 'hsl(207, 73%, 52%)',
-          default: '#D69E2E',
-          darker: '#975A16'
+          lighter: '#d0e1ab',           // Light green
+          default: '#67ab58',           // Fresh green
+          darker: '#a81a1a'             // Deep red
         }
       },
       animation: {
@@ -71,8 +80,9 @@ module.exports = {
       boxShadow: {
         'soft': '0 4px 20px rgba(0, 0, 0, 0.1)',
         'soft-lg': '0 8px 30px rgba(0, 0, 0, 0.12)',
-        'glow': '0 0 20px rgba(242, 188, 40, 0.3)',
-        'glow-green': '0 0 20px rgba(0, 128, 55, 0.3)',
+        'glow': '0 0 20px rgba(27, 94, 32, 0.3)',         // Deep green glow
+        'glow-orange': '0 0 20px rgba(255, 111, 0, 0.3)',   // Orange accent glow
+        'glow-green': '0 0 20px rgba(76, 175, 80, 0.3)',    // Fresh green glow
       },
       backdropBlur: {
         xs: '2px',

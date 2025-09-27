@@ -1,30 +1,25 @@
 ---
-title: "Over ons"
-date: "2024-08-30"
-Image01: "./mijnkeuken_1.jpg"
+intro_image: ../../images/mijnkeuken_3.jpg
+intro_content: Aan Tafel is een kookatelier gevestigd in het creatief atelier
+  NEON te Mechelen. Ik bezet de keuken en kook van daaruit een diner of een
+  workshop in NEON, een diner aan huis of catering op verplaatsing. Daarnaast
+  gaan er geregeld evenementen door waar je gewoon een tafeltje voor kan
+  reserveren.
+date: 2024-08-30
+title: Concept
+visie_title: Verhaal
+visie_image: ../../images/whatsapp-image-2025-09-27-at-00.13.18.jpeg
+visie_content: Aan Tafel is begonnen als Vrienden aan Tafel waar ik, naast mijn
+  job in restaurantkeukens, bij mensen thuis ging koken om mijn eigen stijl te
+  vinden. Die heb ik ondertussen zeker gevonden. Puur, fris, verassend en altijd
+  werkend vanuit de producten die ik voorhanden heb. Nu kijk ik uit om de mensen
+  van mijn stad mijn keuken te laten ervaren.
+keuken_title: Visie
+keuken_image: ../../images/whatsapp-image-2025-09-27-at-00.13.20.jpeg
+keuken_content: >-
+  Onze omgeving heeft veel te bieden. Ik vind het belangrijk om daar bij stil te
+  staan.
+
+
+  Zo werk ik samen met de Baarbeekhoeve in Muizen voor alle seizoensgroenten en zo veel mogelijk lokale handelaars voor vlees en vis. Duurzaamheid stel ik voorop door verplaatsingen en leveringen zo veel mogelijk met de fiets te doen. Daarom focus ik mij vooral op mijn stad, Mechelen.
 ---
-
-Welkom bij **Vrienden aan Tafel**, waar lokale keuken en verse groenten centraal staan. Wij geloven in de kracht van seizoensgebonden ingrediënten en de magie die ontstaat wanneer mensen samenkomen rond een tafel.
-
-Onze passie voor koken begint bij de beste lokale producten. We werken samen met lokale boeren en leveranciers om ervoor te zorgen dat elke maaltijd niet alleen heerlijk is, maar ook duurzaam en verantwoord.
-
-## Onze filosofie
-
-- Lokaal en seizoensgebonden koken
-- Veel groenten in elke maaltijd  
-- Persoonlijke en hartelijke service
-- Duurzame en bewuste keuzes
-
-Of het nu gaat om een intiem diner aan huis, een workshop in ons keukenatelier, of catering voor een groot evenement - bij elke gelegenheid zorgen we voor een onvergetelijke culinaire ervaring.
-
-## Onze keuken
-
-In ons keukenatelier in Mechelen koken we met passie en aandacht voor detail. Elke maaltijd wordt bereid met liefde voor het vak en respect voor de ingrediënten. We gebruiken bij voorkeur biologische en lokale producten, en zorgen ervoor dat groenten een hoofdrol spelen in al onze gerechten.
-
-## Waarom kiezen voor Vrienden aan Tafel?
-
-- **Lokaal**: We werken samen met lokale producenten en boeren
-- **Seizoensgebonden**: Onze menu's volgen het ritme van de seizoenen
-- **Persoonlijk**: Elke service wordt op maat gemaakt
-- **Duurzaam**: We maken bewuste keuzes voor mens en milieu
-- **Ervaring**: Jaren ervaring in de professionele keuken

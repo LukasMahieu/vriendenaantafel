@@ -1,8 +1,15 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  branch: master
+
+# Local development backend (uncomment for local CMS development)
+# backend:
+#   name: proxy
+#   proxy_url: http://localhost:8081/api/v1
+#   branch: master
 
 media_folder: src/data/images
+public_folder: ../../images
 
 collections:
   # Hero Banner Content
@@ -15,11 +22,8 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
-      - { label: 'Tagline', name: 'tagline', widget: 'string', default: 'Lokaal koken met veel groenten' }
-      - { label: 'Call to Action Text', name: 'cta_text', widget: 'string', default: 'Ontdek onze activiteiten' }
+      - { label: 'Logo Image', name: 'logo_image', widget: 'image' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Background Image', name: 'Image01', widget: 'image' }
 
   # About Section
   - name: 'about'
@@ -30,10 +34,21 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string', default: 'Over ons' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Image', name: 'Image01', widget: 'image' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Title', name: 'title', widget: 'string', default: 'Over' }
+
+      # Intro Section (flat fields)
+      - { label: 'Introductie Afbeelding', name: 'intro_image', widget: 'image', required: false }
+      - { label: 'Introductie Tekst', name: 'intro_content', widget: 'markdown', hint: 'Introductie tekst' }
+
+      # Visie Section (flat fields)
+      - { label: 'Visie Titel', name: 'visie_title', widget: 'string', default: 'Visie' }
+      - { label: 'Visie Afbeelding', name: 'visie_image', widget: 'image', required: false }
+      - { label: 'Visie Tekst', name: 'visie_content', widget: 'markdown' }
+
+      # Keuken Section (flat fields)
+      - { label: 'Keuken Titel', name: 'keuken_title', widget: 'string', default: 'Keuken' }
+      - { label: 'Keuken Afbeelding', name: 'keuken_image', widget: 'image', required: false }
+      - { label: 'Keuken Tekst', name: 'keuken_content', widget: 'markdown' }
 
   # News Section
   - name: 'news'
@@ -46,15 +61,14 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Featured', name: 'featured', widget: 'boolean', default: false, hint: 'Featured nieuws wordt groter getoond' }
       - { label: 'Summary', name: 'summary', widget: 'text', hint: 'Korte samenvatting voor de nieuwsoverzicht' }
       - { label: 'Image', name: 'image', widget: 'image', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
 
-  # Activity Pages
-  - name: 'activities'
-    label: 'Activiteiten'
-    folder: 'src/data/markdown/activities'
+  # Vrienden aan Tafel - Special structured content
+  - name: 'vrienden-aan-tafel-content'
+    label: 'Vrienden aan Tafel Content'
+    folder: 'src/data/markdown/vrienden-aan-tafel'
     create: false
     slug: '{{slug}}'
     editor:
@@ -62,12 +76,212 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
-      - { label: 'Short Description', name: 'short_description', widget: 'string', hint: 'Korte beschrijving voor de activiteitenkaarten' }
-      - { label: 'Activity Type', name: 'activity_type', widget: 'select', options: ['vrienden-aan-tafel', 'aan-tafel-in-neon', 'koken-aan-tafel', 'met-veel-aan-tafel'] }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Featured Image', name: 'image', widget: 'image' }
-      - { label: 'Icon Image', name: 'icon', widget: 'image', hint: 'Icoon voor de activiteitenkaarten' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Introductie', name: 'intro', widget: 'markdown', required: false, hint: 'Korte introductie tekst bovenaan de pagina' }
+
+      # Mijn Keuken Section
+      - label: 'Mijn Keuken'
+        name: 'mijn_keuken'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Mijn keuken' }
+          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
+          - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
+
+      # Wat mag je verwachten Section
+      - label: 'Wat mag je verwachten'
+        name: 'wat_verwachten'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Wat mag je verwachten?' }
+          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
+          - { label: 'Item 1', name: 'item1', widget: 'string', default: '3-gangen verrassingsmenu op basis van de seizoenen' }
+          - { label: 'Item 2', name: 'item2', widget: 'string', default: 'Opkuis van de keuken inbegrepen' }
+          - { label: 'Item 3', name: 'item3', widget: 'string', default: 'Basis formule voor 45 euro per persoon' }
+
+      # Prijzen Section
+      - label: 'Prijzen'
+        name: 'prijzen'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Prijzen' }
+          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
+          - { label: 'Menu Prijs', name: 'menu_price', widget: 'string', default: 'Verrassingsmenu 3-gangen = 45 euro per persoon' }
+          - { label: 'Non-alcoholische pairing', name: 'non_alcoholic_price', widget: 'string', default: 'Non-alcoholische pairing (denk infusies, sappen en gefermenteerde dranken) = 19 euro per persoon' }
+          - { label: 'Alcoholische pairing', name: 'alcoholic_price', widget: 'string', default: 'Alcoholische pairing = 29 euro per persoon' }
+          - { label: 'Avontuurlijke pairing', name: 'luxury_option', widget: 'string', default: 'Avontuurlijke alcoholische pairing (denk geuze, cider en levendige wijnen) = 35 euro per persoon' }
+          - { label: 'Servies optie', name: 'servies_option', widget: 'string', default: 'Servies, glazen en bestek = 5 euro per persoon' }
+
+      # Hoe werkt het Section
+      - label: 'Hoe werkt het'
+        name: 'hoe_werkt_het'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Hoe werkt het?' }
+          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
+          - { label: 'Stap 1', name: 'step1', widget: 'string', default: 'Kies een datum dat nog vrij is in de agenda hieronder' }
+          - { label: 'Stap 2', name: 'step2', widget: 'string', default: 'Geef alle informatie mee bij het reserveren' }
+          - { label: 'Stap 3', name: 'step3', widget: 'string', default: 'Wacht op een bevestiging via mail' }
+          - { label: 'Stap 4', name: 'step4', widget: 'string', default: 'Heb een heerlijk diner bij thuis!' }
+
+      # Voorwaarden Section
+      - label: 'Voorwaarden'
+        name: 'voorwaarden'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Voorwaarden' }
+          - { label: 'Voorwaarde 1', name: 'condition1', widget: 'string', default: 'Van 8 tot 14 personen' }
+          - { label: 'Voorwaarde 2', name: 'condition2', widget: 'text', default: 'Binnen de straal van 10 km, vanaf Leermarkt 24 in Mechelen, is er geen vervoerskost. Vanaf meer dan 10km is er een standaardtarief van 10 euro met een verhoging van 1 euro met elke km die erbij komt.' }
+
+  # Aan Tafel in NEON - Special structured content
+  - name: 'aan-tafel-in-neon-content'
+    label: 'Aan Tafel in NEON Content'
+    folder: 'src/data/markdown/aan-tafel-in-neon'
+    create: false
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+      - { label: 'Featured Image', name: 'image', widget: 'image' }
+      - { label: 'Introductie', name: 'intro', widget: 'markdown', required: false, hint: 'Korte introductie tekst bovenaan de pagina' }
+
+      # Mijn Keuken Section
+      - label: 'Mijn Keuken'
+        name: 'mijn_keuken'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Mijn keuken' }
+          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
+          - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
+
+      # Wat mag je verwachten Section
+      - label: 'Wat mag je verwachten'
+        name: 'wat_verwachten'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Wat mag je verwachten?' }
+          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
+          - { label: 'Item 1', name: 'item1', widget: 'string', default: '3-gangen menu geïnspireerd door de producten van het moment' }
+          - { label: 'Item 2', name: 'item2', widget: 'string', default: 'Aperitief en aangepaste dranken' }
+          - { label: 'Item 3', name: 'item3', widget: 'string', default: 'Een lange tafel om samen te genieten van de avond' }
+
+      # Prijzen Section
+      - label: 'Prijzen'
+        name: 'prijzen'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Prijzen' }
+          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
+          - { label: 'Menu Prijs', name: 'menu_price', widget: 'string', default: 'Menu = 50 euro per persoon' }
+          - { label: 'Non-alcoholische pairing', name: 'non_alcoholic_price', widget: 'string', default: 'Non-alcoholische pairing = 19 euro per persoon' }
+          - { label: 'Basis alcoholische pairing', name: 'basic_alcoholic_price', widget: 'string', default: 'Basis alcoholische pairing = 29 euro per persoon' }
+          - { label: 'Avontuurlijke alcoholische pairing', name: 'adventurous_alcoholic_price', widget: 'string', default: 'Avontuurlijke alcoholische pairing (denk geuze, cider en levendige wijnen) = 35 euro per persoon' }
+
+      # Reserveren Section
+      - label: 'Reserveren'
+        name: 'reserveren'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Reserveren' }
+          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
+          - { label: 'Beschrijving', name: 'description', widget: 'markdown', default: 'Reservaties kunnen van 8 tot 12 personen. Kijk in de agenda om een plaats te reserveren.' }
+
+  # Workshops in Neon - Special structured content
+  - name: 'workshops-in-neon-content'
+    label: 'Workshops in Neon Content'
+    folder: 'src/data/markdown/workshops-in-neon'
+    create: false
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Activity Type', name: 'activity_type', widget: 'hidden', default: 'workshops-in-neon' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+      - { label: 'Featured Image', name: 'image', widget: 'image' }
+      - { label: 'Introductie', name: 'intro', widget: 'markdown', required: false, hint: 'Korte introductie tekst bovenaan de pagina' }
+
+      # Hoe ziet een Workshop eruit Section
+      - label: 'Hoe ziet een Workshop eruit'
+        name: 'hoe_ziet_uit'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Hoe ziet een Workshop eruit?' }
+          - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
+
+      # Prijzen Section
+      - label: 'Prijzen'
+        name: 'prijzen'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Prijzen' }
+          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
+          - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
+
+      # Voorwaarden Section
+      - label: 'Voorwaarden'
+        name: 'voorwaarden'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Voorwaarden' }
+          - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
+
+  # Catering op maat - Special structured content
+  - name: 'catering-op-maat-content'
+    label: 'Catering op maat Content'
+    folder: 'src/data/markdown/catering-op-maat'
+    create: false
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Activity Type', name: 'activity_type', widget: 'hidden', default: 'catering-op-maat' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+      - { label: 'Featured Image', name: 'image', widget: 'image' }
+      - { label: 'Introductie', name: 'intro', widget: 'markdown', required: false, hint: 'Korte introductie tekst bovenaan de pagina' }
+
+      # Mijn Keuken Section
+      - label: 'Mijn Keuken'
+        name: 'mijn_keuken'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Mijn keuken' }
+          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
+          - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
+
+      # Voorwaarden Section
+      - label: 'Voorwaarden'
+        name: 'voorwaarden'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Voorwaarden' }
+          - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
+
+      # Offerte aanvragen Section
+      - label: 'Offerte aanvragen'
+        name: 'offerte_aanvragen'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Offerte aanvragen' }
+          - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
 
   # Contact Information
   - name: 'contact'
@@ -85,55 +299,4 @@ collections:
       - { label: 'Address', name: 'address', widget: 'string', required: false }
       - { label: 'Phone', name: 'phone', widget: 'string', required: false }
       - { label: 'Email', name: 'email', widget: 'string', required: false }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-
-  # Gallery (kept for compatibility)
-  - label: "Foto Galerij"
-    folder: "src/data/images/gallery"
-    name: "galleryImages"
-    widget: "list"
-    media_folder: 'photogallery'
-    allow_add: false
-    create: true
-    fields: 
-      - { label: 'Title', name: 'title', widget: 'string' }    
-      - { label: 'Image', name: 'image', widget: 'image' }
-
-  # Legacy collections (kept for backward compatibility)
-  - name: 'mijnkeuken'
-    label: 'Mijn Keuken (Legacy)'
-    folder: 'src/data/markdown/mijnkeuken'
-    create: false
-    slug: '{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Image', name: 'Image01', widget: 'image' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-
-  - name: 'formules'
-    label: 'Formules (Legacy)'
-    folder: 'src/data/markdown/formules'
-    create: false
-    slug: '{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Price', name: 'price', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Image', name: 'Image01', widget: 'image' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-
-  - name: 'praktisch'
-    label: 'Praktisch (Legacy)'
-    folder: 'src/data/markdown/info'
-    create: false
-    slug: '{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }

@@ -25,7 +25,7 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('sending');
-    
+
     try {
       const formData = new FormData(e.target);
       const response = await fetch('https://formbold.com/s/91W2o', {
@@ -45,14 +45,13 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="pt-48 pb-32 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className={`text-center mb-16 transition-all duration-1000 transform ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <h2 className="text-4xl md:text-5xl font-vat text-vat-bigtext mb-6">
+          <div className={`text-center mb-16 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+            <h2 className="text-4xl md:text-5xl font-vat text-vat-red mb-6">
               Contact
             </h2>
             <p className="text-xl font-vat_smalltext text-vat-smalltext max-w-2xl mx-auto">
@@ -62,83 +61,47 @@ const ContactSection = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Contact Info */}
-            <div className={`transition-all duration-1000 delay-200 transform ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-            }`}>
+            <div className={`transition-all duration-1000 delay-200 transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`}>
               <div className="space-y-8">
                 {/* About Contact */}
                 <div className="bg-white p-8 rounded-xl shadow-sm">
-                  <h3 className="text-2xl font-vat text-vat-bigtext mb-4">
+                  <h3 className="text-2xl font-vat text-vat-green mb-4">
                     Neem contact op
                   </h3>
                   <p className="font-vat_smalltext text-vat-smalltext text-lg leading-relaxed mb-6">
-                    Of u nu een intiem diner thuis wilt organiseren, interesse heeft in onze workshops, 
-                    of catering nodig heeft voor een groot evenement - we staan klaar om uw wensen te bespreken.
+                    Line De Broeck
                   </p>
-                  
+
                   <div className="space-y-4">
                     <div className="flex items-start">
-                      <span className="text-vat-subtext mr-3 mt-1">📍</span>
                       <div>
                         <p className="font-vat_smalltext text-vat-smalltext">
-                          Keukenatelier in Mechelen
+                          Aan Tafel Atelier
                         </p>
                         <p className="text-sm text-gray-600">
-                          (Exacte adres bij afspraak)
+                          Leermarkt 24, 2800 Mechelen
                         </p>
                       </div>
                     </div>
-                    
-                    <div className="flex items-center">
-                      <span className="text-vat-subtext mr-3">📱</span>
+
+                    <div>
                       <p className="font-vat_smalltext text-vat-smalltext">
-                        Telefonisch contact via formulier
-                      </p>
-                    </div>
-                    
-                    <div className="flex items-center">
-                      <span className="text-vat-subtext mr-3">✉️</span>
-                      <p className="font-vat_smalltext text-vat-smalltext">
-                        E-mail contact via formulier
+                        vriendenaantafel@outlook.be
                       </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Services Overview */}
-                <div className="bg-white p-8 rounded-xl shadow-sm">
-                  <h3 className="text-xl font-vat text-vat-bigtext mb-4">
-                    Onze diensten
-                  </h3>
-                  <ul className="space-y-2 font-vat_smalltext text-vat-smalltext">
-                    <li className="flex items-center">
-                      <span className="text-vat-subtext mr-2">•</span>
-                      Kok aan huis service
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-vat-subtext mr-2">•</span>
-                      Dineren in keukenatelier
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-vat-subtext mr-2">•</span>
-                      Kookworkshops
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-vat-subtext mr-2">•</span>
-                      Catering op maat
-                    </li>
-                  </ul>
-                </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className={`transition-all duration-1000 delay-400 transform ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-            }`}>
+            <div className={`transition-all duration-1000 delay-400 transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+              }`}>
               <div className="bg-white p-8 rounded-xl shadow-sm">
-                <h3 className="text-2xl font-vat text-vat-bigtext mb-6">
-                  Stuur ons een bericht
+                <h3 className="text-2xl font-vat text-vat-green mb-6">
+                  Stuur me een bericht
                 </h3>
 
                 {formStatus === 'success' && (
@@ -160,8 +123,8 @@ const ContactSection = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-vat-bigtext mb-2">
-                        Naam *
+                      <label htmlFor="name" className="block font-vat_smalltext text-vat-smalltext mb-2">
+                        Naam
                       </label>
                       <input
                         type="text"
@@ -173,8 +136,8 @@ const ContactSection = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-vat-bigtext mb-2">
-                        E-mail *
+                      <label htmlFor="email" className="block font-vat_smalltext text-vat-smalltext mb-2">
+                        E-mail
                       </label>
                       <input
                         type="email"
@@ -188,8 +151,8 @@ const ContactSection = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-vat-bigtext mb-2">
-                      Onderwerp *
+                    <label htmlFor="subject" className="block font-vat_smalltext text-vat-smalltext mb-2">
+                      Onderwerp
                     </label>
                     <input
                       type="text"
@@ -202,8 +165,8 @@ const ContactSection = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-vat-bigtext mb-2">
-                      Bericht *
+                    <label htmlFor="message" className="block font-vat_smalltext text-vat-smalltext mb-2">
+                      Bericht
                     </label>
                     <textarea
                       name="message"
@@ -227,7 +190,7 @@ const ContactSection = () => {
                       <a href="/privacy" className="text-vat-bigtext underline hover:text-vat-subtext">
                         privacyverklaring
                       </a>{' '}
-                      gelezen en ga hiermee akkoord. *
+                      gelezen en ga hiermee akkoord.
                     </label>
                   </div>
 

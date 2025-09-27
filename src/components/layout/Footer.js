@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => (
   <footer className="container mx-auto py-16 px-10 mt-48 mb-8 text-gray-800">
-    <div className="sm:grid sm:grid-cols-3 sm:-mx-3 sm:justify-items-center">
-      <div className="flex-1 px-3 sm:col-span-1">
+    <div className="sm:grid sm:grid-cols-2 sm:gap-8 sm:-mx-3">
+      <div className="flex-1 px-3">
         <h2 className="text-lg font-semibold">Over Ons</h2>
         <ul>
           <li className="mt-0 sm:mt-3 leading-loose">
@@ -20,19 +20,11 @@ const Footer = () => (
           </li>
         </ul>
       </div>
-      <div className="flex-1 px-3 sm:col-span-1 pt-5 sm:pt-0">
+      <div className="flex-1 px-3 pt-5 sm:pt-0 sm:text-right">
         <h2 className="text-lg font-semibold">Sociale Media</h2>
         <ul className="mt-0 sm:mt-3 leading-loose">
           <li>
             <a href="https://www.instagram.com/vriendenaantafel/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          </li>
-        </ul>
-      </div>
-      <div className="flex-1 px-3 sm:col-span-1 pt-5 sm:pt-0">
-        <h2 className="text-lg font-semibold">Website</h2>
-        <ul className="mt-0 sm:mt-3 leading-loose">
-          <li>
-            door Lukas Mahieu
           </li>
         </ul>
       </div>

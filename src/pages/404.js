@@ -17,12 +17,12 @@ const NotFound = () => (
       </p>
       <div className="space-y-4">
         <div>
-          <a href="/" className="inline-block bg-vat-primary text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-semibold">
+          <a href="/" className="inline-block bg-vat-button hover:bg-vat-button_hover text-vat-button_text px-8 py-4 rounded-lg font-vat text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
             Terug naar Home
           </a>
         </div>
         <div>
-          <a href="/#contact" className="inline-block text-vat-primary underline hover:text-opacity-80">
+          <a href="/#contact" className="inline-block text-vat-orange underline hover:text-vat-lightgreen transition-colors duration-300 font-vat_smalltext">
             Contact opnemen
           </a>
         </div>

@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const NewsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [selectedArticle, setSelectedArticle] = useState(null);
+  const [showAll, setShowAll] = useState(false);
+  const itemsPerPage = 4;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,125 +27,306 @@ const NewsSection = () => {
     };
   }, []);
 
-  // Placeholder news items
-  const newsItems = [
-    {
-      id: 1,
-      title: "Nieuwe keukenatelier geopend",
-      date: "30 augustus 2024",
-      summary: "We hebben ons keukenatelier uitgebreid met nieuwe faciliteiten voor onze workshops en dinerervaringen.",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "Seizoensmenu herfst 2024",
-      date: "15 september 2024",
-      summary: "Ontdek ons nieuwe seizoensmenu met de beste herfstgroenten van lokale boeren.",
-      featured: false
-    },
-    {
-      id: 3,
-      title: "Workshop 'Groenten van het seizoen'",
-      date: "1 oktober 2024",
-      summary: "Leer alles over het bereiden van seizoensgroenten in onze hands-on workshop.",
-      featured: false
+  // Query news items from CMS
+  const data = useStaticQuery(graphql`
+    query NewsQuery {
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/news/" } }
+        sort: { frontmatter: { date: DESC } }
+      ) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              date(formatString: "DD MMMM YYYY", locale: "nl")
+              summary
+              image {
+                childImageSharp {
+                  gatsbyImageData(
+                    width: 600
+                    height: 300
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, AVIF]
+                    quality: 90
+                  )
+                }
+              }
+            }
+            excerpt(pruneLength: 150)
+            html
+          }
+        }
+      }
     }
-  ];
+  `);
+
+  const newsItems = data.allMarkdownRemark.edges.map(({ node }) => ({
+    id: node.id,
+    title: node.frontmatter.title,
+    date: node.frontmatter.date,
+    summary: node.frontmatter.summary || node.excerpt,
+    image: node.frontmatter.image ? getImage(node.frontmatter.image) : null,
+    content: node.html
+  }));
+
+  // Pagination logic
+  const totalPages = Math.ceil(newsItems.length / itemsPerPage);
+  const startIndex = currentPage * itemsPerPage;
+  const currentItems = newsItems.slice(startIndex, startIndex + itemsPerPage);
+
+  const handlePrevious = () => {
+    setCurrentPage(prev => Math.max(0, prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentPage(prev => Math.min(totalPages - 1, prev + 1));
+  };
+
+  const openModal = (article) => {
+    setSelectedArticle(article);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setSelectedArticle(null);
+    document.body.style.overflow = 'unset';
+  };
+
+  // Close modal on escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && selectedArticle) {
+        closeModal();
+      }
+    };
+    
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [selectedArticle]);
 
   return (
-    <section id="nieuws" className="py-20 bg-white">
+    <section id="nieuws" className="pt-48 pb-32 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className={`text-center mb-16 transition-all duration-1000 transform ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h2 className="text-4xl md:text-5xl font-vat text-vat-bigtext mb-6">
-              Nieuws & Updates
+            <h2 className="text-4xl md:text-5xl font-vat text-vat-red mb-6">
+              Nieuws
             </h2>
-            <p className="text-xl font-vat_smalltext text-vat-smalltext max-w-2xl mx-auto">
-              Blijf op de hoogte van onze laatste nieuwtjes, seizoensmenus en speciale evenementen
-            </p>
           </div>
 
-          {/* News Grid */}
-          <div className="grid lg:grid-cols-3 gap-8">
-            {newsItems.map((item, index) => (
-              <article
-                key={item.id}
-                className={`${
-                  item.featured ? 'lg:col-span-2' : 'lg:col-span-1'
-                } transition-all duration-1000 delay-${index * 200} transform ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-              >
-                <div className="bg-gray-50 rounded-xl p-6 lg:p-8 h-full hover:shadow-lg transition-shadow duration-300">
-                  {/* Date */}
-                  <div className="text-sm font-vat_smalltext text-vat-subtext mb-3">
-                    {item.date}
-                  </div>
+          {/* Masonry/Pinterest Style Layout */}
+          <div className={`transition-all duration-1000 delay-300 transform ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
 
-                  {/* Title */}
-                  <h3 className={`font-vat text-vat-bigtext mb-4 ${
-                    item.featured ? 'text-2xl lg:text-3xl' : 'text-xl lg:text-2xl'
-                  }`}>
-                    {item.title}
-                  </h3>
+            {/* Mobile: Staggered + Varied Layout */}
+            <div className="md:hidden">
+              {(showAll ? newsItems : newsItems.slice(0, 4)).map((item, index) => {
+                const getMobileLayout = (index) => {
+                  if (index % 3 === 1) return { size: 'compact', offset: 'ml-8', width: 'w-4/5' };
+                  if (index % 3 === 2) return { size: 'medium', offset: 'mr-8', width: 'w-4/5' };
+                  return { size: 'normal', offset: '', width: 'w-full' };
+                };
 
-                  {/* Summary */}
-                  <p className={`font-vat_smalltext text-vat-smalltext leading-relaxed ${
-                    item.featured ? 'text-lg' : 'text-base'
-                  }`}>
-                    {item.summary}
-                  </p>
+                const layout = getMobileLayout(index);
 
-                  {/* Featured Badge */}
-                  {item.featured && (
-                    <div className="inline-block mt-4 px-3 py-1 bg-vat-subtext text-white text-sm font-vat_smalltext rounded-full">
-                      Belangrijk nieuws
+                return (
+                  <article
+                    key={item.id}
+                    className={`${layout.width} ${layout.offset} mb-6 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100`}
+                  >
+                    {item.image && (
+                      <div className={`overflow-hidden ${
+                        layout.size === 'compact' ? 'h-32' :
+                        layout.size === 'medium' ? 'h-40' : 'h-48'
+                      }`}>
+                        <GatsbyImage
+                          image={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    )}
+
+                    <div className="p-4">
+                      {/* Date */}
+                      <div className="text-sm font-vat_smalltext text-vat-green mb-3">
+                        {item.date}
+                      </div>
+
+                      {/* Title */}
+                      <h3 className={`font-vat text-vat-purple mb-3 leading-tight ${
+                        layout.size === 'compact' ? 'text-base' : 'text-lg'
+                      }`}>
+                        {item.title}
+                      </h3>
+
+                      {/* Summary */}
+                      <p className="font-vat_smalltext text-vat-smalltext leading-relaxed mb-4 text-sm">
+                        {layout.size === 'compact' ? (item.summary.length > 80 ? item.summary.substring(0, 80) + '...' : item.summary) :
+                         (item.summary.length > 120 ? item.summary.substring(0, 120) + '...' : item.summary)}
+                      </p>
+
+                      {/* Read More */}
+                      <button
+                        onClick={() => openModal(item)}
+                        className="text-vat-yellow font-vat_smalltext text-sm hover:text-vat-purple transition-colors duration-300"
+                      >
+                        Lees meer →
+                      </button>
                     </div>
-                  )}
+                  </article>
+                );
+              })}
+            </div>
 
-                  {/* Read More Link */}
-                  <div className="mt-6">
-                    <span className="text-vat-bigtext font-vat_smalltext text-sm hover:text-vat-subtext transition-colors duration-300 cursor-pointer">
-                      Lees meer →
-                    </span>
-                  </div>
-                </div>
-              </article>
-            ))}
+            {/* Desktop: Masonry Layout */}
+            <div className="hidden md:block columns-2 lg:columns-3 gap-6 space-y-6">
+              {(showAll ? newsItems : newsItems.slice(0, 4)).map((item, index) => {
+                // Define different card sizes for visual interest
+                const getCardSize = (index) => {
+                  if (index % 4 === 1) return 'tall'; // Every 5th item (1, 5, 9...) is tall
+                  if (index % 3 === 0) return 'wide'; // Every 3rd item is wide
+                  return 'normal';
+                };
+
+                const cardSize = getCardSize(index);
+
+                return (
+                  <article
+                    key={item.id}
+                    className={`break-inside-avoid mb-6 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100`}
+                  >
+                    {item.image && (
+                      <div className={`overflow-hidden ${
+                        cardSize === 'tall' ? 'h-64' :
+                        cardSize === 'wide' ? 'h-48' : 'h-56'
+                      }`}>
+                        <GatsbyImage
+                          image={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    )}
+
+                    <div className="p-6">
+                      {/* Date */}
+                      <div className="text-sm font-vat_smalltext text-vat-green mb-3">
+                        {item.date}
+                      </div>
+
+                      {/* Title */}
+                      <h3 className={`font-vat text-vat-purple mb-4 leading-tight ${
+                        cardSize === 'tall' ? 'text-xl' : 'text-lg'
+                      }`}>
+                        {item.title}
+                      </h3>
+
+                      {/* Summary */}
+                      <p className={`font-vat_smalltext text-vat-smalltext leading-relaxed mb-4 ${
+                        cardSize === 'tall' ? 'text-base' : 'text-sm'
+                      }`}>
+                        {cardSize === 'tall' ? (item.summary.length > 150 ? item.summary.substring(0, 150) + '...' : item.summary) :
+                         (item.summary.length > 100 ? item.summary.substring(0, 100) + '...' : item.summary)}
+                      </p>
+
+                      {/* Read More */}
+                      <button
+                        onClick={() => openModal(item)}
+                        className="text-vat-linktext font-vat_smalltext text-sm hover:text-vat-subtext transition-colors duration-300"
+                      >
+                        Lees meer →
+                      </button>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            {/* Expand/Collapse Button */}
+            {newsItems.length > 4 && (
+              <div className="text-center mt-12">
+                <button
+                  onClick={() => setShowAll(!showAll)}
+                  className="bg-white hover:bg-gray-50 text-vat-mediumtext border-2 border-vat-mediumtext hover:border-vat-subtext px-8 py-3 rounded-lg font-vat transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-2"
+                >
+                  {showAll ? (
+                    <>
+                      Toon minder
+                      <svg className="w-5 h-5 transform rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </>
+                  ) : (
+                    <>
+                      Meer nieuws
+                      <svg className="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Newsletter Signup */}
-          <div className={`mt-16 text-center bg-gray-50 p-8 lg:p-12 rounded-2xl transition-all duration-1000 delay-600 transform ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <h3 className="text-2xl lg:text-3xl font-vat text-vat-bigtext mb-4">
-              Blijf op de hoogte
-            </h3>
-            <p className="text-lg font-vat_smalltext text-vat-smalltext mb-6 max-w-2xl mx-auto">
-              Wilt u automatisch op de hoogte blijven van ons nieuws, nieuwe menu's en speciale aanbiedingen? 
-              Laat het ons weten via het contactformulier.
-            </p>
-            <a 
-              href="#contact" 
-              className="inline-block bg-vat-button hover:bg-vat-button_hover text-vat-button_text px-8 py-4 rounded-lg font-vat text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
-              Aanmelden voor updates
-            </a>
-          </div>
 
-          {/* Note about placeholder content */}
-          <div className={`mt-8 text-center transition-all duration-1000 delay-800 transform ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <p className="text-sm font-vat_smalltext text-gray-400 italic">
-              * Deze nieuwsberichten zijn placeholder content. Via het CMS systeem kunnen echte nieuwsberichten toegevoegd worden.
-            </p>
-          </div>
         </div>
       </div>
+
+      {/* Article Modal */}
+      {selectedArticle && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-4xl max-h-[90vh] overflow-y-auto relative">
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-300 z-10"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Article Image */}
+            {selectedArticle.image && (
+              <div className="h-64 lg:h-80 overflow-hidden rounded-t-2xl">
+                <GatsbyImage
+                  image={selectedArticle.image}
+                  alt={selectedArticle.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+
+            {/* Article Content */}
+            <div className="p-6 lg:p-8">
+              {/* Date */}
+              <div className="text-sm font-vat_smalltext text-vat-subtext mb-4">
+                {selectedArticle.date}
+              </div>
+
+              {/* Title */}
+              <h1 className="text-3xl lg:text-4xl font-vat text-vat-bigtext mb-6">
+                {selectedArticle.title}
+              </h1>
+
+
+              {/* Article Body */}
+              <div
+                className="font-vat_smalltext text-vat-smalltext leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: selectedArticle.content }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

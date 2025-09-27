@@ -23,104 +23,180 @@ const AboutSection = () => {
     };
   }, []);
 
-  // Query for about section image
+  // Query for about section from CMS
   const data = useStaticQuery(graphql`
     query {
-      aboutImage: file(relativePath: {eq: "mijnkeuken_1.jpg"}) {
-        childImageSharp {
-          gatsbyImageData(
-            width: 600
-            height: 400
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-            quality: 90
-          )
+      markdownRemark(frontmatter: {title: {eq: "Concept"}}) {
+        frontmatter {
+          title
+          intro_content
+          intro_image {
+            childImageSharp {
+              gatsbyImageData(
+                width: 600
+                height: 400
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+                quality: 90
+              )
+            }
+          }
+          visie_title
+          visie_content
+          visie_image {
+            childImageSharp {
+              gatsbyImageData(
+                width: 600
+                height: 400
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+                quality: 90
+              )
+            }
+          }
+          keuken_title
+          keuken_content
+          keuken_image {
+            childImageSharp {
+              gatsbyImageData(
+                width: 600
+                height: 400
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+                quality: 90
+              )
+            }
+          }
         }
       }
     }
   `);
 
-  const aboutImage = getImage(data.aboutImage);
+  const frontmatter = data.markdownRemark?.frontmatter;
+  const introImage = frontmatter?.intro_image ? getImage(frontmatter.intro_image) : null;
+  const visieImage = frontmatter?.visie_image ? getImage(frontmatter.visie_image) : null;
+  const keukenImage = frontmatter?.keuken_image ? getImage(frontmatter.keuken_image) : null;
 
   return (
-    <section id="over" className="py-20 bg-gray-50">
+    <section id="over" className="pt-48 pb-32 bg-white">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
-            <div className={`transition-all duration-1000 transform ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-            }`}>
-              <h2 className="text-4xl md:text-5xl font-vat text-vat-bigtext mb-6">
-                Over ons
-              </h2>
-              
-              <div className="space-y-6 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
-                <p>
-                  Welkom bij <span className="font-semibold text-vat-bigtext">Aan Tafel</span>, 
-                  waar lokale keuken en verse groenten centraal staan. Wij geloven in de kracht van 
-                  seizoensgebonden ingrediënten en de magie die ontstaat wanneer mensen samenkomen rond een tafel.
-                </p>
-                
-                <p>
-                  Onze passie voor koken begint bij de beste lokale producten. We werken samen met 
-                  lokale boeren en leveranciers om ervoor te zorgen dat elke maaltijd niet alleen 
-                  heerlijk is, maar ook duurzaam en verantwoord.
-                </p>
-                
-                <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-vat-subtext">
-                  <h3 className="font-vat text-vat-bigtext text-xl mb-3">
-                    Onze filosofie
-                  </h3>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <span className="text-vat-subtext mr-2">•</span>
-                      Lokaal en seizoensgebonden koken
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-vat-subtext mr-2">•</span>
-                      Veel groenten in elke maaltijd
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-vat-subtext mr-2">•</span>
-                      Persoonlijke en hartelijke service
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-vat-subtext mr-2">•</span>
-                      Duurzame en bewuste keuzes
-                    </li>
-                  </ul>
-                </div>
-                
-                <p>
-                  Of het nu gaat om een intiem diner aan huis, een workshop in ons keukenatelier, 
-                  of catering voor een groot evenement - bij elke gelegenheid zorgen we voor een 
-                  onvergetelijke culinaire ervaring.
-                </p>
-              </div>
-            </div>
+        <div className="max-w-6xl mx-auto space-y-24">
 
-            {/* Image */}
-            <div className={`transition-all duration-1000 delay-300 transform ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-            }`}>
-              {aboutImage && (
-                <div className="relative">
-                  <div className="rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+          {/* Over Ons Section */}
+          {frontmatter?.title && frontmatter?.intro_content && (
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Text Content - Right side */}
+              <div className="order-1 lg:order-2">
+                <h2 className="text-4xl md:text-5xl font-vat text-vat-red mb-6">
+                  {frontmatter.title}
+                </h2>
+
+                <div className="space-y-6 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
+                  {frontmatter.intro_content.split('\n\n').map((paragraph, index) => (
+                    <p key={index} dangerouslySetInnerHTML={{ __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-vat-green">$1</strong>') }} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Image - Left side */}
+              <div className="order-2 lg:order-1">
+                {introImage && (
+                  <div className="rounded-lg overflow-hidden">
                     <GatsbyImage
-                      image={aboutImage}
-                      alt="Over Aan Tafel"
+                      image={introImage}
+                      alt={frontmatter.title}
                       className="w-full h-full"
                     />
                   </div>
-                  
-                  {/* Decorative elements */}
-                  <div className="absolute -top-4 -left-4 w-8 h-8 bg-vat-subtext rounded-full opacity-60"></div>
-                  <div className="absolute -bottom-6 -right-6 w-12 h-12 bg-vat-bigtext rounded-full opacity-40"></div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
-          </div>
+          )}
+
+          {/* Visie Section */}
+          {frontmatter?.visie_title && (
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Text Content */}
+              <div className={`transition-all duration-1000 transform ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`}>
+                <h2 className="text-4xl md:text-5xl font-vat text-vat-red mb-6">
+                  {frontmatter.visie_title}
+                </h2>
+
+                <div className="space-y-6 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
+                  {frontmatter.visie_content && frontmatter.visie_content.split('\n\n').map((paragraph, index) => {
+                    if (paragraph.trim().startsWith('*')) {
+                      // Handle bullet points
+                      const items = paragraph.split('\n').filter(item => item.trim().startsWith('*'));
+                      return (
+                        <ul key={index} className="space-y-2">
+                          {items.map((item, itemIndex) => (
+                            <li key={itemIndex} className="flex items-start">
+                              <span className="text-vat-green mr-2">•</span>
+                              <span>{item.replace(/^\*\s*/, '')}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      );
+                    }
+                    return <p key={index}>{paragraph}</p>;
+                  })}
+                </div>
+              </div>
+
+              {/* Image */}
+              <div className={`transition-all duration-1000 delay-300 transform ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+              }`}>
+                {visieImage && (
+                  <div className="rounded-lg overflow-hidden">
+                    <GatsbyImage
+                      image={visieImage}
+                      alt={frontmatter.visie_title}
+                      className="w-full h-full"
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Keuken Section */}
+          {frontmatter?.keuken_title && (
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Text Content - First on mobile, right on desktop */}
+              <div className={`transition-all duration-1000 transform order-1 lg:order-2 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+              }`}>
+                <h2 className="text-4xl md:text-5xl font-vat text-vat-red mb-6">
+                  {frontmatter.keuken_title}
+                </h2>
+
+                <div className="space-y-6 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
+                  {frontmatter.keuken_content && frontmatter.keuken_content.split('\n\n').map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Image - Second on mobile, left on desktop */}
+              <div className={`transition-all duration-1000 delay-300 transform order-2 lg:order-1 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`}>
+                {keukenImage && (
+                  <div className="rounded-lg overflow-hidden">
+                    <GatsbyImage
+                      image={keukenImage}
+                      alt={frontmatter.keuken_title}
+                      className="w-full h-full"
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
         </div>
       </div>
     </section>

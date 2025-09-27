@@ -4,7 +4,7 @@ module.exports = {
     description: "Lokaal koken met veel groenten. Ontdek onze culinaire diensten: kok aan huis, dineren in ons keukenatelier, workshops en catering op maat in Mechelen.",
     siteUrl: "https://www.aantafel.be",
     image: "/images/og-image.jpg",
-    instagramUsername: "@aantafel"
+    instagramUsername: "@vriendenaantafel"
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -19,13 +19,13 @@ module.exports = {
       options: {
         name: `data`,
         path: `${__dirname}/src/data/`,
-    }
-  },
+      }
+    },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /assets/ 
+          include: /assets/
         }
       }
     },
