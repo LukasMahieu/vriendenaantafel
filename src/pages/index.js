@@ -53,7 +53,7 @@ export default function Index() {
   return (
     <Layout isHomePage={true}>
       <SEO
-        title="Aan Tafel - Lokaal koken met veel groenten"
+        title="Aan Tafel"
         description="Ontdek onze culinaire diensten: kok aan huis, dineren in ons kookatelier, workshops en catering op maat. Lokaal en seizoensgebonden koken in Mechelen."
         keywords="aan tafel, kok aan huis, kookatelier, kookworkshops, catering, Mechelen, lokaal koken, seizoensgebonden, groenten"
       />
