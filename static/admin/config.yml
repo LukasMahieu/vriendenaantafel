@@ -1,13 +1,13 @@
 # Production backend (GitHub)
-# backend:
-#   name: github
-#   repo: LukasMahieu/vriendenaantafel
-#   branch: master
+backend:
+  name: github
+  repo: LukasMahieu/vriendenaantafel
+  branch: master
 
 # Local development backend (uncomment these 3 lines and comment the above 3 lines for local development)
-backend:
-  name: proxy
-  proxy_url: http://localhost:8081/api/v1
+# backend:
+#   name: proxy
+#   proxy_url: http://localhost:8081/api/v1
 
 media_folder: src/data/images
 public_folder: ../../images
