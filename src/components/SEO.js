@@ -64,9 +64,7 @@ const SEO = ({
       <link rel="canonical" href={seo.url} />
 
       {/* Favicon */}
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" href="/favicon.png" />
 
       {/* Language */}
       <html lang="nl" />
