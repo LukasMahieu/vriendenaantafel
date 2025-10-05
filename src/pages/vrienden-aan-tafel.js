@@ -28,7 +28,6 @@ export default function VriendenAanTafel() {
             image {
               childImageSharp {
                 gatsbyImageData(
-                  width: 600
                   height: 400
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
@@ -45,7 +44,6 @@ export default function VriendenAanTafel() {
             image {
               childImageSharp {
                 gatsbyImageData(
-                  width: 600
                   height: 400
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
@@ -64,7 +62,6 @@ export default function VriendenAanTafel() {
             image {
               childImageSharp {
                 gatsbyImageData(
-                  width: 600
                   height: 400
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
@@ -82,7 +79,6 @@ export default function VriendenAanTafel() {
             image {
               childImageSharp {
                 gatsbyImageData(
-                  width: 600
                   height: 400
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
@@ -101,7 +97,6 @@ export default function VriendenAanTafel() {
       vegetableIcon: file(relativePath: {eq: "act1.png"}) {
         childImageSharp {
           gatsbyImageData(
-            width: 120
             height: 120
             placeholder: BLURRED
             formats: [AUTO, WEBP, AVIF]
@@ -148,7 +143,7 @@ export default function VriendenAanTafel() {
   return (
     <Layout>
       <SEO
-        title="Vrienden Aan Tafel - Kok aan huis"
+        title="Vrienden aan Tafel - Kok aan huis"
         description="Persoonlijke kok aan huis service voor uw evenementen in en rond Mechelen"
         keywords="kok aan huis, persoonlijke chef, catering Mechelen"
       />
@@ -165,16 +160,16 @@ export default function VriendenAanTafel() {
                   <div className="w-20 h-20 mr-4">
                     <GatsbyImage
                       image={vegetableIcon}
-                      alt="Maïs - Vrienden Aan Tafel"
-                      className="w-full h-full"
+                      alt="Maïs - Vrienden aan Tafel"
+                      className=""
                     />
                   </div>
                 )}
                 <div>
                   <h1 className="text-4xl md:text-5xl font-vat text-vat-bigtext mb-2">
-                    {frontmatter?.title || "Vrienden Aan Tafel"}
+                    {frontmatter?.title || "Vrienden aan Tafel"}
                   </h1>
-                  <h2 className="text-xl md:text-2xl font-vat_smalltext text-vat-subtext">
+                  <h2 className="text-xl md:text-2xl font-vat_smalltext text-vat-mediumtext">
                     {frontmatter?.subtitle || "Kok aan huis"}
                   </h2>
                 </div>
@@ -194,8 +189,8 @@ export default function VriendenAanTafel() {
                 <div className="w-80 h-80">
                   <GatsbyImage
                     image={featuredImage}
-                    alt={`${frontmatter?.title || "Vrienden Aan Tafel"} - Gezellig samen dineren`}
-                    className="w-full h-full"
+                    alt={`${frontmatter?.title || "Vrienden aan Tafel"} - Gezellig samen dineren`}
+                    className=""
                     objectFit="contain"
                   />
                 </div>
@@ -225,11 +220,11 @@ export default function VriendenAanTafel() {
               {/* Image - Right */}
               <div>
                 {mijnKeukenImage && (
-                  <div className="rounded-lg overflow-hidden shadow-lg">
+                  <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
                       image={mijnKeukenImage}
                       alt={frontmatter.mijn_keuken.title}
-                      className="w-full h-full"
+                      className=""
                       objectFit="contain"
                     />
                   </div>
@@ -265,11 +260,11 @@ export default function VriendenAanTafel() {
               {/* Image - Left */}
               <div className="order-2 lg:order-1">
                 {watVerwachtenImage && (
-                  <div className="rounded-lg overflow-hidden shadow-lg">
+                  <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
                       image={watVerwachtenImage}
                       alt={frontmatter.wat_verwachten.title}
-                      className="w-full h-full"
+                      className=""
                       objectFit="contain"
                     />
                   </div>
@@ -315,11 +310,11 @@ export default function VriendenAanTafel() {
               {/* Image - Right */}
               <div>
                 {prijzenImage && (
-                  <div className="rounded-lg overflow-hidden shadow-lg">
+                  <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
                       image={prijzenImage}
                       alt={frontmatter.prijzen.title}
-                      className="w-full h-full"
+                      className=""
                       objectFit="contain"
                     />
                   </div>
@@ -359,11 +354,11 @@ export default function VriendenAanTafel() {
               {/* Image - Left */}
               <div className="order-2 lg:order-1">
                 {hoeWerktHetImage && (
-                  <div className="rounded-lg overflow-hidden shadow-lg">
+                  <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
                       image={hoeWerktHetImage}
                       alt={frontmatter.hoe_werkt_het.title}
-                      className="w-full h-full"
+                      className=""
                       objectFit="contain"
                     />
                   </div>
@@ -398,7 +393,7 @@ export default function VriendenAanTafel() {
       <div className="bg-white py-20">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="p-8">
-            <h3 className="text-xl font-vat text-vat-bigtext mb-6 text-center">Boek een Vrienden Aan Tafel</h3>
+            <h3 className="text-xl font-vat text-vat-bigtext mb-6 text-center">Boek een Vrienden aan Tafel</h3>
             <div id="calendar-container" className="min-h-96"></div>
           </div>
         </div>

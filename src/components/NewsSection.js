@@ -44,7 +44,6 @@ const NewsSection = () => {
               image {
                 childImageSharp {
                   gatsbyImageData(
-                    width: 600
                     height: 300
                     placeholder: BLURRED
                     formats: [AUTO, WEBP, AVIF]
@@ -113,7 +112,7 @@ const NewsSection = () => {
           <div className={`text-center mb-16 transition-all duration-1000 transform ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h2 className="text-4xl md:text-5xl font-vat text-vat-red mb-6">
+            <h2 className="text-4xl md:text-5xl font-vat text-vat-yellow mb-6">
               Nieuws
             </h2>
           </div>
@@ -137,17 +136,16 @@ const NewsSection = () => {
                 return (
                   <article
                     key={item.id}
-                    className={`${layout.width} ${layout.offset} mb-6 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100`}
+                    className={`${layout.width} ${layout.offset} mb-6 bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 cursor-pointer`}
+                    onClick={() => openModal(item)}
                   >
                     {item.image && (
-                      <div className={`overflow-hidden ${
-                        layout.size === 'compact' ? 'h-32' :
-                        layout.size === 'medium' ? 'h-40' : 'h-48'
-                      }`}>
+                      <div className="overflow-hidden flex justify-center">
                         <GatsbyImage
                           image={item.image}
                           alt={item.title}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                          className="hover:scale-105 transition-transform duration-500"
+                          objectFit="contain"
                         />
                       </div>
                     )}
@@ -172,12 +170,9 @@ const NewsSection = () => {
                       </p>
 
                       {/* Read More */}
-                      <button
-                        onClick={() => openModal(item)}
-                        className="text-vat-yellow font-vat_smalltext text-sm hover:text-vat-purple transition-colors duration-300"
-                      >
+                      <div className="text-vat-purple font-vat_smalltext text-sm hover:text-vat-green transition-colors duration-300">
                         Lees meer →
-                      </button>
+                      </div>
                     </div>
                   </article>
                 );
@@ -199,17 +194,16 @@ const NewsSection = () => {
                 return (
                   <article
                     key={item.id}
-                    className={`break-inside-avoid mb-6 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100`}
+                    className={`break-inside-avoid mb-6 bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 cursor-pointer`}
+                    onClick={() => openModal(item)}
                   >
                     {item.image && (
-                      <div className={`overflow-hidden ${
-                        cardSize === 'tall' ? 'h-64' :
-                        cardSize === 'wide' ? 'h-48' : 'h-56'
-                      }`}>
+                      <div className="overflow-hidden flex justify-center">
                         <GatsbyImage
                           image={item.image}
                           alt={item.title}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                          className="hover:scale-105 transition-transform duration-500"
+                          objectFit="contain"
                         />
                       </div>
                     )}
@@ -236,12 +230,9 @@ const NewsSection = () => {
                       </p>
 
                       {/* Read More */}
-                      <button
-                        onClick={() => openModal(item)}
-                        className="text-vat-linktext font-vat_smalltext text-sm hover:text-vat-subtext transition-colors duration-300"
-                      >
+                      <div className="text-vat-purple font-vat_smalltext text-sm hover:text-vat-green transition-colors duration-300">
                         Lees meer →
-                      </button>
+                      </div>
                     </div>
                   </article>
                 );
@@ -283,7 +274,7 @@ const NewsSection = () => {
       {/* Article Modal */}
       {selectedArticle && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-4xl max-h-[90vh] overflow-y-auto relative">
+          <div className="bg-white max-w-4xl max-h-[90vh] overflow-y-auto relative">
             {/* Close Button */}
             <button
               onClick={closeModal}
@@ -296,11 +287,12 @@ const NewsSection = () => {
 
             {/* Article Image */}
             {selectedArticle.image && (
-              <div className="h-64 lg:h-80 overflow-hidden rounded-t-2xl">
+              <div className="overflow-hidden rounded-t-2xl">
                 <GatsbyImage
                   image={selectedArticle.image}
                   alt={selectedArticle.title}
-                  className="w-full h-full object-cover"
+                  className=""
+                  objectFit="contain"
                 />
               </div>
             )}
@@ -308,12 +300,12 @@ const NewsSection = () => {
             {/* Article Content */}
             <div className="p-6 lg:p-8">
               {/* Date */}
-              <div className="text-sm font-vat_smalltext text-vat-subtext mb-4">
+              <div className="text-sm font-vat_smalltext text-vat-green mb-4">
                 {selectedArticle.date}
               </div>
 
               {/* Title */}
-              <h1 className="text-3xl lg:text-4xl font-vat text-vat-bigtext mb-6">
+              <h1 className="text-3xl lg:text-4xl font-vat text-vat-purple mb-6">
                 {selectedArticle.title}
               </h1>
 

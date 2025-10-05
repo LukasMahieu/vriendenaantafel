@@ -28,7 +28,6 @@ export default function CateringOpMaat() {
             image {
               childImageSharp {
                 gatsbyImageData(
-                  width: 600
                   height: 400
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
@@ -40,6 +39,16 @@ export default function CateringOpMaat() {
           voorwaarden {
             title
             description
+            image {
+              childImageSharp {
+                gatsbyImageData(
+                  height: 400
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                  quality: 90
+                )
+              }
+            }
           }
           offerte_aanvragen {
             title
@@ -50,7 +59,6 @@ export default function CateringOpMaat() {
       vegetableIcon: file(relativePath: {eq: "act4.png"}) {
         childImageSharp {
           gatsbyImageData(
-            width: 120
             height: 120
             placeholder: BLURRED
             formats: [AUTO, WEBP, AVIF]
@@ -69,6 +77,7 @@ export default function CateringOpMaat() {
 
   // Get images for sections
   const mijnKeukenImage = frontmatter?.mijn_keuken?.image ? getImage(frontmatter.mijn_keuken.image) : null;
+  const voorwaardenImage = frontmatter?.voorwaarden?.image ? getImage(frontmatter.voorwaarden.image) : null;
 
   return (
     <Layout>
@@ -91,7 +100,7 @@ export default function CateringOpMaat() {
                     <GatsbyImage
                       image={vegetableIcon}
                       alt="Perzik - Catering op maat"
-                      className="w-full h-full"
+                      className=""
                     />
                   </div>
                 )}
@@ -99,7 +108,7 @@ export default function CateringOpMaat() {
                   <h1 className="text-4xl md:text-5xl font-vat text-vat-bigtext mb-2">
                     {frontmatter?.title || "Catering op maat"}
                   </h1>
-                  <h2 className="text-xl md:text-2xl font-vat_smalltext text-vat-subtext">
+                  <h2 className="text-xl md:text-2xl font-vat_smalltext text-vat-mediumtext">
                     {frontmatter?.subtitle || "Catering voor kleine groepen"}
                   </h2>
                 </div>
@@ -120,7 +129,7 @@ export default function CateringOpMaat() {
                   <GatsbyImage
                     image={featuredImage}
                     alt={`${frontmatter?.title || "Catering op maat"} - Catering service`}
-                    className="w-full h-full"
+                    className=""
                     objectFit="contain"
                   />
                 </div>
@@ -150,11 +159,11 @@ export default function CateringOpMaat() {
               {/* Image - Right */}
               <div>
                 {mijnKeukenImage && (
-                  <div className="rounded-lg overflow-hidden shadow-lg">
+                  <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
                       image={mijnKeukenImage}
                       alt={frontmatter.mijn_keuken.title}
-                      className="w-full h-full"
+                      className=""
                       objectFit="contain"
                     />
                   </div>
@@ -163,14 +172,41 @@ export default function CateringOpMaat() {
             </div>
           )}
 
-          {/* Voorwaarden Section - Centered Text */}
+          {/* Voorwaarden Section - Text with Image */}
           {frontmatter?.voorwaarden && (
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-vat text-vat-red mb-6">
-                {frontmatter.voorwaarden.title}
-              </h2>
-              <div className="font-vat_smalltext text-vat-smalltext text-lg leading-relaxed whitespace-pre-line">
-                {frontmatter.voorwaarden.description}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Image - Left */}
+              <div>
+                {voorwaardenImage && (
+                  <div className="overflow-hidden flex justify-center">
+                    <GatsbyImage
+                      image={voorwaardenImage}
+                      alt="Voorwaarden - Catering op maat"
+                      className=""
+                      objectFit="contain"
+                    />
+                  </div>
+                )}
+              </div>
+
+              {/* Text Content - Right */}
+              <div>
+                <h2 className="text-3xl md:text-4xl font-vat text-vat-red mb-6">
+                  {frontmatter.voorwaarden.title}
+                </h2>
+                <div className="font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
+                  {frontmatter.voorwaarden.description.split('\n').map((line, index) => {
+                    if (line.trim().startsWith('* ')) {
+                      return (
+                        <div key={index} className="flex items-start mb-2">
+                          <span className="text-vat-green mr-3 mt-1">•</span>
+                          <span>{line.replace(/^\* /, '')}</span>
+                        </div>
+                      );
+                    }
+                    return line.trim() ? <p key={index} className="mb-2">{line}</p> : <br key={index} />;
+                  })}
+                </div>
               </div>
             </div>
           )}

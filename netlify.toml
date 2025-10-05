@@ -23,10 +23,11 @@ minify = true
 [[headers]]
 for = "/*"
 [headers.values]
-X-Frame-Options = "DENY"
+X-Frame-Options = "SAMEORIGIN"
 X-XSS-Protection = "1; mode=block"
 X-Content-Type-Options = "nosniff"
 Referrer-Policy = "strict-origin-when-cross-origin"
+Content-Security-Policy = "frame-ancestors 'self' *.youcanbook.me *.ycb.me; frame-src 'self' *.youcanbook.me *.ycb.me https:;"
 
 [[headers]]
 for = "/static/*"

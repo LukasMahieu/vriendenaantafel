@@ -33,7 +33,6 @@ const AboutSection = () => {
           intro_image {
             childImageSharp {
               gatsbyImageData(
-                width: 600
                 height: 400
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF]
@@ -46,7 +45,6 @@ const AboutSection = () => {
           visie_image {
             childImageSharp {
               gatsbyImageData(
-                width: 600
                 height: 400
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF]
@@ -59,7 +57,6 @@ const AboutSection = () => {
           keuken_image {
             childImageSharp {
               gatsbyImageData(
-                width: 600
                 height: 400
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF]
@@ -87,13 +84,17 @@ const AboutSection = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Text Content - Right side */}
               <div className="order-1 lg:order-2">
-                <h2 className="text-4xl md:text-5xl font-vat text-vat-red mb-6">
+                <h2 className="text-4xl md:text-5xl font-vat text-vat-yellow mb-6">
                   {frontmatter.title}
                 </h2>
 
                 <div className="space-y-6 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
                   {frontmatter.intro_content.split('\n\n').map((paragraph, index) => (
-                    <p key={index} dangerouslySetInnerHTML={{ __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-vat-green">$1</strong>') }} />
+                    <p key={index} dangerouslySetInnerHTML={{
+                      __html: paragraph
+                        .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-vat-green">$1</strong>')
+                        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-vat-linktext hover:text-vat-subtext underline transition-colors duration-300">$1</a>')
+                    }} />
                   ))}
                 </div>
               </div>
@@ -101,11 +102,11 @@ const AboutSection = () => {
               {/* Image - Left side */}
               <div className="order-2 lg:order-1">
                 {introImage && (
-                  <div className="rounded-lg overflow-hidden">
+                  <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
                       image={introImage}
                       alt={frontmatter.title}
-                      className="w-full h-full"
+                      className=""
                     />
                   </div>
                 )}
@@ -120,7 +121,7 @@ const AboutSection = () => {
               <div className={`transition-all duration-1000 transform ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}>
-                <h2 className="text-4xl md:text-5xl font-vat text-vat-red mb-6">
+                <h2 className="text-4xl md:text-5xl font-vat text-vat-yellow mb-6">
                   {frontmatter.visie_title}
                 </h2>
 
@@ -150,11 +151,11 @@ const AboutSection = () => {
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
               }`}>
                 {visieImage && (
-                  <div className="rounded-lg overflow-hidden">
+                  <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
                       image={visieImage}
                       alt={frontmatter.visie_title}
-                      className="w-full h-full"
+                      className=""
                     />
                   </div>
                 )}
@@ -169,13 +170,18 @@ const AboutSection = () => {
               <div className={`transition-all duration-1000 transform order-1 lg:order-2 ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
               }`}>
-                <h2 className="text-4xl md:text-5xl font-vat text-vat-red mb-6">
+                <h2 className="text-4xl md:text-5xl font-vat text-vat-yellow mb-6">
                   {frontmatter.keuken_title}
                 </h2>
 
                 <div className="space-y-6 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
                   {frontmatter.keuken_content && frontmatter.keuken_content.split('\n\n').map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
+                    <p
+                      key={index}
+                      dangerouslySetInnerHTML={{
+                        __html: paragraph.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-vat-linktext hover:text-vat-subtext underline transition-colors duration-300">$1</a>')
+                      }}
+                    />
                   ))}
                 </div>
               </div>
@@ -185,11 +191,11 @@ const AboutSection = () => {
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}>
                 {keukenImage && (
-                  <div className="rounded-lg overflow-hidden">
+                  <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
                       image={keukenImage}
                       alt={frontmatter.keuken_title}
-                      className="w-full h-full"
+                      className=""
                     />
                   </div>
                 )}

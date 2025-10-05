@@ -1,12 +1,13 @@
-backend:
-  name: git-gateway
-  branch: master
-
-# Local development backend (uncomment for local CMS development)
+# Production backend (GitHub)
 # backend:
-#   name: proxy
-#   proxy_url: http://localhost:8081/api/v1
+#   name: github
+#   repo: LukasMahieu/vriendenaantafel
 #   branch: master
+
+# Local development backend (uncomment these 3 lines and comment the above 3 lines for local development)
+backend:
+  name: proxy
+  proxy_url: http://localhost:8081/api/v1
 
 media_folder: src/data/images
 public_folder: ../../images
@@ -272,6 +273,7 @@ collections:
         required: false
         fields:
           - { label: 'Titel', name: 'title', widget: 'string', default: 'Voorwaarden' }
+          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
           - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
 
       # Offerte aanvragen Section
@@ -283,20 +285,3 @@ collections:
           - { label: 'Titel', name: 'title', widget: 'string', default: 'Offerte aanvragen' }
           - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
 
-  # Contact Information
-  - name: 'contact'
-    label: 'Contact'
-    folder: 'src/data/markdown/contact'
-    create: false
-    slug: '{{slug}}'
-    editor:
-      preview: true
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Subtitle', name: 'subtitle', widget: 'string', default: 'Heeft u vragen of wilt u een afspraak maken?' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Image', name: 'Image01', widget: 'image' }
-      - { label: 'Address', name: 'address', widget: 'string', required: false }
-      - { label: 'Phone', name: 'phone', widget: 'string', required: false }
-      - { label: 'Email', name: 'email', widget: 'string', required: false }
-      - { label: 'Body', name: 'body', widget: 'markdown' }

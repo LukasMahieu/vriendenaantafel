@@ -51,11 +51,11 @@ const ContactSection = () => {
           {/* Section Header */}
           <div className={`text-center mb-16 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-            <h2 className="text-4xl md:text-5xl font-vat text-vat-red mb-6">
+            <h2 className="text-4xl md:text-5xl font-vat text-vat-yellow mb-6">
               Contact
             </h2>
             <p className="text-xl font-vat_smalltext text-vat-smalltext max-w-2xl mx-auto">
-              Heeft u vragen of wilt u een afspraak maken? We horen graag van u!
+              Heeft u vragen of wilt u meer informatie? Ik hoor het graag!
             </p>
           </div>
 
@@ -66,7 +66,7 @@ const ContactSection = () => {
               <div className="space-y-8">
                 {/* About Contact */}
                 <div className="bg-white p-8 rounded-xl shadow-sm">
-                  <h3 className="text-2xl font-vat text-vat-green mb-4">
+                  <h3 className="text-2xl font-vat text-vat-purple mb-4">
                     Neem contact op
                   </h3>
                   <p className="font-vat_smalltext text-vat-smalltext text-lg leading-relaxed mb-6">
@@ -79,8 +79,11 @@ const ContactSection = () => {
                         <p className="font-vat_smalltext text-vat-smalltext">
                           Aan Tafel Atelier
                         </p>
-                        <p className="text-sm text-gray-600">
-                          Leermarkt 24, 2800 Mechelen
+                        <p className="font-vat_smalltext text-vat-smalltext">
+                          Leermarkt 24
+                        </p>
+                        <p className="font-vat_smalltext text-vat-smalltext">
+                          2800 Mechelen
                         </p>
                       </div>
                     </div>
@@ -100,7 +103,7 @@ const ContactSection = () => {
             <div className={`transition-all duration-1000 delay-400 transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
               }`}>
               <div className="bg-white p-8 rounded-xl shadow-sm">
-                <h3 className="text-2xl font-vat text-vat-green mb-6">
+                <h3 className="text-2xl font-vat text-vat-purple mb-6">
                   Stuur me een bericht
                 </h3>
 
@@ -197,7 +200,7 @@ const ContactSection = () => {
                   <button
                     type="submit"
                     disabled={formStatus === 'sending'}
-                    className="w-full bg-vat-button hover:bg-vat-button_hover text-vat-button_text py-3 px-6 rounded-lg font-vat text-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="w-full bg-vat-purple hover:bg-vat-purple text-white py-3 px-6 rounded-lg font-vat text-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
                     {formStatus === 'sending' ? 'Bezig met verzenden...' : 'Verstuur bericht'}
                   </button>

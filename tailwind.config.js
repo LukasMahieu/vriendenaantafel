@@ -27,7 +27,7 @@ module.exports = {
           subtext: '#f9b479',           // Warm orange for accents
           linktext: '#67ab58',          // Fresh green for links
           button: '#67ab58',            // Fresh green for buttons
-          button_hover: '#a81a1a',      // Deep red for button hover
+          button_hover: '#f8ea48',      // Bright yellow for button hover
           button_text: '#ffffff',       // White text on buttons
         },
         primary: {

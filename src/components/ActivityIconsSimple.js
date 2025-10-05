@@ -8,21 +8,21 @@ const ActivityIconsSimple = () => {
   const activities = [
     {
       id: 'vrienden-aan-tafel',
-      title: 'Vrienden Aan Tafel',
+      title: 'Vrienden aan Tafel',
       description: 'Kok aan huis',
       imageSrc: '../data/images/act1.png',
       path: '/vrienden-aan-tafel',
     },
     {
       id: 'aan-tafel-in-neon',
-      title: 'Aan Tafel in NEON',
+      title: 'Aan Tafel in neon',
       description: 'Diner in het kookatelier',
       imageSrc: '../data/images/act2.png',
       path: '/aan-tafel-in-neon',
     },
     {
       id: 'koken-aan-tafel',
-      title: 'Workshop in Neon',
+      title: 'Workshop in neon',
       description: 'Samen koken in het kookatelier',
       imageSrc: '../data/images/act3.png',
       path: '/workshops-in-neon',
@@ -56,7 +56,7 @@ const ActivityIconsSimple = () => {
                     {activity.id === 'vrienden-aan-tafel' && (
                       <StaticImage
                         src="../data/images/act1.png"
-                        alt="Maïs - Vrienden Aan Tafel"
+                        alt="Maïs - Vrienden aan Tafel"
                         width={400}
                         objectFit="contain"
                         className="transform transition-all duration-300 group-hover:scale-110"
@@ -66,7 +66,7 @@ const ActivityIconsSimple = () => {
                     {activity.id === 'aan-tafel-in-neon' && (
                       <StaticImage
                         src="../data/images/act2.png"
-                        alt="Tomaat - Aan Tafel in NEON"
+                        alt="Tomaat - Aan Tafel in neon"
                         width={400}
                         objectFit="contain"
                         className="transform transition-all duration-300 group-hover:scale-110"

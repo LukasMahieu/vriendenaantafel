@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <header className="bg-white z-50">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <nav className="container mx-auto px-4 py-4 flex justify-between items-center max-w-screen-xl">
         {/* Logo */}
         <Link to="/#activities" className="flex items-center">
           <StaticImage
@@ -62,7 +62,7 @@ const Header = () => {
                     className="block px-4 py-3 text-vat-smalltext hover:text-vat-linktext hover:bg-gray-50 transition-colors duration-300"
                   >
                     <div>
-                      <div className="font-medium">Vrienden Aan Tafel</div>
+                      <div className="font-medium">Vrienden aan Tafel</div>
                       <div className="text-sm text-gray-500">Kok aan huis</div>
                     </div>
                   </Link>
@@ -71,7 +71,7 @@ const Header = () => {
                     className="block px-4 py-3 text-vat-smalltext hover:text-vat-linktext hover:bg-gray-50 transition-colors duration-300"
                   >
                     <div>
-                      <div className="font-medium">Aan Tafel in NEON</div>
+                      <div className="font-medium">Aan Tafel in neon</div>
                       <div className="text-sm text-gray-500">Diner in het kookatelier</div>
                     </div>
                   </Link>
@@ -80,13 +80,13 @@ const Header = () => {
                     className="block px-4 py-3 text-vat-smalltext hover:text-vat-linktext hover:bg-gray-50 transition-colors duration-300"
                   >
                     <div>
-                      <div className="font-medium">Workshop in Neon</div>
+                      <div className="font-medium">Workshop in neon</div>
                       <div className="text-sm text-gray-500">Samen koken in het kookatelier</div>
                     </div>
                   </Link>
                   <Link
                     to="/catering-op-maat"
-                    className="block px-4 py-3 text-vat-smalltext hover:text-vat-bigtext hover:bg-gray-50 transition-colors duration-300 rounded-b-lg"
+                    className="block px-4 py-3 text-vat-smalltext hover:text-vat-linktext hover:bg-gray-50 transition-colors duration-300 rounded-b-lg"
                   >
                     <div>
                       <div className="font-medium">Catering op maat</div>
@@ -123,16 +123,6 @@ const Header = () => {
               Contact
             </a>
           </li>
-          <li>
-            <a
-              href="https://www.instagram.com/vriendenaantafel/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-vat-purple hover:text-vat-yellow transition-colors duration-300 py-2 font-medium"
-            >
-              Instagram
-            </a>
-          </li>
         </ul>
 
         {/* Mobile Menu Button */}
@@ -161,41 +151,41 @@ const Header = () => {
           <div className="container mx-auto px-4 py-4">
             {/* Mobile Activiteiten Section */}
             <div className="mb-4">
-              <h3 className="text-lg font-vat text-vat-bigtext mb-3">Activiteiten</h3>
+              <h3 className="text-lg font-vat_smalltext text-vat-smalltext mb-3">Activiteiten</h3>
               <div className="space-y-2 pl-4">
                 <Link
                   to="/vrienden-aan-tafel"
-                  className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300"
+                  className="block py-2 text-vat-smalltext hover:text-vat-linktext transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <div>
-                    <div className="font-medium">Vrienden Aan Tafel</div>
+                    <div className="font-medium">Vrienden aan Tafel</div>
                     <div className="text-sm text-gray-500">Kok aan huis</div>
                   </div>
                 </Link>
                 <Link
                   to="/aan-tafel-in-neon"
-                  className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300"
+                  className="block py-2 text-vat-smalltext hover:text-vat-linktext transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <div>
-                    <div className="font-medium">Aan Tafel in NEON</div>
+                    <div className="font-medium">Aan Tafel in neon</div>
                     <div className="text-sm text-gray-500">Diner in het kookatelier</div>
                   </div>
                 </Link>
                 <Link
                   to="/workshops-in-neon"
-                  className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300"
+                  className="block py-2 text-vat-smalltext hover:text-vat-linktext transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <div>
-                    <div className="font-medium">Workshop in Neon</div>
+                    <div className="font-medium">Workshop in neon</div>
                     <div className="text-sm text-gray-500">Samen koken in het kookatelier</div>
                   </div>
                 </Link>
                 <Link
                   to="/catering-op-maat"
-                  className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300"
+                  className="block py-2 text-vat-smalltext hover:text-vat-linktext transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <div>
@@ -210,33 +200,24 @@ const Header = () => {
             <div className="space-y-2 border-t border-gray-100 pt-4">
               <a
                 href="/#over"
-                className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 font-vat_smalltext"
+                className="block py-2 text-vat-smalltext hover:text-vat-linktext transition-colors duration-300 font-vat_smalltext"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Over
               </a>
               <a
                 href="/#nieuws"
-                className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 font-vat_smalltext"
+                className="block py-2 text-vat-smalltext hover:text-vat-linktext transition-colors duration-300 font-vat_smalltext"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Nieuws
               </a>
               <a
                 href="/#contact"
-                className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 font-vat_smalltext"
+                className="block py-2 text-vat-smalltext hover:text-vat-linktext transition-colors duration-300 font-vat_smalltext"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Contact
-              </a>
-              <a
-                href="https://www.instagram.com/vriendenaantafel/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block py-2 text-vat-smalltext hover:text-vat-bigtext transition-colors duration-300 font-vat_smalltext"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Instagram
               </a>
             </div>
           </div>

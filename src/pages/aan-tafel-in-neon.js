@@ -28,7 +28,6 @@ export default function AanTafelInNeon() {
             image {
               childImageSharp {
                 gatsbyImageData(
-                  width: 600
                   height: 400
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
@@ -45,7 +44,6 @@ export default function AanTafelInNeon() {
             image {
               childImageSharp {
                 gatsbyImageData(
-                  width: 600
                   height: 400
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
@@ -63,7 +61,6 @@ export default function AanTafelInNeon() {
             image {
               childImageSharp {
                 gatsbyImageData(
-                  width: 600
                   height: 400
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
@@ -78,7 +75,6 @@ export default function AanTafelInNeon() {
             image {
               childImageSharp {
                 gatsbyImageData(
-                  width: 600
                   height: 400
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
@@ -92,7 +88,6 @@ export default function AanTafelInNeon() {
       vegetableIcon: file(relativePath: {eq: "act2.png"}) {
         childImageSharp {
           gatsbyImageData(
-            width: 120
             height: 120
             placeholder: BLURRED
             formats: [AUTO, WEBP, AVIF]
@@ -139,7 +134,7 @@ export default function AanTafelInNeon() {
   return (
     <Layout>
       <SEO
-        title={`${frontmatter?.title} - ${frontmatter?.subtitle}` || "Aan Tafel in NEON - Dineren in het kookatelier"}
+        title={`${frontmatter?.title} - ${frontmatter?.subtitle}` || "Aan Tafel in neon - Dineren in het kookatelier"}
         description="Dineer in ons sfeervolle kookatelier en ervaar een unieke culinaire avond"
         keywords="kookatelier, dineren, culinaire ervaring, Mechelen"
       />
@@ -156,16 +151,16 @@ export default function AanTafelInNeon() {
                   <div className="w-20 h-20 mr-4">
                     <GatsbyImage
                       image={vegetableIcon}
-                      alt="Tomaat - Aan Tafel in NEON"
-                      className="w-full h-full"
+                      alt="Tomaat - Aan Tafel in neon"
+                      className=""
                     />
                   </div>
                 )}
                 <div>
                   <h1 className="text-4xl md:text-5xl font-vat text-vat-bigtext mb-2">
-                    {frontmatter?.title || "Aan Tafel in NEON"}
+                    {frontmatter?.title || "Aan Tafel in neon"}
                   </h1>
-                  <h2 className="text-xl md:text-2xl font-vat_smalltext text-vat-subtext">
+                  <h2 className="text-xl md:text-2xl font-vat_smalltext text-vat-mediumtext">
                     {frontmatter?.subtitle || "Dineren in het kookatelier"}
                   </h2>
                 </div>
@@ -173,9 +168,12 @@ export default function AanTafelInNeon() {
 
               {/* Intro */}
               {frontmatter?.intro && (
-                <p className="text-lg font-vat_smalltext text-vat-smalltext leading-relaxed mb-8">
-                  {frontmatter.intro}
-                </p>
+                <p
+                  className="text-lg font-vat_smalltext text-vat-smalltext leading-relaxed mb-8"
+                  dangerouslySetInnerHTML={{
+                    __html: frontmatter.intro.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-vat-linktext hover:text-vat-subtext underline transition-colors duration-300">$1</a>')
+                  }}
+                />
               )}
 
             </div>
@@ -186,8 +184,8 @@ export default function AanTafelInNeon() {
                 <div className="w-80 h-80">
                   <GatsbyImage
                     image={featuredImage}
-                    alt={`${frontmatter?.title || "Aan Tafel in NEON"} - Sfeervolle kookatelier`}
-                    className="w-full h-full"
+                    alt={`${frontmatter?.title || "Aan Tafel in neon"} - Sfeervolle kookatelier`}
+                    className=""
                     objectFit="contain"
                   />
                 </div>
@@ -217,11 +215,11 @@ export default function AanTafelInNeon() {
               {/* Image - Right */}
               <div>
                 {mijnKeukenImage && (
-                  <div className="rounded-lg overflow-hidden shadow-lg">
+                  <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
                       image={mijnKeukenImage}
                       alt={frontmatter.mijn_keuken.title}
-                      className="w-full h-full"
+                      className=""
                       objectFit="contain"
                     />
                   </div>
@@ -257,11 +255,11 @@ export default function AanTafelInNeon() {
               {/* Image - Left */}
               <div className="order-2 lg:order-1">
                 {watVerwachtenImage && (
-                  <div className="rounded-lg overflow-hidden shadow-lg">
+                  <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
                       image={watVerwachtenImage}
                       alt={frontmatter.wat_verwachten.title}
-                      className="w-full h-full"
+                      className=""
                       objectFit="contain"
                     />
                   </div>
@@ -301,11 +299,11 @@ export default function AanTafelInNeon() {
               {/* Image - Right */}
               <div>
                 {prijzenImage && (
-                  <div className="rounded-lg overflow-hidden shadow-lg">
+                  <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
                       image={prijzenImage}
                       alt={frontmatter.prijzen.title}
-                      className="w-full h-full"
+                      className=""
                       objectFit="contain"
                     />
                   </div>
@@ -330,11 +328,11 @@ export default function AanTafelInNeon() {
               {/* Image - Left */}
               <div className="order-2 lg:order-1">
                 {reserverenImage && (
-                  <div className="rounded-lg overflow-hidden shadow-lg">
+                  <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
                       image={reserverenImage}
                       alt={frontmatter.reserveren.title}
-                      className="w-full h-full"
+                      className=""
                       objectFit="contain"
                     />
                   </div>
@@ -350,7 +348,7 @@ export default function AanTafelInNeon() {
       <div className="bg-white py-20">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="p-8">
-            <h3 className="text-xl font-vat text-vat-bigtext mb-6 text-center">Boek een Aan Tafel in NEON</h3>
+            <h3 className="text-xl font-vat text-vat-bigtext mb-6 text-center">Boek een Aan Tafel in neon</h3>
             <div id="calendar-container" className="min-h-96"></div>
           </div>
         </div>
