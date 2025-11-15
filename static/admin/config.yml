@@ -1,13 +1,11 @@
-# Production backend (GitHub)
+# Backend configuration (works for both production and local development)
 backend:
   name: github
   repo: LukasMahieu/vriendenaantafel
   branch: master
 
-# Local development backend (uncomment these 3 lines and comment the above 3 lines for local development)
-# backend:
-#   name: proxy
-#   proxy_url: http://localhost:8081/api/v1
+# Automatically use local proxy when running 'npx decap-server' for development
+local_backend: true
 
 media_folder: src/data/images
 public_folder: ../../images
@@ -98,46 +96,19 @@ collections:
         fields:
           - { label: 'Titel', name: 'title', widget: 'string', default: 'Wat mag je verwachten?' }
           - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
-          - { label: 'Item 1', name: 'item1', widget: 'string', default: '3-gangen verrassingsmenu op basis van de seizoenen' }
-          - { label: 'Item 2', name: 'item2', widget: 'string', default: 'Opkuis van de keuken inbegrepen' }
-          - { label: 'Item 3', name: 'item3', widget: 'string', default: 'Basis formule voor 45 euro per persoon' }
+          - { label: 'Item 1', name: 'item1', widget: 'markdown', default: '3-gangen verrassingsmenu op basis van de seizoenen' }
+          - { label: 'Item 2', name: 'item2', widget: 'markdown', default: 'Opkuis van de keuken inbegrepen' }
+          - { label: 'Item 3', name: 'item3', widget: 'markdown', default: 'Basis formule voor 45 euro per persoon' }
 
-      # Prijzen Section
-      - label: 'Prijzen'
-        name: 'prijzen'
+      # Praktisch Section
+      - label: 'Praktisch'
+        name: 'praktisch'
         widget: 'object'
         required: false
         fields:
-          - { label: 'Titel', name: 'title', widget: 'string', default: 'Prijzen' }
+          - { label: 'Titel', name: 'title', widget: 'string', default: 'Praktisch' }
           - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
-          - { label: 'Menu Prijs', name: 'menu_price', widget: 'string', default: 'Verrassingsmenu 3-gangen = 45 euro per persoon' }
-          - { label: 'Non-alcoholische pairing', name: 'non_alcoholic_price', widget: 'string', default: 'Non-alcoholische pairing (denk infusies, sappen en gefermenteerde dranken) = 19 euro per persoon' }
-          - { label: 'Alcoholische pairing', name: 'alcoholic_price', widget: 'string', default: 'Alcoholische pairing = 29 euro per persoon' }
-          - { label: 'Avontuurlijke pairing', name: 'luxury_option', widget: 'string', default: 'Avontuurlijke alcoholische pairing (denk geuze, cider en levendige wijnen) = 35 euro per persoon' }
-          - { label: 'Servies optie', name: 'servies_option', widget: 'string', default: 'Servies, glazen en bestek = 5 euro per persoon' }
-
-      # Hoe werkt het Section
-      - label: 'Hoe werkt het'
-        name: 'hoe_werkt_het'
-        widget: 'object'
-        required: false
-        fields:
-          - { label: 'Titel', name: 'title', widget: 'string', default: 'Hoe werkt het?' }
-          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
-          - { label: 'Stap 1', name: 'step1', widget: 'string', default: 'Kies een datum dat nog vrij is in de agenda hieronder' }
-          - { label: 'Stap 2', name: 'step2', widget: 'string', default: 'Geef alle informatie mee bij het reserveren' }
-          - { label: 'Stap 3', name: 'step3', widget: 'string', default: 'Wacht op een bevestiging via mail' }
-          - { label: 'Stap 4', name: 'step4', widget: 'string', default: 'Heb een heerlijk diner bij thuis!' }
-
-      # Voorwaarden Section
-      - label: 'Voorwaarden'
-        name: 'voorwaarden'
-        widget: 'object'
-        required: false
-        fields:
-          - { label: 'Titel', name: 'title', widget: 'string', default: 'Voorwaarden' }
-          - { label: 'Voorwaarde 1', name: 'condition1', widget: 'string', default: 'Van 8 tot 14 personen' }
-          - { label: 'Voorwaarde 2', name: 'condition2', widget: 'text', default: 'Binnen de straal van 10 km, vanaf Leermarkt 24 in Mechelen, is er geen vervoerskost. Vanaf meer dan 10km is er een standaardtarief van 10 euro met een verhoging van 1 euro met elke km die erbij komt.' }
+          - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
 
   # Aan Tafel in NEON - Special structured content
   - name: 'aan-tafel-in-neon-content'
@@ -171,9 +142,9 @@ collections:
         fields:
           - { label: 'Titel', name: 'title', widget: 'string', default: 'Wat mag je verwachten?' }
           - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
-          - { label: 'Item 1', name: 'item1', widget: 'string', default: '3-gangen menu geïnspireerd door de producten van het moment' }
-          - { label: 'Item 2', name: 'item2', widget: 'string', default: 'Aperitief en aangepaste dranken' }
-          - { label: 'Item 3', name: 'item3', widget: 'string', default: 'Een lange tafel om samen te genieten van de avond' }
+          - { label: 'Item 1', name: 'item1', widget: 'markdown', default: '3-gangen menu geïnspireerd door de producten van het moment' }
+          - { label: 'Item 2', name: 'item2', widget: 'markdown', default: 'Aperitief en aangepaste dranken' }
+          - { label: 'Item 3', name: 'item3', widget: 'markdown', default: 'Een lange tafel om samen te genieten van de avond' }
 
       # Prijzen Section
       - label: 'Prijzen'
@@ -183,10 +154,8 @@ collections:
         fields:
           - { label: 'Titel', name: 'title', widget: 'string', default: 'Prijzen' }
           - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
-          - { label: 'Menu Prijs', name: 'menu_price', widget: 'string', default: 'Menu = 50 euro per persoon' }
-          - { label: 'Non-alcoholische pairing', name: 'non_alcoholic_price', widget: 'string', default: 'Non-alcoholische pairing = 19 euro per persoon' }
-          - { label: 'Basis alcoholische pairing', name: 'basic_alcoholic_price', widget: 'string', default: 'Basis alcoholische pairing = 29 euro per persoon' }
-          - { label: 'Avontuurlijke alcoholische pairing', name: 'adventurous_alcoholic_price', widget: 'string', default: 'Avontuurlijke alcoholische pairing (denk geuze, cider en levendige wijnen) = 35 euro per persoon' }
+          - { label: 'Menu Prijs', name: 'menu_price', widget: 'markdown', default: 'Menu = 50 euro per persoon' }
+          - { label: 'Dranken Beschrijving', name: 'drinks_description', widget: 'markdown', default: 'Er is een selectie aan lekkere (non-)alcoholische dranken aan schappelijke prijzen waaruit je de avond zelf kan kiezen.' }
 
       # Reserveren Section
       - label: 'Reserveren'
@@ -213,6 +182,16 @@ collections:
       - { label: 'Featured Image', name: 'image', widget: 'image' }
       - { label: 'Introductie', name: 'intro', widget: 'markdown', required: false, hint: 'Korte introductie tekst bovenaan de pagina' }
 
+      # Gallery Images (before Hoe ziet een Workshop eruit)
+      - label: 'Galerij Afbeeldingen'
+        name: 'gallery_images'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Afbeelding Links', name: 'image_left', widget: 'image', required: false }
+          - { label: 'Afbeelding Midden', name: 'image_center', widget: 'image', required: false }
+          - { label: 'Afbeelding Rechts', name: 'image_right', widget: 'image', required: false }
+
       # Hoe ziet een Workshop eruit Section
       - label: 'Hoe ziet een Workshop eruit'
         name: 'hoe_ziet_uit'
@@ -222,16 +201,6 @@ collections:
           - { label: 'Titel', name: 'title', widget: 'string', default: 'Hoe ziet een Workshop eruit?' }
           - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
 
-      # Prijzen Section
-      - label: 'Prijzen'
-        name: 'prijzen'
-        widget: 'object'
-        required: false
-        fields:
-          - { label: 'Titel', name: 'title', widget: 'string', default: 'Prijzen' }
-          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
-          - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
-
       # Voorwaarden Section
       - label: 'Voorwaarden'
         name: 'voorwaarden'
@@ -239,6 +208,7 @@ collections:
         required: false
         fields:
           - { label: 'Titel', name: 'title', widget: 'string', default: 'Voorwaarden' }
+          - { label: 'Afbeelding', name: 'image', widget: 'image', required: false }
           - { label: 'Beschrijving', name: 'description', widget: 'markdown' }
 
   # Catering op maat - Special structured content

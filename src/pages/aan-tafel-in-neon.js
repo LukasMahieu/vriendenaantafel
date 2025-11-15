@@ -3,6 +3,7 @@ import Layout from '../components/layout/Layout';
 import SEO from '../components/SEO';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import StyledMarkdown from '../components/StyledMarkdown';
 
 export default function AanTafelInNeon() {
   // Query for structured CMS content
@@ -55,9 +56,7 @@ export default function AanTafelInNeon() {
           prijzen {
             title
             menu_price
-            non_alcoholic_price
-            basic_alcoholic_price
-            adventurous_alcoholic_price
+            drinks_description
             image {
               childImageSharp {
                 gatsbyImageData(
@@ -168,12 +167,9 @@ export default function AanTafelInNeon() {
 
               {/* Intro */}
               {frontmatter?.intro && (
-                <p
-                  className="text-lg font-vat_smalltext text-vat-smalltext leading-relaxed mb-8"
-                  dangerouslySetInnerHTML={{
-                    __html: frontmatter.intro.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-vat-linktext hover:text-vat-subtext underline transition-colors duration-300">$1</a>')
-                  }}
-                />
+                <div className="text-lg font-vat_smalltext text-vat-smalltext leading-relaxed mb-8">
+                  <StyledMarkdown>{frontmatter.intro}</StyledMarkdown>
+                </div>
               )}
 
             </div>
@@ -208,7 +204,7 @@ export default function AanTafelInNeon() {
                   {frontmatter.mijn_keuken.title}
                 </h2>
                 <div className="space-y-6 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
-                  <p>{frontmatter.mijn_keuken.description}</p>
+                  <StyledMarkdown>{frontmatter.mijn_keuken.description}</StyledMarkdown>
                 </div>
               </div>
 
@@ -239,15 +235,15 @@ export default function AanTafelInNeon() {
                 <div className="space-y-4 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
                   <div className="flex items-start">
                     <span className="text-vat-green mr-3 mt-1">•</span>
-                    <span>{frontmatter.wat_verwachten.item1}</span>
+                    <span><StyledMarkdown>{frontmatter.wat_verwachten.item1}</StyledMarkdown></span>
                   </div>
                   <div className="flex items-start">
                     <span className="text-vat-green mr-3 mt-1">•</span>
-                    <span>{frontmatter.wat_verwachten.item2}</span>
+                    <span><StyledMarkdown>{frontmatter.wat_verwachten.item2}</StyledMarkdown></span>
                   </div>
                   <div className="flex items-start">
                     <span className="text-vat-green mr-3 mt-1">•</span>
-                    <span>{frontmatter.wat_verwachten.item3}</span>
+                    <span><StyledMarkdown>{frontmatter.wat_verwachten.item3}</StyledMarkdown></span>
                   </div>
                 </div>
               </div>
@@ -277,22 +273,8 @@ export default function AanTafelInNeon() {
                   {frontmatter.prijzen.title}
                 </h2>
                 <div className="space-y-4 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
-                  <div className="flex items-start">
-                    <span className="text-vat-green mr-3 mt-1">•</span>
-                    <span>{frontmatter.prijzen.menu_price}</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-vat-green mr-3 mt-1">•</span>
-                    <span>{frontmatter.prijzen.non_alcoholic_price}</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-vat-green mr-3 mt-1">•</span>
-                    <span>{frontmatter.prijzen.basic_alcoholic_price}</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-vat-green mr-3 mt-1">•</span>
-                    <span>{frontmatter.prijzen.adventurous_alcoholic_price}</span>
-                  </div>
+                  <StyledMarkdown>{frontmatter.prijzen.menu_price}</StyledMarkdown>
+                  <StyledMarkdown>{frontmatter.prijzen.drinks_description}</StyledMarkdown>
                 </div>
               </div>
 
@@ -321,7 +303,7 @@ export default function AanTafelInNeon() {
                   {frontmatter.reserveren.title}
                 </h2>
                 <div className="space-y-6 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
-                  <p>{frontmatter.reserveren.description}</p>
+                  <StyledMarkdown>{frontmatter.reserveren.description}</StyledMarkdown>
                 </div>
               </div>
 

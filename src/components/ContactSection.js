@@ -45,7 +45,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="pt-48 pb-32 bg-white">
+    <section id="contact" className="pt-48 pb-32 bg-white scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}

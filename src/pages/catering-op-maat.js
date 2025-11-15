@@ -3,6 +3,7 @@ import Layout from '../components/layout/Layout';
 import SEO from '../components/SEO';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import StyledMarkdown from '../components/StyledMarkdown';
 
 export default function CateringOpMaat() {
   // Query for structured CMS content
@@ -116,9 +117,9 @@ export default function CateringOpMaat() {
 
               {/* Intro */}
               {frontmatter?.intro && (
-                <p className="text-lg font-vat_smalltext text-vat-smalltext leading-relaxed mb-8">
-                  {frontmatter.intro}
-                </p>
+                <div className="text-lg font-vat_smalltext text-vat-smalltext leading-relaxed mb-8">
+                  <StyledMarkdown>{frontmatter.intro}</StyledMarkdown>
+                </div>
               )}
             </div>
 
@@ -151,8 +152,8 @@ export default function CateringOpMaat() {
                 <h2 className="text-3xl md:text-4xl font-vat text-vat-red mb-6">
                   {frontmatter.mijn_keuken.title}
                 </h2>
-                <div className="font-vat_smalltext text-vat-smalltext text-lg leading-relaxed whitespace-pre-line">
-                  {frontmatter.mijn_keuken.description}
+                <div className="font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
+                  <StyledMarkdown>{frontmatter.mijn_keuken.description}</StyledMarkdown>
                 </div>
               </div>
 
@@ -217,8 +218,8 @@ export default function CateringOpMaat() {
               <h2 className="text-3xl md:text-4xl font-vat text-vat-red mb-6">
                 {frontmatter.offerte_aanvragen.title}
               </h2>
-              <div className="font-vat_smalltext text-vat-smalltext text-lg leading-relaxed whitespace-pre-line mb-8">
-                {frontmatter.offerte_aanvragen.description}
+              <div className="font-vat_smalltext text-vat-smalltext text-lg leading-relaxed mb-8">
+                <StyledMarkdown>{frontmatter.offerte_aanvragen.description}</StyledMarkdown>
               </div>
 
               {/* Contact Button */}

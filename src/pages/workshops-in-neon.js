@@ -3,6 +3,7 @@ import Layout from '../components/layout/Layout';
 import SEO from '../components/SEO';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import StyledMarkdown from '../components/StyledMarkdown';
 
 export default function WorkshopsInNeon() {
   // Query for structured CMS content
@@ -22,11 +23,43 @@ export default function WorkshopsInNeon() {
               )
             }
           }
+          gallery_images {
+            image_left {
+              childImageSharp {
+                gatsbyImageData(
+                  height: 400
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                  quality: 90
+                )
+              }
+            }
+            image_center {
+              childImageSharp {
+                gatsbyImageData(
+                  height: 400
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                  quality: 90
+                )
+              }
+            }
+            image_right {
+              childImageSharp {
+                gatsbyImageData(
+                  height: 400
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                  quality: 90
+                )
+              }
+            }
+          }
           hoe_ziet_uit {
             title
             description
           }
-          prijzen {
+          voorwaarden {
             title
             description
             image {
@@ -39,10 +72,6 @@ export default function WorkshopsInNeon() {
                 )
               }
             }
-          }
-          voorwaarden {
-            title
-            description
           }
         }
       }
@@ -65,8 +94,13 @@ export default function WorkshopsInNeon() {
   const frontmatter = markdownData?.frontmatter;
   const featuredImage = frontmatter?.image ? getImage(frontmatter.image) : null;
 
-  // Get images for sections
-  const prijzenImage = frontmatter?.prijzen?.image ? getImage(frontmatter.prijzen.image) : null;
+  // Get gallery images
+  const galleryImageLeft = frontmatter?.gallery_images?.image_left ? getImage(frontmatter.gallery_images.image_left) : null;
+  const galleryImageCenter = frontmatter?.gallery_images?.image_center ? getImage(frontmatter.gallery_images.image_center) : null;
+  const galleryImageRight = frontmatter?.gallery_images?.image_right ? getImage(frontmatter.gallery_images.image_right) : null;
+
+  // Get voorwaarden image
+  const voorwaardenImage = frontmatter?.voorwaarden?.image ? getImage(frontmatter.voorwaarden.image) : null;
 
   // Load calendar script
   useEffect(() => {
@@ -126,9 +160,9 @@ export default function WorkshopsInNeon() {
 
               {/* Intro */}
               {frontmatter?.intro && (
-                <p className="text-lg font-vat_smalltext text-vat-smalltext leading-relaxed mb-8">
-                  {frontmatter.intro}
-                </p>
+                <div className="text-lg font-vat_smalltext text-vat-smalltext leading-relaxed mb-8">
+                  <StyledMarkdown>{frontmatter.intro}</StyledMarkdown>
+                </div>
               )}
             </div>
 
@@ -153,172 +187,191 @@ export default function WorkshopsInNeon() {
       <div className="bg-white py-20">
         <div className="container mx-auto px-4 max-w-6xl space-y-24">
 
+          {/* Gallery Images - Three side by side */}
+          {(galleryImageLeft || galleryImageCenter || galleryImageRight) && (
+            <div className="grid md:grid-cols-3 gap-8">
+              {galleryImageLeft && (
+                <div className="overflow-hidden flex justify-center">
+                  <GatsbyImage
+                    image={galleryImageLeft}
+                    alt="Workshop galerij afbeelding"
+                    className=""
+                  />
+                </div>
+              )}
+              {galleryImageCenter && (
+                <div className="overflow-hidden flex justify-center">
+                  <GatsbyImage
+                    image={galleryImageCenter}
+                    alt="Workshop galerij afbeelding"
+                    className=""
+                  />
+                </div>
+              )}
+              {galleryImageRight && (
+                <div className="overflow-hidden flex justify-center">
+                  <GatsbyImage
+                    image={galleryImageRight}
+                    alt="Workshop galerij afbeelding"
+                    className=""
+                  />
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Hoe ziet een Workshop eruit Section - Centered Text */}
           {frontmatter?.hoe_ziet_uit && (
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-vat text-vat-red mb-6">
                 {frontmatter.hoe_ziet_uit.title}
               </h2>
-              <div
-                className="font-vat_smalltext text-vat-smalltext text-lg leading-relaxed"
-                dangerouslySetInnerHTML={{
-                  __html: frontmatter.hoe_ziet_uit.description.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-vat-linktext hover:text-vat-subtext underline transition-colors duration-300">$1</a>')
-                }}
-              />
+              <div className="font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
+                <StyledMarkdown>{frontmatter.hoe_ziet_uit.description}</StyledMarkdown>
+              </div>
             </div>
           )}
 
           {/* Prijzen Section - Three blocks side by side */}
-          {frontmatter?.prijzen && (
-            <div>
-              <h2 className="text-3xl md:text-4xl font-vat text-vat-red mb-12 text-center">
-                {frontmatter.prijzen.title}
-              </h2>
+          <div>
+            <h2 className="text-3xl md:text-4xl font-vat text-vat-red mb-12 text-center">
+              Prijzen
+            </h2>
 
-              <div className="grid md:grid-cols-3 gap-12">
-                {/* Hele dag option */}
-                <div className="bg-white p-8 rounded-xl shadow-soft border border-gray-100">
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl font-vat text-vat-green mb-3">
-                      Hele dag
-                    </h3>
-                    <p className="text-lg font-vat_smalltext text-vat-smalltext">
-                      14u-22u
-                    </p>
-                    <p className="text-2xl font-vat text-vat-bigtext mt-2">
-                      85 euro pp
-                    </p>
-                  </div>
+            <div className="grid md:grid-cols-3 gap-12">
+              {/* Hele dag option */}
+              <div className="bg-white p-8 rounded-xl shadow-soft border border-gray-100">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-vat text-vat-green mb-3">
+                    Hele dag
+                  </h3>
+                  <p className="text-lg font-vat_smalltext text-vat-smalltext">
+                    14u-22u
+                  </p>
+                  <p className="text-2xl font-vat text-vat-bigtext mt-2">
+                    85 euro pp
+                  </p>
+                </div>
 
-                  <div className="border-t border-gray-200 pt-6">
-                    <p className="font-vat text-vat-mediumtext mb-4 text-center text-lg">
-                      Inbegrepen:
-                    </p>
-                    <div className="space-y-3">
-                      <div className="flex items-center">
-                        <span className="text-vat-green mr-4 text-lg">•</span>
-                        <span className="font-vat_smalltext text-vat-smalltext text-base">veldbezoek</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="text-vat-green mr-4 text-lg">•</span>
-                        <span className="font-vat_smalltext text-vat-smalltext text-base">drankje brughuis</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="text-vat-green mr-4 text-lg">•</span>
-                        <span className="font-vat_smalltext text-vat-smalltext text-base">workshop</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="text-vat-green mr-4 text-lg">•</span>
-                        <span className="font-vat_smalltext text-vat-smalltext text-base">diner</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="text-vat-green mr-4 text-lg">•</span>
-                        <span className="font-vat_smalltext text-vat-smalltext text-base">water/thee/koffie</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="text-vat-green mr-4 text-lg">•</span>
-                        <span className="font-vat_smalltext text-vat-smalltext text-base">aperitief</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="text-vat-green mr-4 text-lg">•</span>
-                        <span className="font-vat_smalltext text-vat-smalltext text-base">1 drankje</span>
-                      </div>
+                <div className="border-t border-gray-200 pt-6">
+                  <p className="font-vat text-vat-mediumtext mb-4 text-center text-lg">
+                    Inbegrepen:
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <span className="text-vat-green mr-4 text-lg">•</span>
+                      <span className="font-vat_smalltext text-vat-smalltext text-base">veldbezoek</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-vat-green mr-4 text-lg">•</span>
+                      <span className="font-vat_smalltext text-vat-smalltext text-base">drankje brughuis</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-vat-green mr-4 text-lg">•</span>
+                      <span className="font-vat_smalltext text-vat-smalltext text-base">workshop</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-vat-green mr-4 text-lg">•</span>
+                      <span className="font-vat_smalltext text-vat-smalltext text-base">diner</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-vat-green mr-4 text-lg">•</span>
+                      <span className="font-vat_smalltext text-vat-smalltext text-base">water/thee/koffie</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-vat-green mr-4 text-lg">•</span>
+                      <span className="font-vat_smalltext text-vat-smalltext text-base">aperitief</span>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Avond option */}
-                <div className="bg-white p-8 rounded-xl shadow-soft border border-gray-100">
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl font-vat text-vat-green mb-3">
-                      Avond
-                    </h3>
-                    <p className="text-lg font-vat_smalltext text-vat-smalltext">
-                      17u - 22u
-                    </p>
-                    <p className="text-2xl font-vat text-vat-bigtext mt-2">
-                      65 euro pp
-                    </p>
-                  </div>
+              {/* Avond option */}
+              <div className="bg-white p-8 rounded-xl shadow-soft border border-gray-100">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-vat text-vat-green mb-3">
+                    Avond
+                  </h3>
+                  <p className="text-lg font-vat_smalltext text-vat-smalltext">
+                    17u - 22u
+                  </p>
+                  <p className="text-2xl font-vat text-vat-bigtext mt-2">
+                    65 euro pp
+                  </p>
+                </div>
 
-                  <div className="border-t border-gray-200 pt-6">
-                    <p className="font-vat text-vat-mediumtext mb-4 text-center text-lg">
-                      Inbegrepen:
-                    </p>
-                    <div className="space-y-3">
-                      <div className="flex items-center">
-                        <span className="text-vat-green mr-4 text-lg">•</span>
-                        <span className="font-vat_smalltext text-vat-smalltext text-base">workshop</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="text-vat-green mr-4 text-lg">•</span>
-                        <span className="font-vat_smalltext text-vat-smalltext text-base">diner</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="text-vat-green mr-4 text-lg">•</span>
-                        <span className="font-vat_smalltext text-vat-smalltext text-base">water/thee/koffie</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="text-vat-green mr-4 text-lg">•</span>
-                        <span className="font-vat_smalltext text-vat-smalltext text-base">aperitief</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="text-vat-green mr-4 text-lg">•</span>
-                        <span className="font-vat_smalltext text-vat-smalltext text-base">1 drankje</span>
-                      </div>
+                <div className="border-t border-gray-200 pt-6">
+                  <p className="font-vat text-vat-mediumtext mb-4 text-center text-lg">
+                    Inbegrepen:
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <span className="text-vat-green mr-4 text-lg">•</span>
+                      <span className="font-vat_smalltext text-vat-smalltext text-base">workshop</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-vat-green mr-4 text-lg">•</span>
+                      <span className="font-vat_smalltext text-vat-smalltext text-base">diner</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-vat-green mr-4 text-lg">•</span>
+                      <span className="font-vat_smalltext text-vat-smalltext text-base">water/thee/koffie</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-vat-green mr-4 text-lg">•</span>
+                      <span className="font-vat_smalltext text-vat-smalltext text-base">aperitief</span>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Fiets option */}
-                <div className="bg-white p-8 rounded-xl shadow-soft border border-gray-100 h-fit">
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl font-vat text-vat-green mb-3">
-                      Fiets
-                    </h3>
-                    <p className="text-lg font-vat_smalltext text-vat-smalltext">
-                      14u-17u
-                    </p>
-                    <p className="text-2xl font-vat text-vat-bigtext mt-2">
-                      25 euro pp
-                    </p>
-                  </div>
+              {/* Fiets option */}
+              <div className="bg-white p-8 rounded-xl shadow-soft border border-gray-100 h-fit">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-vat text-vat-green mb-3">
+                    Fiets
+                  </h3>
+                  <p className="text-lg font-vat_smalltext text-vat-smalltext">
+                    14u-17u
+                  </p>
+                  <p className="text-2xl font-vat text-vat-bigtext mt-2">
+                    25 euro pp
+                  </p>
+                </div>
 
-                  <div className="border-t border-gray-200 pt-6">
-                    <p className="font-vat_smalltext text-vat-smalltext text-center text-base leading-relaxed">
-                      Lukt het niet om zelf met de fiets deel te nemen aan de workshop? Huur dan een fiets via Aan Tafel om deel te nemen aan de workshop vanaf 14u.
-                    </p>
-                  </div>
+                <div className="border-t border-gray-200 pt-6">
+                  <p className="font-vat_smalltext text-vat-smalltext text-center text-base leading-relaxed">
+                    Lukt het niet om zelf met de fiets deel te nemen aan de workshop? Huur dan een fiets via Aan Tafel om deel te nemen aan de workshop vanaf 14u.
+                  </p>
                 </div>
               </div>
             </div>
-          )}
+          </div>
 
-          {/* Voorwaarden Section - Text with Image */}
+          {/* Voorwaarden Section */}
           {frontmatter?.voorwaarden && (
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Text Content - Left */}
-              <div>
-                <h2 className="text-3xl md:text-4xl font-vat text-vat-red mb-6">
-                  {frontmatter.voorwaarden.title}
-                </h2>
-                <div className="font-vat_smalltext text-vat-smalltext text-lg leading-relaxed whitespace-pre-line">
-                  {frontmatter.voorwaarden.description}
-                </div>
-              </div>
-
-              {/* Image - Right */}
-              <div>
-                {prijzenImage && (
+              {/* Image - Left side */}
+              <div className="order-2 lg:order-1">
+                {voorwaardenImage && (
                   <div className="overflow-hidden flex justify-center">
                     <GatsbyImage
-                      image={prijzenImage}
-                      alt="Workshops in neon"
+                      image={voorwaardenImage}
+                      alt={frontmatter.voorwaarden.title}
                       className=""
-                      objectFit="contain"
                     />
                   </div>
                 )}
+              </div>
+
+              {/* Text Content - Right side */}
+              <div className="order-1 lg:order-2">
+                <h2 className="text-3xl md:text-4xl font-vat text-vat-red mb-6">
+                  {frontmatter.voorwaarden.title}
+                </h2>
+                <div className="font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
+                  <StyledMarkdown>{frontmatter.voorwaarden.description}</StyledMarkdown>
+                </div>
               </div>
             </div>
           )}

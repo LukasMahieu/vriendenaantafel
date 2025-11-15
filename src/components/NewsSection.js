@@ -105,7 +105,7 @@ const NewsSection = () => {
   }, [selectedArticle]);
 
   return (
-    <section id="nieuws" className="pt-48 pb-32 bg-white">
+    <section id="nieuws" className="pt-48 pb-32 bg-white scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -312,7 +312,15 @@ const NewsSection = () => {
 
               {/* Article Body */}
               <div
-                className="font-vat_smalltext text-vat-smalltext leading-relaxed"
+                className="font-vat_smalltext text-vat-smalltext leading-relaxed prose prose-lg max-w-none
+                  prose-headings:font-vat prose-headings:text-vat-purple
+                  prose-p:text-vat-smalltext prose-p:mb-4
+                  prose-a:text-vat-linktext prose-a:underline hover:prose-a:text-vat-subtext prose-a:transition-colors
+                  prose-strong:text-vat-green prose-strong:font-semibold
+                  prose-ul:list-disc prose-ul:ml-6 prose-ul:mb-4
+                  prose-ol:list-decimal prose-ol:ml-6 prose-ol:mb-4
+                  prose-li:text-vat-smalltext prose-li:mb-2
+                  prose-img:rounded-lg prose-img:shadow-md"
                 dangerouslySetInnerHTML={{ __html: selectedArticle.content }}
               />
             </div>

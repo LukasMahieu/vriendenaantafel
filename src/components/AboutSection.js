@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import StyledMarkdown from './StyledMarkdown';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -89,13 +90,7 @@ const AboutSection = () => {
                 </h2>
 
                 <div className="space-y-6 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
-                  {frontmatter.intro_content.split('\n\n').map((paragraph, index) => (
-                    <p key={index} dangerouslySetInnerHTML={{
-                      __html: paragraph
-                        .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-vat-green">$1</strong>')
-                        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-vat-linktext hover:text-vat-subtext underline transition-colors duration-300">$1</a>')
-                    }} />
-                  ))}
+                  <StyledMarkdown>{frontmatter.intro_content}</StyledMarkdown>
                 </div>
               </div>
 
@@ -126,23 +121,7 @@ const AboutSection = () => {
                 </h2>
 
                 <div className="space-y-6 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
-                  {frontmatter.visie_content && frontmatter.visie_content.split('\n\n').map((paragraph, index) => {
-                    if (paragraph.trim().startsWith('*')) {
-                      // Handle bullet points
-                      const items = paragraph.split('\n').filter(item => item.trim().startsWith('*'));
-                      return (
-                        <ul key={index} className="space-y-2">
-                          {items.map((item, itemIndex) => (
-                            <li key={itemIndex} className="flex items-start">
-                              <span className="text-vat-green mr-2">•</span>
-                              <span>{item.replace(/^\*\s*/, '')}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      );
-                    }
-                    return <p key={index}>{paragraph}</p>;
-                  })}
+                  <StyledMarkdown>{frontmatter.visie_content}</StyledMarkdown>
                 </div>
               </div>
 
@@ -175,14 +154,7 @@ const AboutSection = () => {
                 </h2>
 
                 <div className="space-y-6 font-vat_smalltext text-vat-smalltext text-lg leading-relaxed">
-                  {frontmatter.keuken_content && frontmatter.keuken_content.split('\n\n').map((paragraph, index) => (
-                    <p
-                      key={index}
-                      dangerouslySetInnerHTML={{
-                        __html: paragraph.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-vat-linktext hover:text-vat-subtext underline transition-colors duration-300">$1</a>')
-                      }}
-                    />
-                  ))}
+                  <StyledMarkdown>{frontmatter.keuken_content}</StyledMarkdown>
                 </div>
               </div>
 

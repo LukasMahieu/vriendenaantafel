@@ -19,29 +19,23 @@ wat_verwachten:
   item1: 3-gangen verrassingsmenu op basis van de seizoenen
   item2: De afwas van al het keukengerei en de keuken spic en span op het einde
     van de avond
-  item3: Keuze om de avond te vervolledigen met aangepaste dranken of huur glazen
-    en servies
-prijzen:
-  title: Prijzen
-  image: ../../images/whatsapp-image-2025-10-05-at-18.26.32-2-.jpeg
-  menu_price: "Verrassingsmenu 3-gangen: 50 euro per persoon"
-  alcoholic_price: "N﻿on-alcoholische pairing (denk infusies, sappen en
-    gefermenteerde dranken): 19 euro per persoon"
-  non_alcoholic_price: "Alcoholische pairing: 29 euro per persoon"
-  luxury_option: "A﻿vontuurlijke alcoholische pairing (denk geuze, cider en
-    levendige wijnen): 35 euro per persoon"
-  servies_option: "Huur servies, glazen en bestek: 5 euro per persoon"
-hoe_werkt_het:
-  title: Hoe werkt het?
+  item3: Keuze om de avond te vervolledigen met lekkere dranken of huur glazen en
+    servies
+praktisch:
+  title: Praktisch
   image: ../../images/whatsapp-image-2025-10-05-at-18.26.32.jpeg
-  step1: Kies een datum die nog vrij is in de agenda hieronder
-  step2: Geef alle informatie mee bij het reserveren
-  step3: Wacht op een bevestiging via mail
-  step4: Krijg een heerlijk diner bij jouw thuis!
-voorwaarden:
-  title: Voorwaarden
-  condition1: Van 8 tot 14 personen
-  condition2: Binnen de straal van 10 km, vanaf Leermarkt 24 in Mechelen, is er
-    geen vervoerskost. Vanaf meer dan 10 km is er een standaardtarief van 10
-    euro met een verhoging van 1 euro met elke km die erbij komt.
+  description: >-
+    
+
+    * Reservaties kunnen voor groepen van 8 tot 14 personen
+
+
+    * Bij reservatie betaal je 30% voorschot
+
+      *Ik werk met een voorschot om de reservatie te bevestigen en om laattijdige annulatie te dekken. Je kan tot vijf dagen voor de reservatie kosteloos annuleren.*
+
+    * Kies één van de beschikbare data in de agenda-tool hieronder.
+
+
+    * Binnen de straal van 10 km, vanaf Leermarkt 24 in Mechelen, is er geen vervoerskost. Vanaf meer dan 10 km is er een standaardtarief van 10 euro met een verhoging van 1 euro met elke km die erbij komt.
 ---
