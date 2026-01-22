@@ -14,7 +14,7 @@ mijn_keuken:
     maken. Mijn gerechten zijn puur, fris en proberen steeds te verrassen.
 voorwaarden:
   title: Praktisch
-  image: ../../images/whatsapp-image-2025-09-27-at-00.13.20-5-.jpeg
+  image: ../../images/dsc_5179.jpg
   description: |-
     * Minimum 10 personen
     * Binnen een straal van 10km van Mechelen
