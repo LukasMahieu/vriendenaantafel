@@ -1,5 +1,5 @@
 ---
-title: Resto Weekend 19 & 20 december
+title: Open Resto 19 & 20 december
 date: 2025-12-09T17:46:00.000+01:00
 summary: >-
   Aan Tafel voor iedereen!
