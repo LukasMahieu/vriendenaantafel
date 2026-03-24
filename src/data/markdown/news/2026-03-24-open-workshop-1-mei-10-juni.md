@@ -4,6 +4,7 @@ date: 2026-03-24T14:16:00.000+01:00
 summary: |-
   Kom mee koken in het atelier! 
   Kies voor de dag + avond workshop op 1 mei of de avond workshop op 10 juni.
+image: ../../images/bart-lenaerts-aan-tafel-29.jpg
 ---
 
 Welkom op de eerste Open Workshops bij Aan Tafel!
