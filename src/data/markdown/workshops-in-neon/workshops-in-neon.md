@@ -23,6 +23,9 @@ hoe_ziet_uit:
 
 
     Rond 17u komen we terug aan bij het atelier en gaan we aan de slag. We koken samen een drie gangen menu waar ik alle technieken die we gebruiken uitleg en toon hoe een gerecht op te bouwen met de dingen die voorhanden zijn. Along the way leren we smaakmakers maken die je ingemaakt voor een hele tijd kunt bewaren. We tafelen uitgebreid in de gezellige ruimte van [neon](https://www.deneon.be/), het creatief atelier waar Aan Tafel zijn intrek heeft, en degusteren al het lekkers dat we samen op tafel hebben gezet.
+
+
+    Doe je graag een avondworkshop? Dan liggen de groentjes al klaar en beginnen we direct met koken!
 voorwaarden:
   title: Praktisch
   image: ../../images/bart-lenaerts-aan-tafel-08.jpg
