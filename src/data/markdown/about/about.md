@@ -1,9 +1,10 @@
 ---
 intro_image: ../../images/whatsapp-image-2025-09-27-at-00.13.20-7-.jpeg
 intro_content: Aan Tafel is een kookatelier gevestigd in het creatief atelier
-  neon te Mechelen. Ik bezet de keuken en kook van daaruit een diner of een
-  workshop in neon, een diner aan huis of catering op verplaatsing. Daarnaast
-  gaan er geregeld evenementen door waar je kan langskomen.
+  [neon ](https://www.deneon.be/)te Mechelen. Ik bezet de keuken en kook van
+  daaruit een diner of een workshop in neon, een diner aan huis of catering op
+  verplaatsing. Daarnaast gaan er geregeld evenementen door waar je kan
+  langskomen.
 date: 2024-08-30
 title: Concept
 visie_title: Verhaal
