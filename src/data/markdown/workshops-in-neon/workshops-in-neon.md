@@ -32,7 +32,7 @@ voorwaarden:
   description: >-
     * Reservaties kunnen voor groepen van 6 tot 10 personen.
 
-    * Kom je graag naar een Open Workshop? Kijk bij *nieuws* voor de aankomende evenementen.
+    * Kom je graag naar een Open Workshop? Kijk bij [nieuws](https://www.komaantafel.be/#nieuws) voor de aankomende evenementen.
 
       *Schrijf je in op de [nieuwsbrief](http://eepurl.com/jtzqs6) en krijg als eerste te horen wanneer er een nieuwe Open Workshop wordt georganiseerd waar je je gewoon alleen kan inschrijven om deel te nemen.*
     * Bij reservatie betaal je 30% voorschot
