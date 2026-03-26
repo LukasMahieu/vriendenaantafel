@@ -15,17 +15,17 @@ hoe_ziet_uit:
   title: Hoe ziet een Workshop eruit?
   description: >-
     We starten rond 14u met de fiets aan het atelier in Mechelen en vertrekken
-    langs de Dijle richting de Baarbeekhoeve waar we een rondleiding krijgen op
-    het veld en de groentjes uitkiezen waar we mee aan de slag willen. We
+    langs de Dijle richting de Baarbeekhoeve waar we een kijkje nemen op het
+    veld en de groentjes uitkiezen waar we mee aan de slag gaan later. We
     stoppen onderweg in het Brughuis voor een koffie en om het menu te
-    bespreken. Onderweg terug naar Mechelen kunnen we nog verborgen
-    wildplukschatten op de berm plukken.   
+    bespreken. Onderweg terug naar Mechelen komen we misschien nog verborgen
+    wildplukschatten tegen.   
 
 
     Rond 17u komen we terug aan bij het atelier en gaan we aan de slag. We koken samen een drie gangen menu waar ik alle technieken die we gebruiken uitleg en toon hoe een gerecht op te bouwen met de dingen die voorhanden zijn. Along the way leren we smaakmakers maken die je ingemaakt voor een hele tijd kunt bewaren. We tafelen uitgebreid in de gezellige ruimte van [neon](https://www.deneon.be/), het creatief atelier waar Aan Tafel zijn intrek heeft, en degusteren al het lekkers dat we samen op tafel hebben gezet.
 
 
-    Doe je graag een avondworkshop? Dan liggen de groentjes al klaar en beginnen we direct met koken!
+    Doe je graag een avondworkshop? Dan liggen de groentjes al klaar en beginnen we direct met koken in het atelier!
 voorwaarden:
   title: Praktisch
   image: ../../images/bart-lenaerts-aan-tafel-08.jpg
